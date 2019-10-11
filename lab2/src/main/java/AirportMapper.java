@@ -12,6 +12,7 @@ public class AirportMapper extends Mapper<LongWritable, Text, JoinWritableCompar
     protected void map(LongWritable key, Text value, Mapper.Context context) throws IOException, InterruptedException {
 
         String line = value.toString();
+        String[] fields = line.split(",", 2);
         
     }
 
