@@ -14,7 +14,7 @@ public class AirportMapper extends Mapper<LongWritable, Text, JoinWritableCompar
         String line = value.toString();
         String[] fields = line.split(",", 2);
         int id = Integer.parseInt(fields[0]);
-        String 
+        String name = fields[1];
     }
 
 }
