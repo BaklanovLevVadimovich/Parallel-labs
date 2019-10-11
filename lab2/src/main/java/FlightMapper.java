@@ -24,7 +24,6 @@ public class FlightMapper extends Mapper<LongWritable, Text, JoinWritableCompara
                 JoinWritableComparable writableKey = new JoinWritableComparable(destAirportId, FLIGHT_TYPE);
                 context.write(writableKey, delayStr);
             }
-
         }
     }
 
