@@ -28,9 +28,9 @@ public class AirportJoinApp {
 
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
 
-        job.setMapperClass(WordMapper.class);
-
-        job.setReducerClass(WordReducer.class);
+//        job.setMapperClass(WordMapper.class);
+//
+//        job.setReducerClass(WordReducer.class);
 
         job.setOutputKeyClass(Text.class);
 
