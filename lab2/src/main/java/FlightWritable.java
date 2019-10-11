@@ -9,6 +9,11 @@ public class FlightWritable implements Writable {
     private int airportId;
     private String airportName;
 
+    public FlightWritable(int id, String name) {
+        airportId = id;
+        airportName = name;
+    }
+
     @Override
     public void write(DataOutput output) throws IOException {
             output.writeInt(airportId);

@@ -5,6 +5,13 @@ import java.io.DataOutput;
 
 public class AirportWritable implements Writable {
 
+    private int airportId;
+    private float delay;
+
+    public AirportWritable() {
+        
+    }
+
     @Override
     public void write(DataOutput output) {
 
