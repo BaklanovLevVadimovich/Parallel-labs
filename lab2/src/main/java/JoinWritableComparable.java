@@ -5,6 +5,8 @@ import java.io.DataOutput;
 
 public class JoinWritableComparable implements WritableComparable<JoinWritableComparable> {
 
+    private int airportId;
+    private int 
 
     @Override
     public void write(DataOutput output) {
