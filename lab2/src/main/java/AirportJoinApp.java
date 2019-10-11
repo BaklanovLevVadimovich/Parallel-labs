@@ -30,6 +30,8 @@ public class AirportJoinApp {
 
 //        job.setMapperClass(WordMapper.class);
 
+        job.setGroupingComparatorClass();
+
         job.setPartitionerClass(JoinPartitioner);
 
         job.setReducerClass(JoinReducer.class);
