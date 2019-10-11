@@ -12,7 +12,7 @@ public class AirportJoinApp {
 
         if (args.length != 3) {
 
-            System.err.println("Usage: WordCountApp <input path> <output path>");
+            System.err.println("Usage: AirportJoinApp <> <output path>");
 
             System.exit(-1);
 
