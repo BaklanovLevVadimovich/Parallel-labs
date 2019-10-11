@@ -7,5 +7,7 @@ public class FlightWritable implements Writable {
 
 
     @Override
-    public void write(DataOutput)
+    public void write(DataOutput dataOutput) {
+        
+    }
 }
