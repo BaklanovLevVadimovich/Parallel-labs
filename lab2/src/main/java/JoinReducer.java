@@ -14,7 +14,7 @@ public class JoinReducer extends Reducer<JoinWritableComparable, Text, Text, Tex
         boolean firstLineFlag = true;
         int flightsDelayed = 0;
         float delaySum = 0;
-        float 
+        float averageDelay = 0;
         float minDelay = -1;
         float maxDelay = -1;
 
@@ -38,8 +38,10 @@ public class JoinReducer extends Reducer<JoinWritableComparable, Text, Text, Tex
             }
         }
 
-        if (flightsDelayed > 0) {
+        averageDelay = delaySum/flightsDelayed;
 
+        if (flightsDelayed > 0) {
+            
         }
     }
 
