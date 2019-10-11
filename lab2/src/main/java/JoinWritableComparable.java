@@ -2,20 +2,28 @@ import org.apache.hadoop.io.WritableComparable;
 
 import java.io.DataInput;
 import java.io.DataOutput;
+import java.io.IOException;
 
 public class JoinWritableComparable implements WritableComparable<JoinWritableComparable> {
 
     private int airportId;
     private int dataType;
 
-    @Override
-    public void write(DataOutput output) {
-
+    public JoinWritableComparable(int id, int type) {
+        airportId = id;
+        dataType = type;
     }
 
     @Override
-    public void readFields(DataInput input) {
+    public void write(DataOutput output) throws IOException {
+        output.writeInt(airportId);
+        output.writeInt(dataType);
+    }
 
+    @Override
+    public void readFields(DataInput input) throws IOException{
+        airportId = input.readInt();
+        dataType = input.readInt();
     }
 
     @Override
