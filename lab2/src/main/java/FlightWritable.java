@@ -7,10 +7,7 @@ import java.io.IOException;
 public class FlightWritable implements Writable {
 
     private int airportId;
-
     private String airportName;
-
-
 
     @Override
     public void write(DataOutput output) throws IOException {
@@ -21,7 +18,7 @@ public class FlightWritable implements Writable {
     @Override
     public void readFields(DataInput input) throws IOException {
         airportId = input.readInt();
-        airportName = input.read
+        airportName = input.readUTF();
     }
 
     public int getAirportId() {
