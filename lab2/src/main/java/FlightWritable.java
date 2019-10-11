@@ -13,18 +13,13 @@ public class FlightWritable implements Writable {
 
 
     @Override
-    public void write(DataOutput output) {
-        try {
+    public void write(DataOutput output) throws IOException {
             output.writeInt(airportId);
             output.writeUTF(airportName);
-        } catch (IOException e) {
-            System.out.println("FlightWritable write exception");
-            e.printStackTrace();
-        }
     }
 
     @Override
-    public void readFields(DataInput input) {
+    public void readFields(DataInput input) throws IOException {
 
     }
 
