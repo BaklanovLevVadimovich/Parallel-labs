@@ -17,12 +17,22 @@ public class JoinReducer extends Reducer<JoinWritableComparable, Text, Text, Tex
         float minDelay = -1;
         float maxDelay = -1;
 
+        float currentDelay;
+
         Iterator iter = values.iterator();
         while (iter.hasNext()) {
             if (firstLineFlag) {
                 airportName.set((Text)iter.next());
             } else {
-                
+                currentDelay = Float.parseFloat((iter.next()).toString());
+                if (currentDelay > 0) {
+                    if (minDelay == -1 || currentDelay < minDelay) minDelay = currentDelay;
+
+                    if (maxDelay == -1) maxDelay = currentDelay;
+                    else {
+                        if (currentDelay > maxDelay) maxDelay = currentDelay;
+                    }
+                }
             }
         }
     }
