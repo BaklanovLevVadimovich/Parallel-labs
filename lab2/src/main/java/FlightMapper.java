@@ -1,4 +1,3 @@
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -9,7 +8,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, JoinWritableCompara
 
     private final int FLIGHT_TYPE = 1;
     private final int DEST_AIRPORT_INDEX = 14;
-    private final int DElAY_INDEX = 18;
+    private final int DELAY_INDEX = 18;
 
     @Override
 
@@ -20,7 +19,8 @@ public class FlightMapper extends Mapper<LongWritable, Text, JoinWritableCompara
             line.replace("\"", "");
             String[] fields = line.split(",");
             int destAirportId = Integer.parseInt(fields[DEST_AIRPORT_INDEX]);
-            
+            float delay = Float.parseFloat(fields[DELAY_INDEX]);
+
         }
     }
 
