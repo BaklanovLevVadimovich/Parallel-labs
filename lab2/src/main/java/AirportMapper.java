@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class AirportMapper extends Mapper<LongWritable, Text, JoinWritableComparable, IntWritable> {
 
-    final int AIRPORT_TYPE = 0;
+    private final int AIRPORT_TYPE = 0;
 
     @Override
 
@@ -19,7 +19,8 @@ public class AirportMapper extends Mapper<LongWritable, Text, JoinWritableCompar
         int id = Integer.parseInt(fields[0]);
         String name = fields[1];
 
-        
+        JoinWritableComparable key = new JoinWritableComparable(id, AIRPORT_TYPE);
+
     }
 
 }
