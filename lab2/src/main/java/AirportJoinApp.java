@@ -19,8 +19,7 @@ public class AirportJoinApp {
 
 
         Job job = Job.getInstance();
-
-
+        
         job.setJarByClass(AirportJoinApp.class);
 
         job.setJobName("Airport Join");
