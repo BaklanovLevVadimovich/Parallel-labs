@@ -10,7 +10,9 @@ public class JoinReducer extends Reducer<JoinWritableComparable, Text, Text, Tex
 
     @Override
     protected void reduce(JoinWritableComparable key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
-        String 
+        Text airportName = new Text();
+        boolean firstLine = true;
+        
     }
 
 } 
