@@ -13,14 +13,16 @@ public class AirportMapper extends Mapper<LongWritable, Text, JoinWritableCompar
 
     protected void map(LongWritable key, Text value, Mapper.Context context) throws IOException, InterruptedException {
 
-        String line = value.toString();
-        line = line.replace("\"", "");
-        String[] fields = line.split(",", 2);
-        int id = Integer.parseInt(fields[0]);
-        String name = fields[1];
+        if (!key.equals(new LongWritable(0))) {
+            String line = value.toString();
+            line = line.replace("\"", "");
+            String[] fields = line.split(",", 2);
+            int id = Integer.parseInt(fields[0]);
+            String name = fields[1];
 
-        JoinWritableComparable writableKey = new JoinWritableComparable(id, AIRPORT_TYPE);
-        context.write(writableKey, name);
+            JoinWritableComparable writableKey = new JoinWritableComparable(id, AIRPORT_TYPE);
+            context.write(writableKey, name);
+        }
     }
 
 }
