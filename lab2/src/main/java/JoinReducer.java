@@ -18,7 +18,7 @@ public class JoinReducer extends Reducer<JoinWritableComparable, Text, Text, Tex
         float maxDelay = -1;
 
         Iterator iter = values.iterator();
-        for (iter.hasNext()) {
+        while (iter.hasNext()) {
             if (firstLineFlag) {
                 airportName.set(iter.next());
             }
