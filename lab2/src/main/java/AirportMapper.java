@@ -5,7 +5,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class AirportMapper extends Mapper<LongWritable, Text, JoinWritableComparable, IntWritable> {
+public class AirportMapper extends Mapper<LongWritable, Text, JoinWritableComparable, Text> {
 
     private final int AIRPORT_TYPE = 0;
 
@@ -20,8 +20,7 @@ public class AirportMapper extends Mapper<LongWritable, Text, JoinWritableCompar
         String name = fields[1];
 
         JoinWritableComparable writableKey = new JoinWritableComparable(id, AIRPORT_TYPE);
-        AirportWritable airportWritable = new AirportWritable(id, name);
-        context.write(writableKey, airportWritable);
+        context.write(writableKey, name);
     }
 
 }
