@@ -19,14 +19,14 @@ public class AirportJoinApp {
 
 
         Job job = Job.getInstance();
-        
+
         job.setJarByClass(AirportJoinApp.class);
 
         job.setJobName("Airport Join");
 
         FileInputFormat.addInputPath(job, new Path(args[0]));
 
-        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+        FileOutputFormat.setOutputPath(job, new Path(args[2]));
 
         job.setMapperClass(WordMapper.class);
 
