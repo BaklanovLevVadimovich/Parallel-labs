@@ -7,11 +7,15 @@ import java.io.IOException;
 
 public class AirportMapper extends Mapper<LongWritable, Text, JoinWritableComparable, IntWritable> {
 
+    final int AIRPORT_TYPE = 0;
+    final int FLIGHT_TYPE = 1;
+
     @Override
 
     protected void map(LongWritable key, Text value, Mapper.Context context) throws IOException, InterruptedException {
 
         String line = value.toString();
+        line = line.replace("\"", "");
         String[] fields = line.split(",", 2);
         int id = Integer.parseInt(fields[0]);
         String name = fields[1];
