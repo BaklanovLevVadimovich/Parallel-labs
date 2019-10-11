@@ -5,6 +5,8 @@ import java.io.DataOutput;
 
 public class FlightWritable implements Writable {
 
+    private int 
+
 
 
     @Override
