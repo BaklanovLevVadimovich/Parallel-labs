@@ -29,7 +29,10 @@ public class JoinWritableComparable implements WritableComparable<JoinWritableCo
     @Override
     public int compareTo(JoinWritableComparable another) {
         if (airportId == another.getAirportId()) {
-            if ()
+            if (dataType == another.dataType) return 0;
+            if (dataType > another.dataType) return 1;
+            else return -1;
+
         }
     }
 
