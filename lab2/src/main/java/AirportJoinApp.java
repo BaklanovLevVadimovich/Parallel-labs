@@ -12,10 +12,9 @@ public class AirportJoinApp {
 
         if (args.length != 3) {
 
-            System.err.println("Usage: AirportJoinApp <> <output path>");
+            System.err.println("Usage: AirportJoinApp <airports input path> <flights input path> <output path>");
 
             System.exit(-1);
-
         }
 
 
