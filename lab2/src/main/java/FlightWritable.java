@@ -9,7 +9,7 @@ public class FlightWritable implements Writable {
 
     @Override
     public void write(DataOutput output) {
-
+        output.writeInt();
     }
 
     @Override
