@@ -28,7 +28,7 @@ public class JoinWritableComparable implements WritableComparable<JoinWritableCo
 
     @Override
     public int compareTo(JoinWritableComparable another) {
-        
+        if ()
     }
 
     public void setAirportId(int airportId) {
