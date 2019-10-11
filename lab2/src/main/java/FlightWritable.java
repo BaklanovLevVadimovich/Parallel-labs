@@ -5,7 +5,9 @@ import java.io.DataOutput;
 
 public class FlightWritable implements Writable {
 
-    private int 
+    private int airportId;
+
+    private int airport
 
 
 
