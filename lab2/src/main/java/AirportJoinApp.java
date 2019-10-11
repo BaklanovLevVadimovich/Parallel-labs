@@ -23,7 +23,7 @@ public class AirportJoinApp {
 
         job.setJarByClass(AirportJoinApp.class);
 
-        job.setJobName("Word count");
+        job.setJobName("Airport Join");
 
         FileInputFormat.addInputPath(job, new Path(args[0]));
 
