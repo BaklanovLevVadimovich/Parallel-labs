@@ -23,18 +23,20 @@ public class JoinReducer extends Reducer<JoinWritableComparable, Text, Text, Tex
         while (iter.hasNext()) {
             if (firstLineFlag) {
                 airportName.set((Text)iter.next());
+                firstLineFlag = false;
             } else {
                 currentDelay = Float.parseFloat((iter.next()).toString());
                 if (currentDelay > 0) {
                     if (minDelay == -1 || currentDelay < minDelay) minDelay = currentDelay;
 
-                    if (maxDelay == -1) maxDelay = currentDelay;
-                    else {
-                        if (currentDelay > maxDelay) maxDelay = currentDelay;
-                    }
+                    if (maxDelay == -1 || currentDelay > maxDelay) maxDelay = currentDelay;
+
+                    delaySum += currentDelay;
+                    flightsDelayed++;
                 }
             }
         }
+        
     }
 
 } 
