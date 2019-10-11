@@ -17,6 +17,9 @@ public class FlightMapper extends Mapper<LongWritable, Text, JoinWritableCompara
 
         if (!key.equals(new LongWritable(0))) {
             String line = value.toString();
+            line.replace("\"", "");
+            String[] fields = line.split(",");
+            int destAirportId = Integer.parseInt(fields[DEST_AIRPORT_INDEX]);
             
         }
     }
