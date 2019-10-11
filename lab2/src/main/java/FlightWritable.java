@@ -5,5 +5,5 @@ public class FlightWritable implements Writable {
 
 
     @Override
-    public void write()
+    public void write(DataOutput)
 }
