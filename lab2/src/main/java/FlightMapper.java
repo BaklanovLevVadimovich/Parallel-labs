@@ -20,6 +20,10 @@ public class FlightMapper extends Mapper<LongWritable, Text, JoinWritableCompara
             String[] fields = line.split(",");
             int destAirportId = Integer.parseInt(fields[DEST_AIRPORT_INDEX]);
             float delay = Float.parseFloat(fields[DELAY_INDEX]);
+            if (delay > 0) {
+                JoinWritableComparable writableKey = new JoinWritableComparable(destAirportId, FLIGHT_TYPE);
+                context.write(writableKey, delay);
+            }
 
         }
     }
