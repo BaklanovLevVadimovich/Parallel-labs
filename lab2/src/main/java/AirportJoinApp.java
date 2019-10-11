@@ -29,12 +29,14 @@ public class AirportJoinApp {
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
 
 //        job.setMapperClass(WordMapper.class);
-//
-//        job.setReducerClass(WordReducer.class);
+
+        job.setPartitionerClass(JoinPartitioner);
+
+        job.setReducerClass(JoinReducer.class);
 
         job.setOutputKeyClass(Text.class);
 
-        job.setOutputValueClass(IntWritable.class);
+        job.setOutputValueClass(Text.class);
 
         job.setNumReduceTasks(2);
 
