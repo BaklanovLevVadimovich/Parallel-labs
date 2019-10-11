@@ -20,7 +20,8 @@ public class FlightWritable implements Writable {
 
     @Override
     public void readFields(DataInput input) throws IOException {
-        
+        airportId = input.readInt();
+        airportName = input.read
     }
 
     public int getAirportId() {
