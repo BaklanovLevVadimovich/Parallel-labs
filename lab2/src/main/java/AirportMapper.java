@@ -20,7 +20,8 @@ public class AirportMapper extends Mapper<LongWritable, Text, JoinWritableCompar
         String name = fields[1];
 
         JoinWritableComparable writableKey = new JoinWritableComparable(id, AIRPORT_TYPE);
-        AirportWritable airportWritable = new AirportWritable(id, )
+        AirportWritable airportWritable = new AirportWritable(id, name);
+        
 
     }
 

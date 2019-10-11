@@ -7,22 +7,38 @@ import java.io.IOException;
 public class AirportWritable implements Writable {
 
     private int airportId;
-    private float delay;
+    private String airportName;
 
-    public AirportWritable(int id, float delay) {
+    public AirportWritable(int id, String name) {
         airportId = id;
-        this.delay = delay;
+        airportName = name;
     }
 
     @Override
     public void write(DataOutput output) throws IOException {
         output.writeInt(airportId);
-        output.writeFloat(delay);
+        output.writeUTF(airportName);
     }
 
     @Override
     public void readFields(DataInput input) throws IOException {
         airportId = input.readInt();
-        delay = input.readFloat();
+        airportName = input.readUTF();
+    }
+
+    public int getAirportId() {
+        return airportId;
+    }
+
+    public String getAirportName() {
+        return airportName;
+    }
+
+    public void setAirportId(int airportId) {
+        this.airportId = airportId;
+    }
+
+    public void setAirportName(String airportName) {
+        this.airportName = airportName;
     }
 }
