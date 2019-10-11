@@ -41,7 +41,8 @@ public class JoinReducer extends Reducer<JoinWritableComparable, Text, Text, Tex
         averageDelay = delaySum/flightsDelayed;
 
         if (flightsDelayed > 0) {
-            context.write(new Text(airportName + ": "), new Text("average = " + String.format("")));
+            context.write(new Text(airportName + ": "), new Text("average delay = " + String.format("%.2f", averageDelay) +
+                    " , min delay = " + String.format("%.2f", minDelay) + " , max delay = " + String.format("%.2f", maxDelay)));
         }
     }
 
