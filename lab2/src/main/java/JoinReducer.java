@@ -12,7 +12,9 @@ public class JoinReducer extends Reducer<JoinWritableComparable, Text, Text, Tex
     protected void reduce(JoinWritableComparable key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         Text airportName = new Text();
         boolean firstLine = true;
-        
+        int flightsDelayed = 0;
+        float delaySum = 0;
+        float minDelay = 0;
     }
 
 } 
