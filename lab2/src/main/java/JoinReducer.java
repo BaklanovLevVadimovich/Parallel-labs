@@ -20,7 +20,9 @@ public class JoinReducer extends Reducer<JoinWritableComparable, Text, Text, Tex
         Iterator iter = values.iterator();
         while (iter.hasNext()) {
             if (firstLineFlag) {
-                airportName.set(iter.next());
+                airportName.set((Text)iter.next());
+            } else {
+                
             }
         }
     }
