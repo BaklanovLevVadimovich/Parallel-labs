@@ -38,7 +38,7 @@ public class JoinReducer extends Reducer<JoinWritableComparable, Text, Text, Tex
         }
 
         if (flightsDelayed > 0) {
-            
+
         }
     }
 
