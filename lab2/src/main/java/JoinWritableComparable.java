@@ -17,5 +17,7 @@ public class JoinWritableComparable implements WritableComparable<JoinWritableCo
     }
 
     @Override
-    public int compareTo(JoinWritableComparable another)
+    public int compareTo(JoinWritableComparable another) {
+
+    }
 }
