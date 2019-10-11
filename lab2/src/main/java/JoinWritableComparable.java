@@ -22,4 +22,20 @@ public class JoinWritableComparable implements WritableComparable<JoinWritableCo
     public int compareTo(JoinWritableComparable another) {
 
     }
+
+    public void setAirportId(int airportId) {
+        this.airportId = airportId;
+    }
+
+    public int getAirportId() {
+        return airportId;
+    }
+
+    public int getDataType() {
+        return dataType;
+    }
+
+    public void setDataType(int dataType) {
+        this.dataType = dataType;
+    }
 }
