@@ -2,23 +2,27 @@ import org.apache.hadoop.io.Writable;
 
 import java.io.DataInput;
 import java.io.DataOutput;
+import java.io.IOException;
 
 public class AirportWritable implements Writable {
 
     private int airportId;
     private float delay;
 
-    public AirportWritable() {
-        
+    public AirportWritable(int id, float delay) {
+        airportId = id;
+        this.delay = delay;
     }
 
     @Override
-    public void write(DataOutput output) {
-
+    public void write(DataOutput output) throws IOException {
+        output.writeInt(airportId);
+        output.writeFloat(delay);
     }
 
     @Override
-    public void readFields(DataInput input) {
-
+    public void readFields(DataInput input) throws IOException {
+        airportId = input.readInt();
+        delay = input.readFloat();
     }
 }
