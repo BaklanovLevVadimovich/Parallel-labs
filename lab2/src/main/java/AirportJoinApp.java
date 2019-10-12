@@ -34,6 +34,8 @@ public class AirportJoinApp {
 
         job.setGroupingComparatorClass(JoinGroupingComparator.class);
 
+        job.setMapOutputKeyClass(JoinWritableComparable.class);
+
         job.setPartitionerClass(JoinPartitioner.class);
 
         job.setReducerClass(JoinReducer.class);
