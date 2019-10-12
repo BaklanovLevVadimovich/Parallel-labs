@@ -10,8 +10,7 @@ public class JoinWritableComparable implements WritableComparable<JoinWritableCo
     private int dataType;
 
     public JoinWritableComparable() {
-        airportId = -1;
-        dataType = -1;
+
     }
 
     public JoinWritableComparable(int id, int type) {
