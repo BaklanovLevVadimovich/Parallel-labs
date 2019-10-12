@@ -1,3 +1,4 @@
+
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -40,8 +41,6 @@ public class AirportJoinApp {
         job.setOutputKeyClass(Text.class);
 
         job.setOutputValueClass(Text.class);
-
-        job.setNumReduceTasks(2);
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
 
