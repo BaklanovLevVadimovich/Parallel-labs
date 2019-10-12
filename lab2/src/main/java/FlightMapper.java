@@ -22,7 +22,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, JoinWritableCompara
             String delayStr = fields[DELAY_INDEX];
             if (Float.parseFloat(delayStr) > 0) {
                 JoinWritableComparable writableKey = new JoinWritableComparable(destAirportId, FLIGHT_TYPE);
-                context.write(writableKey, delayStr);
+                context.write(writableKey, new Text(delayStr));
             }
         }
     }

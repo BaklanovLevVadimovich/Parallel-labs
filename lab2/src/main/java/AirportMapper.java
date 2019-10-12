@@ -21,7 +21,7 @@ public class AirportMapper extends Mapper<LongWritable, Text, JoinWritableCompar
             String name = fields[1];
 
             JoinWritableComparable writableKey = new JoinWritableComparable(id, AIRPORT_TYPE);
-            context.write(writableKey, name);
+            context.write(writableKey, new Text(name));
         }
     }
 
