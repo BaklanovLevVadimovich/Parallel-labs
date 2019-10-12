@@ -28,7 +28,8 @@ public class AirportJoinApp {
 
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
 
-//        job.setMapperClass(WordMapper.class);
+        MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, CallsJoinMapper.class);
+        MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, SystemsJoinMapper.class);
 
         job.setGroupingComparatorClass(JoinGroupingComparator.class);
 
