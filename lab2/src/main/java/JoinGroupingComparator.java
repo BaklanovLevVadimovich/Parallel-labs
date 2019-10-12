@@ -4,7 +4,7 @@ import org.apache.hadoop.io.WritableComparator;
 public class JoinGroupingComparator extends WritableComparator {
 
     public JoinGroupingComparator() {
-        
+        super(JoinWritableComparable.class, true);
     }
 
     @Override
