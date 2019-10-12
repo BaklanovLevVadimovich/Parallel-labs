@@ -11,7 +11,6 @@ public class FlightMapper extends Mapper<LongWritable, Text, JoinWritableCompara
     private final int DELAY_INDEX = 18;
 
     @Override
-
     protected void map(LongWritable key, Text value, Mapper.Context context) throws IOException, InterruptedException {
 
         if (!key.equals(new LongWritable(0))) {
