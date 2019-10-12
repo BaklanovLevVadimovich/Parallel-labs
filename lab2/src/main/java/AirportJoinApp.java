@@ -39,7 +39,6 @@ public class AirportJoinApp {
         job.setReducerClass(JoinReducer.class);
 
         job.setOutputKeyClass(Text.class);
-
         job.setOutputValueClass(Text.class);
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
