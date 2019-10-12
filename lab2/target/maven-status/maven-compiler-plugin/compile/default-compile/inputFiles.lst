@@ -1,0 +1,9 @@
+/home/lev/study/ParalellProgramming/labs/Parallel-labs/lab2/src/main/java/AirportWritable.java
+/home/lev/study/ParalellProgramming/labs/Parallel-labs/lab2/src/main/java/JoinGroupingComparator.java
+/home/lev/study/ParalellProgramming/labs/Parallel-labs/lab2/src/main/java/JoinReducer.java
+/home/lev/study/ParalellProgramming/labs/Parallel-labs/lab2/src/main/java/AirportMapper.java
+/home/lev/study/ParalellProgramming/labs/Parallel-labs/lab2/src/main/java/JoinWritableComparable.java
+/home/lev/study/ParalellProgramming/labs/Parallel-labs/lab2/src/main/java/FlightMapper.java
+/home/lev/study/ParalellProgramming/labs/Parallel-labs/lab2/src/main/java/AirportJoinApp.java
+/home/lev/study/ParalellProgramming/labs/Parallel-labs/lab2/src/main/java/JoinPartitioner.java
+/home/lev/study/ParalellProgramming/labs/Parallel-labs/lab2/src/main/java/FlightWritable.java
