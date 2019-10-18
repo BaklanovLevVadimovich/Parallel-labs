@@ -64,7 +64,7 @@ public class SparkApp {
                     Map<Integer, String> airportIdToNameMap = airportsBroadcasted.value();
                     Tuple2<Integer, Integer> idPair = s._1;
                     String flightStatStr = s._2;
-                    return "From " + airportIdToNameMap[idPair._1] + 
+                    return "From " + airportIdToNameMap.get(idPair._1) + " To " + airportIdToNameMap.get(idPair._2) + " Stat: "+ flightStatStr;
                 }
         )
 
