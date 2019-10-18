@@ -61,7 +61,10 @@ public class SparkApp {
 
         JavaRDD<String> result = flightStats.map(
                 s -> {
-                    airportsBroadcasted.value();
+                    Map<Integer, String> airportIdToNameMap = airportsBroadcasted.value();
+                    Tuple2<Integer, Integer> idPair = s._1;
+                    String flightStatStr = s._2;
+                    
                 }
         )
 
