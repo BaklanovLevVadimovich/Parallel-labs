@@ -44,6 +44,7 @@ public class SparkApp {
                     boolean isCancelled = cancelled == 1f;
                     return new Tuple2<>(new Tuple2<>(originAirportId, destAirportId), new Flight(originAirportId, destAirportId, isCancelled, delay));
                 });
-        
+
+        flightsData.reduce()
     }
 }
