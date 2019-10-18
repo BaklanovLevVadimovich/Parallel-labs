@@ -4,6 +4,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import scala.Tuple2;
 
 public class SparkApp {
 
@@ -22,6 +23,7 @@ public class SparkApp {
             String[] fields = s.split(",", 2);
             int id = Integer.parseInt(fields[0]);
             String name = fields[1];
+            return new Tuple2<>(id, name);
         })
     }
 }
