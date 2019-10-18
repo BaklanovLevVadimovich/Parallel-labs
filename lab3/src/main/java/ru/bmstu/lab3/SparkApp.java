@@ -7,6 +7,8 @@ import org.apache.spark.api.java.JavaSparkContext;
 import scala.Int;
 import scala.Tuple2;
 
+import java.util.Map;
+
 public class SparkApp {
 
     private static final int ORIGIN_AIRPORT_INDEX = 11;
@@ -51,6 +53,9 @@ public class SparkApp {
                         (flightStat, p) -> FlightStat.addValue(flightStat, p.getDelay() != 0, p.isCancelled(), p.getDelay()),
                         FlightStat::add)
                 .mapToPair(p -> new Tuple2<>(p._1, p._2.toString()));
+
+        Map<Integer, String> airportsMap = airportsData.collectAsMap();
+
         
 
     }
