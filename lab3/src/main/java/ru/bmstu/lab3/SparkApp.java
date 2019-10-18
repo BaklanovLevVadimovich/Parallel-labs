@@ -41,7 +41,8 @@ public class SparkApp {
                     int destAirportId = Integer.parseInt(fields[DEST_AIRPORT_INDEX]);
                     float delay = Float.parseFloat(fields[DELAY_INDEX]);
                     float cancelled = Float.parseFloat(fields[CANCELLED_INDEX]);
-                    boolean isCancelled = 
+                    boolean isCancelled = cancelled == 1f;
+                    
                 });
     }
 }
