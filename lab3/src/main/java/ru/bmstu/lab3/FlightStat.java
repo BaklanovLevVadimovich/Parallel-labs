@@ -18,7 +18,9 @@ public class FlightStat implements Serializable {
         this.maxDelay = maxDelay;
     }
 
-    public static FlightStat addValue()
+    public static FlightStat addValue(FlightStat a, FlightStat b) {
+        
+    }
 
 
 }
