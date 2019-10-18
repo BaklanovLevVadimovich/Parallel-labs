@@ -9,5 +9,5 @@ public class FlightStat implements Serializable {
 
     private int flightsCancelled;
 
-    
+
 }
