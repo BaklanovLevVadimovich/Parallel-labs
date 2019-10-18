@@ -60,7 +60,9 @@ public class SparkApp {
         final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast(airportsMap);
 
         JavaRDD<String> result = flightStats.map(
-                s -> 
+                s -> {
+                    airportsBroadcasted.value();
+                }
         )
 
     }
