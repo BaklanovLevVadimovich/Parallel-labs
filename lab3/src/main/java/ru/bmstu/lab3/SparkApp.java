@@ -14,10 +14,13 @@ public class SparkApp {
 
         JavaRDD<String> flightsLines = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaRDD<String> airportsLines = sc.textFile("L_AIRPORT_ID.csv");
+        airportsLines.
 
         JavaPairRDD<Integer, String> airportsData = airportsLines.mapToPair(s -> {
             s = s.replace("\"", "");
             String[] fields = s.split(",", 2);
+            int id = Integer.parseInt(fields[0]);
+            String name = fields[1];
         })
     }
 }
