@@ -26,6 +26,6 @@ public class SparkApp {
                     return new Tuple2<>(id, name);
                 });
 
-        
+
     }
 }
