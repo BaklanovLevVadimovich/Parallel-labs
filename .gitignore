@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
 
+/lab2/.idea
+/lab3/.idea
+
 # Log file
 *.log
 
