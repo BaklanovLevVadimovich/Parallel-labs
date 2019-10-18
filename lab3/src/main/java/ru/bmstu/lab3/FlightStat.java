@@ -37,8 +37,8 @@ public class FlightStat implements Serializable {
 
     @Override
     public String toString() {
-        return "Flights delayed: " + String.valueOf(flightsDelayed/flightCount * 100) +
-                "% Flights cancelled: " + String.valueOf(flightsCancelled/flightCount * 100) +
+        return "Flights delayed: " + String.valueOf((float)flightsDelayed/(float)flightCount * 100) +
+                "% Flights cancelled: " + String.valueOf((float)flightsCancelled/(float)flightCount * 100) +
                 "%  Maximum delay: " + String.valueOf(maxDelay);
     }
 
