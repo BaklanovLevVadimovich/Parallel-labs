@@ -27,6 +27,10 @@ public class FlightStat implements Serializable {
                 delayTime > a.getMaxDelay() ? delayTime : a.getMaxDelay());
     }
 
+    public static FlightStat add(FlightStat a, Flight b) {
+        
+    }
+
     public float getMaxDelay() {
         return maxDelay;
     }
