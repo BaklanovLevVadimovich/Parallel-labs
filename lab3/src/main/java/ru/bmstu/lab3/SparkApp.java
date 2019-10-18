@@ -42,7 +42,9 @@ public class SparkApp {
                     String[] fields = s.split(",");
                     int originAirportId = Integer.parseInt(fields[ORIGIN_AIRPORT_INDEX]);
                     int destAirportId = Integer.parseInt(fields[DEST_AIRPORT_INDEX]);
-                    float delay = Float.parseFloat(fields[DELAY_INDEX]);
+                    float delay;
+                    if ((fields[DELAY_INDEX].equals(""))) delay = 0;
+                    else delay = Float.parseFloat(fields[DELAY_INDEX]);
                     float cancelled = Float.parseFloat(fields[CANCELLED_INDEX]);
                     boolean isCancelled = cancelled == 1f;
                     return new Tuple2<>(new Tuple2<>(originAirportId, destAirportId), new Flight(originAirportId, destAirportId, isCancelled, delay));
