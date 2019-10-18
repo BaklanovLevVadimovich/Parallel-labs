@@ -29,6 +29,8 @@ public class SparkApp {
         JavaPairRDD<Tuple2<Integer, Integer>, Flight> flightsData =
                 flightsLines.filter(s -> !s.contains("\"YEAR\""))
                 .mapToPair(s -> {
+                    s = s.replace("\"", "");
+                    String[] fields = s.split(",");
                     
                 });
     }
