@@ -16,7 +16,7 @@ public class SparkApp {
         JavaRDD<String> airportsLines = sc.textFile("L_AIRPORT_ID.csv");
         airportsLines.
 
-        JavaPairRDD<Integer, String> airportsData = airportsLines.filter(s -> s.contains("Code"))
+        JavaPairRDD<Integer, String> airportsData = airportsLines.filter(s -> !s.contains("Code,Description"))
                 .mapToPair(s -> {
             s = s.replace("\"", "");
             String[] fields = s.split(",", 2);
