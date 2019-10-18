@@ -45,6 +45,9 @@ public class SparkApp {
                     return new Tuple2<>(new Tuple2<>(originAirportId, destAirportId), new Flight(originAirportId, destAirportId, isCancelled, delay));
                 });
 
-        JavaPairRDD<Tuple2<Integer, Integer>, FlightStat> 
+        JavaPairRDD<Tuple2<Integer, Integer>, FlightStat> flightStats =
+                flightsData.combineByKey(
+                        
+                )
     }
 }
