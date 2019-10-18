@@ -9,5 +9,16 @@ public class FlightStat implements Serializable {
 
     private int flightsCancelled;
 
+    private float maxDelay;
+
+    public FlightStat(int flightCount, int flightsDelayed, int flightsCancelled, float maxDelay) {
+        this.flightCount = flightCount;
+        this.flightsDelayed = flightsDelayed;
+        this.flightsCancelled = flightsCancelled;
+        this.maxDelay = maxDelay;
+    }
+
+    
+
 
 }
