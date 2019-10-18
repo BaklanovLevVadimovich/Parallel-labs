@@ -35,6 +35,13 @@ public class FlightStat implements Serializable {
                 a.getMaxDelay() > b.getMaxDelay() ? a.getMaxDelay() : b.getMaxDelay());
     }
 
+    @Override
+    public String toString() {
+        return "Flights delayed: " + String.valueOf(flightsDelayed/flightCount * 100) +
+                "% Flights cancelled: " + String.valueOf(flightsCancelled/flightCount * 100) +
+                "%  Maximum delay: " + String.valueOf(maxDelay);
+    }
+
     public float getMaxDelay() {
         return maxDelay;
     }
