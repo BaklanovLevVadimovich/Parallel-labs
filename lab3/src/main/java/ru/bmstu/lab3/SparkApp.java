@@ -26,6 +26,6 @@ public class SparkApp {
                     return new Tuple2<>(id, name);
                 });
 
-        JavaPairRDD<>
+        JavaPairRDD<Tuple2<Integer, Integer>, Flight>
     }
 }
