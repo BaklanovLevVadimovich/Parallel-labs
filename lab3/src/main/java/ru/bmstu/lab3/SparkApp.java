@@ -4,14 +4,15 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import scala.Int;
 import scala.Tuple2;
 
 public class SparkApp {
 
-    private final int ORIGIN_AIRPORT_INDEX = 11;
-    private final int DEST_AIRPORT_INDEX = 14;
-    private final int DELAY_INDEX = 18;
-    private final int CANCELLED_INDEX = 19;
+    private static final int ORIGIN_AIRPORT_INDEX = 11;
+    private static final int DEST_AIRPORT_INDEX = 14;
+    private static final int DELAY_INDEX = 18;
+    private static final int CANCELLED_INDEX = 19;
 
     public static void main(String[] args) {
 
@@ -36,7 +37,11 @@ public class SparkApp {
                 .mapToPair(s -> {
                     s = s.replace("\"", "");
                     String[] fields = s.split(",");
-                    int originAirportId = fields[ORIGIN]
+                    int originAirportId = Integer.parseInt(fields[ORIGIN_AIRPORT_INDEX]);
+                    int destAirportId = Integer.parseInt(fields[DEST_AIRPORT_INDEX]);
+                    float delay = Float.parseFloat(fields[DELAY_INDEX]);
+                    float cancelled = Float.parseFloat(fields[CANCELLED_INDEX]);
+                    boolean isCancelled = 
                 });
     }
 }
