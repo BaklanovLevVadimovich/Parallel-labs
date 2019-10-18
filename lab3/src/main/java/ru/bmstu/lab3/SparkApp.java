@@ -25,5 +25,7 @@ public class SparkApp {
                     String name = fields[1];
                     return new Tuple2<>(id, name);
                 });
+
+        
     }
 }
