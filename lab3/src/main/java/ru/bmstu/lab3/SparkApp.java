@@ -26,6 +26,8 @@ public class SparkApp {
                     return new Tuple2<>(id, name);
                 });
 
-        JavaPairRDD<Tuple2<Integer, Integer>, Flight> flightsData
+        JavaPairRDD<Tuple2<Integer, Integer>, Flight> flightsData =
+                flightsLines.filter(s -> !s.contains("\"YEAR\""))
+                .mapToPair()
     }
 }
