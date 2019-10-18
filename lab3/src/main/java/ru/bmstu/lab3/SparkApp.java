@@ -36,7 +36,7 @@ public class SparkApp {
                 .mapToPair(s -> {
                     s = s.replace("\"", "");
                     String[] fields = s.split(",");
-
+                    int originAirportId = fields[ORIGIN]
                 });
     }
 }
