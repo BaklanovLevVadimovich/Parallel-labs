@@ -19,7 +19,7 @@ public class FlightStat implements Serializable {
     }
 
     public static FlightStat addValue(FlightStat a, FlightStat b) {
-        
+
     }
 
 
