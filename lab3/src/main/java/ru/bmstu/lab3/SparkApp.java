@@ -42,7 +42,7 @@ public class SparkApp {
                     float delay = Float.parseFloat(fields[DELAY_INDEX]);
                     float cancelled = Float.parseFloat(fields[CANCELLED_INDEX]);
                     boolean isCancelled = cancelled == 1f;
-                    
+                    return new Tuple2<>()
                 });
     }
 }
