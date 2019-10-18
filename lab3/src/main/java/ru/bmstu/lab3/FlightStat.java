@@ -3,6 +3,7 @@ package ru.bmstu.lab3;
 import java.io.Serializable;
 
 public class FlightStat implements Serializable {
+
     private int flightCount;
 
     private int flightsDelayed;
@@ -18,9 +19,43 @@ public class FlightStat implements Serializable {
         this.maxDelay = maxDelay;
     }
 
-    public static FlightStat addValue(FlightStat a, boolean isCancelled, boolean isDelayed, float delayTime) {
-        
+    public static FlightStat addValue(FlightStat a, boolean isDelayed, boolean isCancelled, float delayTime) {
+        return new FlightStat(
+                a.getFlightCount() + 1,
+                isDelayed ? a.getFlightsDelayed() + 1 : a.getFlightsDelayed(),
+                
+        )
     }
 
+    public float getMaxDelay() {
+        return maxDelay;
+    }
 
+    public int getFlightCount() {
+        return flightCount;
+    }
+
+    public int getFlightsCancelled() {
+        return flightsCancelled;
+    }
+
+    public int getFlightsDelayed() {
+        return flightsDelayed;
+    }
+
+    public void setFlightCount(int flightCount) {
+        this.flightCount = flightCount;
+    }
+
+    public void setFlightsCancelled(int flightsCancelled) {
+        this.flightsCancelled = flightsCancelled;
+    }
+
+    public void setFlightsDelayed(int flightsDelayed) {
+        this.flightsDelayed = flightsDelayed;
+    }
+
+    public void setMaxDelay(float maxDelay) {
+        this.maxDelay = maxDelay;
+    }
 }
