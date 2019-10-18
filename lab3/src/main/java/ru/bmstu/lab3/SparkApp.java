@@ -47,7 +47,7 @@ public class SparkApp {
 
         JavaPairRDD<Tuple2<Integer, Integer>, FlightStat> flightStats =
                 flightsData.combineByKey(
-                        
+                        p -> new FlightStat(1, p.get)
                 )
     }
 }
