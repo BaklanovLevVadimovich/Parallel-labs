@@ -16,7 +16,7 @@ public class SparkApp {
         JavaRDD<String> airportsLines = sc.textFile("L_AIRPORT_ID.csv");
 
         JavaPairRDD<Integer, String> airportsData = airportsLines.mapToPair(s -> {
-            
+            s.replace("/"", "");
         })
     }
 }
