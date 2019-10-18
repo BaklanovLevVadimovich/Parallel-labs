@@ -50,6 +50,6 @@ public class SparkApp {
                         p -> new FlightStat(1, p.getDelay() == 0f ? 0 : 1, p.isCancelled() ? 1 : 0, p.getDelay()),
                         (flightStat, p) -> FlightStat.addValue(flightStat, p.getDelay() != 0, p.isCancelled(), p.getDelay()),
                         FlightStat::add);
-        
+
     }
 }
