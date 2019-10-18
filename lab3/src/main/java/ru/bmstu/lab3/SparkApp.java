@@ -15,15 +15,15 @@ public class SparkApp {
 
         JavaRDD<String> flightsLines = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaRDD<String> airportsLines = sc.textFile("L_AIRPORT_ID.csv");
-        airportsLines.
 
-        JavaPairRDD<Integer, String> airportsData = airportsLines
+        JavaPairRDD<Integer, String> airportsData =
+                airportsLines.filter(s -> !s.contains("Code,Description"))
                 .mapToPair(s -> {
-            s = s.replace("\"", "");
-            String[] fields = s.split(",", 2);
-            int id = Integer.parseInt(fields[0]);
-            String name = fields[1];
-            return new Tuple2<>(id, name);
-        });
+                    s = s.replace("\"", "");
+                    String[] fields = s.split(",", 2);
+                    int id = Integer.parseInt(fields[0]);
+                    String name = fields[1];
+                    return new Tuple2<>(id, name);
+                });
     }
 }
