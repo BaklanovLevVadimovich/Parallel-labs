@@ -47,7 +47,7 @@ public class SparkApp {
                     else delay = Float.parseFloat(fields[DELAY_INDEX]);
                     float cancelled = Float.parseFloat(fields[CANCELLED_INDEX]);
                     boolean isCancelled = cancelled == 1f;
-                    return new Tuple2<>(new Tuple2<>(originAirportId, destAirportId), new Flight(originAirportId, destAirportId, isCancelled, delay));
+                    return new Tuple2<>(new Tuple2<>(originAirportId, destAirportId), new Flight(isCancelled, delay));
                 });
 
         JavaPairRDD<Tuple2<Integer, Integer>, String> flightStats =
