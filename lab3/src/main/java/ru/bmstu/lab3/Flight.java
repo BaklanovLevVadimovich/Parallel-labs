@@ -12,7 +12,12 @@ public class Flight implements Serializable {
 
     private float delay;
 
-    public Flight(int )
+    public Flight(int originAirportId, int destAirportId, boolean isCancelled, float delay) {
+        this.originAirportId = originAirportId;
+        this.destAirportId = destAirportId;
+        this.isCancelled = isCancelled;
+        this.delay = delay;
+    }
 
 
     public boolean isCancelled() {
