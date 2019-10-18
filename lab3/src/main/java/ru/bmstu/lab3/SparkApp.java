@@ -8,7 +8,7 @@ import scala.Tuple2;
 
 public class SparkApp {
 
-    private final int ORIGIN_AIRPORT_INDEX = 
+    private final int ORIGIN_AIRPORT_INDEX = 12;
     private final int DEST_AIRPORT_INDEX =
     private final int DELAY_INDEX =
     private final int CANCELLED_INDEX =
