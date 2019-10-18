@@ -4,6 +4,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.broadcast.Broadcast;
 import scala.Int;
 import scala.Tuple2;
 
@@ -56,7 +57,7 @@ public class SparkApp {
 
         Map<Integer, String> airportsMap = airportsData.collectAsMap();
 
-        
+        final Broadcast<>
 
     }
 }
