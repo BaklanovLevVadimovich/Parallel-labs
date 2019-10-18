@@ -17,7 +17,7 @@ public class SparkApp {
 
         JavaPairRDD<Integer, String> airportsData = airportsLines.mapToPair(s -> {
             s = s.replace("\"", "");
-            
+            String[] fields = s.split(",", 2);
         })
     }
 }
