@@ -66,7 +66,7 @@ public class SparkApp {
                     String flightStatStr = s._2;
                     return "From " + airportIdToNameMap.get(idPair._1) + " To " + airportIdToNameMap.get(idPair._2) + " Stat: "+ flightStatStr;
                 });
-        result.saveAsTextFile("hdfs://localhost");
+        result.saveAsTextFile("hdfs://localhost:9000");
 
     }
 }
