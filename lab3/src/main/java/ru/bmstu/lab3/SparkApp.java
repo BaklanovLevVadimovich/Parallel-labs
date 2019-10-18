@@ -8,6 +8,8 @@ import scala.Tuple2;
 
 public class SparkApp {
 
+    private final 
+
     public static void main(String[] args) {
 
         SparkConf conf = new SparkConf().setAppName("lab3");
@@ -31,7 +33,7 @@ public class SparkApp {
                 .mapToPair(s -> {
                     s = s.replace("\"", "");
                     String[] fields = s.split(",");
-                    
+
                 });
     }
 }
