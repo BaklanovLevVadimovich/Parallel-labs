@@ -1,4 +1,13 @@
 package ru.bmstu.lab3;
 
-public class FlightStat {
+import java.io.Serializable;
+
+public class FlightStat implements Serializable {
+    private int flightCount;
+
+    private int flightsDelayed;
+
+    private int flightsCancelled;
+
+    
 }
