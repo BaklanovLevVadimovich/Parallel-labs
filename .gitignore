@@ -2,7 +2,7 @@
 *.class
 
 /lab2/.idea
-/lab3/.idea
+/lab3/.idea/
 
 # Log file
 *.log
