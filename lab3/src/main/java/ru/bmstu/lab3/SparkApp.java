@@ -57,7 +57,7 @@ public class SparkApp {
 
         Map<Integer, String> airportsMap = airportsData.collectAsMap();
 
-        final Broadcast<Map<Integer, String>> airportsBroadcasted = 
+        final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast()
 
     }
 }
