@@ -12,8 +12,8 @@ public class AirportMapper extends Mapper<LongWritable, Text, JoinWritableCompar
     private static final int SPLIT_LIMIT = 2;
     private static final int ID_FIELD = 0;
     private static final int NAME_FIELD = 1;
-    private static final String QUOTE = "\"";
-    private static final String COMMA = ",";
+    private static final String QUOTE_STRING = "\"";
+    private static final String COMMA_STRING = ",";
 
     @Override
     protected void map(LongWritable key, Text value, Mapper.Context context) throws IOException, InterruptedException {
@@ -21,17 +21,16 @@ public class AirportMapper extends Mapper<LongWritable, Text, JoinWritableCompar
         if (!key.equals(new LongWritable(0))) {
             String line = value.toString();
             line = removeQuotes(line);
-            String[] fields = line.split(COMMA, SPLIT_LIMIT);
+            String[] fields = line.split(COMMA_STRING, SPLIT_LIMIT);
             int id = Integer.parseInt(fields[ID_FIELD]);
             String name = fields[NAME_FIELD];
-
             JoinWritableComparable writableKey = new JoinWritableComparable(id, AIRPORT_TYPE);
             context.write(writableKey, new Text(name));
         }
     }
 
     private String removeQuotes(String line) {
-        return line.replace(QUOTE, "");
+        return line.replace(QUOTE_STRING, "");
     }
 
 }

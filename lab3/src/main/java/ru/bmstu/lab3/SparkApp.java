@@ -24,7 +24,6 @@ public class SparkApp {
     private static final int NAME_FIELD = 1;
     private static final int SPLIT_LIMIT = 2;
     private static final float FLIGHT_CANCELLED_FLAG = 1f;
-    private static final float FLIGHT_NOT_CANCELLED_FLAG = 0f;
     private static final float FLIGHT_NOT_DELAYED_FLAG = 0f;
     private static final String COMMA = ",";
     private static final String QUOTE = "\"";
@@ -58,7 +57,7 @@ public class SparkApp {
                     float delay;
                     if ((fields[DELAY_INDEX].isEmpty())) {
                         delay = 0;
-                    }  else {
+                    } else {
                         delay = Float.parseFloat(fields[DELAY_INDEX]);
                     }
                     float cancelled = Float.parseFloat(fields[CANCELLED_INDEX]);
@@ -69,7 +68,7 @@ public class SparkApp {
         JavaPairRDD<Tuple2<Integer, Integer>, String> flightStats =
                 flightsData.combineByKey(
                         p -> new FlightStat(1, p.getDelay() == FLIGHT_NOT_DELAYED_FLAG ? 0 : 1, p.isCancelled() ? 1 : 0, p.getDelay()),
-                        (flightStat, p) -> FlightStat.addValue(flightStat, p.getDelay() != 0, p.isCancelled(), p.getDelay()),
+                        (flightStat, p) -> FlightStat.addValue(flightStat, p.getDelay() != FLIGHT_NOT_DELAYED_FLAG, p.isCancelled(), p.getDelay()),
                         FlightStat::add)
                 .mapToPair(p -> new Tuple2<>(p._1, p._2.toString()));
 
