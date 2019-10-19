@@ -5,12 +5,11 @@ import java.io.Serializable;
 public class FlightStat implements Serializable {
 
     private int flightCount;
-
     private int flightsDelayed;
-
     private int flightsCancelled;
-
     private float maxDelay;
+
+    private static int PERCENT_NUM = 100;
 
     public FlightStat(int flightCount, int flightsDelayed, int flightsCancelled, float maxDelay) {
         this.flightCount = flightCount;
@@ -37,8 +36,8 @@ public class FlightStat implements Serializable {
 
     @Override
     public String toString() {
-        return "Flights delayed: " + String.valueOf((float)flightsDelayed/(float)flightCount * 100) +
-                "% Flights cancelled: " + String.valueOf((float)flightsCancelled/(float)flightCount * 100) +
+        return "Flights delayed: " + String.valueOf((float)flightsDelayed/(float)flightCount * PERCENT_NUM) +
+                "% Flights cancelled: " + String.valueOf((float)flightsCancelled/(float)flightCount * PERCENT_NUM) +
                 "%  Maximum delay: " + String.valueOf(maxDelay);
     }
 

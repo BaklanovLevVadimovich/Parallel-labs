@@ -11,22 +11,27 @@ public class AirportMapper extends Mapper<LongWritable, Text, JoinWritableCompar
     private static final int AIRPORT_TYPE = 0;
     private static final int SPLIT_LIMIT = 2;
     private static final int ID_FIELD = 0;
-    private static final int NAME_FIELD = 2;
+    private static final int NAME_FIELD = 1;
+    private static final String QUOTE = "\"";
+    private static final String COMMA = ",";
 
     @Override
-
     protected void map(LongWritable key, Text value, Mapper.Context context) throws IOException, InterruptedException {
 
         if (!key.equals(new LongWritable(0))) {
             String line = value.toString();
-            line = line.replace("\"", "");
-            String[] fields = line.split(",", SPLIT_LIMIT);
+            line = removeQuotes(line);
+            String[] fields = line.split(COMMA, SPLIT_LIMIT);
             int id = Integer.parseInt(fields[ID_FIELD]);
             String name = fields[NAME_FIELD];
 
             JoinWritableComparable writableKey = new JoinWritableComparable(id, AIRPORT_TYPE);
             context.write(writableKey, new Text(name));
         }
+    }
+
+    private String removeQuotes(String line) {
+        return line.replace(QUOTE, "");
     }
 
 }
