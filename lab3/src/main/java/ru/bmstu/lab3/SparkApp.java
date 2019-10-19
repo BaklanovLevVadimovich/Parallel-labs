@@ -5,7 +5,6 @@ import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.broadcast.Broadcast;
-import scala.Int;
 import scala.Tuple2;
 
 import java.util.Map;
@@ -17,6 +16,11 @@ public class SparkApp {
     private static final int DELAY_INDEX = 18;
     private static final int CANCELLED_INDEX = 19;
 
+    private static  final String AIRPORTS_FILENAME = "L_AIRPORT_ID.csv";
+
+    private static final String AIRPORTS_FIRST_LINE_TRIGGER = "Code,Description";
+    private static final String FLIGHTS_FIRST_LINE_TRIGGER = "\"YEAR\"";
+
     public static void main(String[] args) {
 
         SparkConf conf = new SparkConf().setAppName("lab3");
@@ -26,7 +30,7 @@ public class SparkApp {
         JavaRDD<String> airportsLines = sc.textFile("L_AIRPORT_ID.csv");
 
         JavaPairRDD<Integer, String> airportsData =
-                airportsLines.filter(s -> !s.contains("Code,Description"))
+                airportsLines.filter(s -> !s.contains(AIRPORTS_FIRST_LINE_TRIGGER))
                 .mapToPair(s -> {
                     s = s.replace("\"", "");
                     String[] fields = s.split(",", 2);
@@ -36,15 +40,18 @@ public class SparkApp {
                 });
 
         JavaPairRDD<Tuple2<Integer, Integer>, Flight> flightsData =
-                flightsLines.filter(s -> !s.contains("\"YEAR\""))
+                flightsLines.filter(s -> !s.contains(FLIGHTS_FIRST_LINE_TRIGGER))
                 .mapToPair(s -> {
                     s = s.replace("\"", "");
                     String[] fields = s.split(",");
                     int originAirportId = Integer.parseInt(fields[ORIGIN_AIRPORT_INDEX]);
                     int destAirportId = Integer.parseInt(fields[DEST_AIRPORT_INDEX]);
                     float delay;
-                    if ((fields[DELAY_INDEX].equals(""))) delay = 0;
-                    else delay = Float.parseFloat(fields[DELAY_INDEX]);
+                    if ((fields[DELAY_INDEX].equals(""))) {
+                        delay = 0;
+                    }  else {
+                        delay = Float.parseFloat(fields[DELAY_INDEX]);
+                    }
                     float cancelled = Float.parseFloat(fields[CANCELLED_INDEX]);
                     boolean isCancelled = cancelled == 1f;
                     return new Tuple2<>(new Tuple2<>(originAirportId, destAirportId), new Flight(isCancelled, delay));

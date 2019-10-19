@@ -1,4 +1,5 @@
-import org.apache.hadoop.io.IntWritable;
+package ru.bmstu.lab2;
+
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -7,7 +8,10 @@ import java.io.IOException;
 
 public class AirportMapper extends Mapper<LongWritable, Text, JoinWritableComparable, Text> {
 
-    private final int AIRPORT_TYPE = 0;
+    private static final int AIRPORT_TYPE = 0;
+    private static final int SPLIT_LIMIT = 2;
+    private static final int ID_FIELD = 0;
+    private static final int NAME_FIELD = 2;
 
     @Override
 
@@ -16,9 +20,9 @@ public class AirportMapper extends Mapper<LongWritable, Text, JoinWritableCompar
         if (!key.equals(new LongWritable(0))) {
             String line = value.toString();
             line = line.replace("\"", "");
-            String[] fields = line.split(",", 2);
-            int id = Integer.parseInt(fields[0]);
-            String name = fields[1];
+            String[] fields = line.split(",", SPLIT_LIMIT);
+            int id = Integer.parseInt(fields[ID_FIELD]);
+            String name = fields[NAME_FIELD];
 
             JoinWritableComparable writableKey = new JoinWritableComparable(id, AIRPORT_TYPE);
             context.write(writableKey, new Text(name));

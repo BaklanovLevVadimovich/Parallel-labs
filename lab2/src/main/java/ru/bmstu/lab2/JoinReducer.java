@@ -1,5 +1,5 @@
-import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.LongWritable;
+package ru.bmstu.lab2;
+
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
@@ -8,6 +8,9 @@ import java.util.Iterator;
 
 public class JoinReducer extends Reducer<JoinWritableComparable, Text, Text, Text> {
 
+    private static final int MIN_DELAY_DEFAULT_VALUE = -1;
+    private static final int MAX_DELAY_DEFAULT_VALUE = -1;
+
     @Override
     protected void reduce(JoinWritableComparable key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         Text airportName = new Text();
@@ -15,8 +18,8 @@ public class JoinReducer extends Reducer<JoinWritableComparable, Text, Text, Tex
         int flightsDelayed = 0;
         float delaySum = 0;
         float averageDelay = 0;
-        float minDelay = -1;
-        float maxDelay = -1;
+        float minDelay = MIN_DELAY_DEFAULT_VALUE;
+        float maxDelay = MAX_DELAY_DEFAULT_VALUE;
 
         float currentDelay;
 
@@ -28,9 +31,9 @@ public class JoinReducer extends Reducer<JoinWritableComparable, Text, Text, Tex
             } else {
                 currentDelay = Float.parseFloat((iter.next()).toString());
                 if (currentDelay > 0) {
-                    if (minDelay == -1 || currentDelay < minDelay) minDelay = currentDelay;
+                    if (minDelay == MIN_DELAY_DEFAULT_VALUE || currentDelay < minDelay) minDelay = currentDelay;
 
-                    if (maxDelay == -1 || currentDelay > maxDelay) maxDelay = currentDelay;
+                    if (maxDelay == MAX_DELAY_DEFAULT_VALUE || currentDelay > maxDelay) maxDelay = currentDelay;
 
                     delaySum += currentDelay;
                     flightsDelayed++;
