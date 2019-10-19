@@ -31,8 +31,9 @@ public class JoinReducer extends Reducer<JoinWritableComparable, Text, Text, Tex
             } else {
                 currentDelay = Float.parseFloat((iter.next()).toString());
                 if (currentDelay > 0) {
-                    if (minDelay == MIN_DELAY_DEFAULT_VALUE || currentDelay < minDelay) minDelay = currentDelay;
-
+                    if (minDelay == MIN_DELAY_DEFAULT_VALUE || currentDelay < minDelay) {
+                        minDelay = currentDelay;
+                    }
                     if (maxDelay == MAX_DELAY_DEFAULT_VALUE || currentDelay > maxDelay) maxDelay = currentDelay;
 
                     delaySum += currentDelay;
