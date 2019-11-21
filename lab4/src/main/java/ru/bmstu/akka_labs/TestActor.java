@@ -15,13 +15,14 @@ public class TestActor extends AbstractActor {
         Invocable invocable = (Invocable) engine;
         return invocable.invokeFunction(input.getFunctionName(), input.getTest().getParams()).toString();
     }
-    
 
     @Override
     public Receive createReceive() {
         return receiveBuilder()
                 .match(SingleTestInput.class, m -> {
-
+                    String result = runTest(m);
+                    
                 })
+                .build();
     }
 }
