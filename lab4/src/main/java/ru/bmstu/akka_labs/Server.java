@@ -9,6 +9,7 @@ public class Server {
     public static void main(String[] args) {
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
-        final ActorMaterializer materializer = ActorMaterializer.create()
+        final ActorMaterializer materializer = ActorMaterializer.create(system);
+        
     }
 }
