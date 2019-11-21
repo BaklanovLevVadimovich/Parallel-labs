@@ -9,7 +9,8 @@ import java.util.Map;
 public class StoreActor extends AbstractActor {
 
     private Map<Integer, ArrayList<Test>> store = new HashMap<>();
-    
+
+    private void addTest()
 
     @Override
     public Receive createReceive() {
