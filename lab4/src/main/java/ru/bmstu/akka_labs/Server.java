@@ -1,5 +1,6 @@
 package ru.bmstu.akka_labs;
 
+import akka.NotUsed;
 import akka.actor.ActorSystem;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.model.HttpRequest;
@@ -14,6 +15,6 @@ public class Server {
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         Server instance = new Server();
-        final Flow<HttpRequest, HttpResponse,  >
+        final Flow<HttpRequest, HttpResponse, NotUsed> 
     }
 }
