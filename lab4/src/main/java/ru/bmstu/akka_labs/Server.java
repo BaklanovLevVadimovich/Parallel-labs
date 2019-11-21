@@ -34,7 +34,7 @@ public class Server {
 
     private Route createRoute(ActorRef router) {
         return route(
-                path
+                path("result", )
         )
     }
 }
