@@ -4,6 +4,7 @@ public class Test {
     private final String name;
     private final Object expectedResult;
     private final Object[] params;
+    private boolean result;
 
     public Test(String name, Object expectedResult, Object[] params) {
         this.name = name;
