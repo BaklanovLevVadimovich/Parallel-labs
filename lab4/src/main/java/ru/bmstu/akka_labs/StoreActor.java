@@ -1,6 +1,7 @@
 package ru.bmstu.akka_labs;
 
 import akka.actor.AbstractActor;
+import akka.japi.pf.ReceiveBuilder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +23,6 @@ public class StoreActor extends AbstractActor {
 
     @Override
     public Receive createReceive() {
-        
+        return ReceiveBuilder.create()
     }
 }
