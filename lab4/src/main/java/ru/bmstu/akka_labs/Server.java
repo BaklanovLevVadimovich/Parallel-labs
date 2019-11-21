@@ -31,9 +31,12 @@ public class Server {
 //        System.in.read();
 //        binding.thenCompose(ServerBinding::unbind).thenAccept(unbound -> system.terminate());
         Object[] params = new Object[2];
-        params[0] = 
-        Test test = new Test("test", (float)2.0, )
-        runTest(new SingleTestInput(11, "var divideFn = function(a,b) { return a/b}", "divideFn", ))
+        params[0] = 4;
+        params[1] = 2;
+        Test test = new Test("test", (float)2.0, params);
+        try {
+            System.out.println(runTest(new SingleTestInput(11, "var divideFn = function(a,b) { return a/b}", "divideFn", test)));
+        } catch (Exception e) {}
     }
     private static String runTest(SingleTestInput input) throws ScriptException, NoSuchMethodException {
         ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
