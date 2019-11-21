@@ -22,7 +22,7 @@ public class TestActor extends AbstractActor {
                 .match(SingleTestInput.class, m -> {
                     String result = runTest(m);
                     boolean passed = result.equals(m.getTest().getExpectedResult());
-                    
+                    sender().tell();
                 })
                 .build();
     }
