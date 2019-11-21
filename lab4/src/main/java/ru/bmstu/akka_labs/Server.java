@@ -15,6 +15,6 @@ public class Server {
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         Server instance = new Server();
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = 
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = instance.
     }
 }
