@@ -10,7 +10,7 @@ public class RouteActor extends AbstractActor {
     private ActorRef storage;
 
     public RouteActor() {
-        storage = 
+        storage = getContext().
     }
 
     @Override
