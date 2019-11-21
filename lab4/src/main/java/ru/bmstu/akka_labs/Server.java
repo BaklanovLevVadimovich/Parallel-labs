@@ -21,6 +21,8 @@ import static akka.http.javadsl.server.Directives.*;
 
 public class Server {
 
+    private static final int TIMEOUT_MILLIS = 5000;
+
     public static void main(String[] args) throws IOException {
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
@@ -41,7 +43,7 @@ public class Server {
                             get(() -> {
                                 return parameter("packageId", id -> {
                                     Future<Result> result = Patterns.ask(
-                                            router, id, 
+                                            router, id, TIMEOUT_MILLIS
                                     )
                                 })
                             })
