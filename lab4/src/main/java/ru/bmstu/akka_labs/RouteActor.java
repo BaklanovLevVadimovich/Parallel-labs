@@ -20,7 +20,9 @@ public class RouteActor extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(Input.class, m -> {
-                    for (int i = 0; i < m.getTests().length)
+                    for (int i = 0; i < m.getTests().length) {
+                        
+                    }
                 })
     }
 }
