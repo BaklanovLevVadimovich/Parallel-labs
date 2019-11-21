@@ -38,7 +38,9 @@ public class Server {
         return route(
                 path("result", () -> {
                     return route(
-                            get()
+                            get(() -> {
+                                
+                            })
                     )
                 })
         )
