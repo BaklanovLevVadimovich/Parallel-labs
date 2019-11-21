@@ -16,7 +16,7 @@ public class TestActor extends AbstractActor {
         return invocable.invokeFunction(input.getFunctionName(), input.getTest().getParams()).toString();
     }
 
-    private boolean isTestSuccessful(String )
+    private boolean isTestSuccessful(String expected)
 
     @Override
     public Receive createReceive() {
