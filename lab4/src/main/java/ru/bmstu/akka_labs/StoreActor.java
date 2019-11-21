@@ -12,7 +12,9 @@ public class StoreActor extends AbstractActor {
 
     private void addTest(Integer packageId, Test test) {
         if (store.containsKey(packageId)) {
-            store.
+            store.get(packageId).add(test);
+        } else {
+            
         }
     }
 
