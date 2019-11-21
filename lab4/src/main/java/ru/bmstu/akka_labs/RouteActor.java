@@ -6,7 +6,12 @@ import akka.actor.ActorRef;
 public class RouteActor extends AbstractActor {
 
     private static final int ACTORS_NUM = 5;
-    private ActorRef 
+    private ActorRef worker;
+    private ActorRef storage;
+
+    public RouteActor() {
+        storage = 
+    }
 
     @Override
     public Receive createReceive() {
