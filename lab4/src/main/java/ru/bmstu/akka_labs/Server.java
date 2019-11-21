@@ -3,6 +3,7 @@ package ru.bmstu.akka_labs;
 import akka.NotUsed;
 import akka.actor.ActorSystem;
 import akka.http.javadsl.Http;
+import akka.http.javadsl.ServerBinding;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.server.Route;
@@ -19,7 +20,7 @@ public class Server {
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         Server instance = new Server();
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = instance.createRoute().flow(system, materializer);
-        final CompletionStage
+        final CompletionStage<ServerBinding>
     }
 
     private Route createRoute() {
