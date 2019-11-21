@@ -24,6 +24,9 @@ public class StoreActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()
-                .match()
+                .match(SingleTestInput.class, m -> addTest(m.getPackageId(), m.getTest()))
+                .match(Integer.class, m -> {
+                    
+                })
     }
 }
