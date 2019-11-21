@@ -44,7 +44,7 @@ public class Server {
                             get(() -> {
                                 return parameter("packageId", id -> {
                                     Future<Object> result = Patterns.ask(router, id, TIMEOUT_MILLIS);
-                                    return 
+                                    return completeOKWithFuture()
                                 })
                             })
                     )
