@@ -10,4 +10,16 @@ public class Test {
         this.expectedResult = expectedResult;
         this.params = params;
     }
+
+    public Object getExpectedResult() {
+        return expectedResult;
+    }
+
+    public Object[] getParams() {
+        return params;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
