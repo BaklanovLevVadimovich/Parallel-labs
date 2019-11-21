@@ -21,8 +21,9 @@ public class RouteActor extends AbstractActor {
         return receiveBuilder()
                 .match(Input.class, m -> {
                     for (int i = 0; i < m.getTests().length) {
-                        worker.tell(new SingleTestInput(m.getPackageId(), m.getJsScript(), m.getFunctionName(), m.getTests()[i]), );
+                        worker.tell(new SingleTestInput(m.getPackageId(), m.getJsScript(), m.getFunctionName(), m.getTests()[i]), getSelf());
                     }
                 })
+                .match()
     }
 }
