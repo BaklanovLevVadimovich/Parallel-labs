@@ -21,7 +21,7 @@ public class TestActor extends AbstractActor {
         return receiveBuilder()
                 .match(SingleTestInput.class, m -> {
                     String result = runTest(m);
-                    
+
                 })
                 .build();
     }
