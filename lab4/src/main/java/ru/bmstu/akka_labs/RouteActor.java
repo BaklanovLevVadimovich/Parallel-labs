@@ -2,6 +2,7 @@ package ru.bmstu.akka_labs;
 
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
+import akka.actor.Props;
 import akka.routing.RoundRobinPool;
 
 public class RouteActor extends AbstractActor {
@@ -11,7 +12,7 @@ public class RouteActor extends AbstractActor {
     private ActorRef storage;
 
     public RouteActor() {
-        storage = getContext().actorOf(new RoundRobinPool(ACTORS_POOL).props(Prop))
+        storage = getContext().actorOf(new RoundRobinPool(ACTORS_POOL).props(Props.create()))
     }
 
     @Override
