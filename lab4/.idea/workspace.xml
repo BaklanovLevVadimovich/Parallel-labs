@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6d24abf-115c-4dc5-b01d-f4f76908bb38" name="Default Changelist" comment="" />
+    <list default="true" id="b6d24abf-115c-4dc5-b01d-f4f76908bb38" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/Server.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,13 +22,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2931" />
+          <entry key="java" value="3072" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2931" />
+          <entry key="JAVA" value="3072" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
@@ -58,8 +60,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-49">
-              <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+            <state relative-caret-position="388">
+              <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,10 +124,10 @@
         <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/SingleTestInput.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/RouteActor.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/Result.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/StoreActor.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/TestActor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/Server.java" />
       </list>
     </option>
   </component>
@@ -188,7 +193,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574379910545" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574379919775" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -234,12 +239,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574370559372</updated>
-      <workItem from="1574370566634" duration="8405000" />
+      <workItem from="1574370566634" duration="8657000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8405000" />
+    <option name="totallyTimeSpent" value="8657000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
@@ -372,8 +377,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-49">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+        <state relative-caret-position="388">
+          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
