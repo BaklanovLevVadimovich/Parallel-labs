@@ -17,7 +17,7 @@ public class Server {
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         Server instance = new Server();
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = instance.createRoute().flow(system, materializer);
-        
+        final
     }
 
     private Route createRoute() {
