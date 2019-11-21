@@ -10,7 +10,11 @@ public class StoreActor extends AbstractActor {
 
     private Map<Integer, ArrayList<Test>> store = new HashMap<>();
 
-    private void addTest()
+    private void addTest(Integer packageId, Test test) {
+        if (store.containsKey(packageId)) {
+            store.
+        }
+    }
 
     @Override
     public Receive createReceive() {
