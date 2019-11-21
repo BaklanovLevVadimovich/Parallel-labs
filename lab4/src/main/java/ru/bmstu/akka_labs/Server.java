@@ -24,7 +24,7 @@ public class Server {
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(routeFlow, ConnectHttp.toHost("localhost", 8081), materializer);
         System.out.println("Server online at localhost:8081");
         System.in.read();
-        binding.thenCompose(ServerBinding::unbind).thenAccept(unbound)
+        binding.thenCompose(ServerBinding::unbind).thenAccept(unbound -> system.terminate());
     }
 
     private Route createRoute() {
