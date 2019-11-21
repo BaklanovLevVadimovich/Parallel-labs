@@ -5,6 +5,7 @@ import akka.actor.ActorSystem;
 public class Server {
 
     public static void main(String[] args) {
-        ActorSystem system = 
+        ActorSystem system = ActorSystem.create("routes");
+        
     }
 }
