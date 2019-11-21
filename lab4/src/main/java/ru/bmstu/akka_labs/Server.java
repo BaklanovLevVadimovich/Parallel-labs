@@ -22,7 +22,7 @@ public class Server {
         Server instance = new Server();
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = instance.createRoute().flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(routeFlow, ConnectHttp.toHost("localhost", 8081), materializer);
-        System.out.println("Server online at ");
+        System.out.println("Server online at localhost:8081");
     }
 
     private Route createRoute() {
