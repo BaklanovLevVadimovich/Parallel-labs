@@ -30,7 +30,8 @@ public class Server {
 //        System.out.println("Server online at localhost:8081");
 //        System.in.read();
 //        binding.thenCompose(ServerBinding::unbind).thenAccept(unbound -> system.terminate());
-        runTest(new SingleTestInput(11, ))
+        Test test = new Test("test", )
+        runTest(new SingleTestInput(11, "var divideFn = function(a,b) { return a/b}", "divideFn", ))
     }
     private static String runTest(SingleTestInput input) throws ScriptException, NoSuchMethodException {
         ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
