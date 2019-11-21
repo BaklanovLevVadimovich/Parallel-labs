@@ -9,7 +9,7 @@ import javax.script.ScriptException;
 
 public class TestActor extends AbstractActor {
 
-    private String runTest(SingleTestInput input) throws ScriptException, NoSuchMethodException {
+    private static String runTest(SingleTestInput input) throws ScriptException, NoSuchMethodException {
         ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
         engine.eval(input.getJsScript());
         Invocable invocable = (Invocable) engine;
@@ -20,8 +20,9 @@ public class TestActor extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(SingleTestInput.class, m -> {
-                    String result = runTest(m);
-
+                    try {
+                        String result = runTest(m);
+                    }
                 })
                 .build();
     }
