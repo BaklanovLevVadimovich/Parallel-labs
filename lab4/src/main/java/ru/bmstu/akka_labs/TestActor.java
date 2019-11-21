@@ -20,9 +20,9 @@ public class TestActor extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(SingleTestInput.class, m -> {
-                    try {
-                        String result = runTest(m);
-                    }
+                    String result = runTest(m);
+                    boolean passed = result.equals(m.getTest().getExpectedResult());
+                    
                 })
                 .build();
     }
