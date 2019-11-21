@@ -12,6 +12,10 @@ public class TestActor extends AbstractActor {
 
     private ActorRef storage;
 
+    public TestActor(ActorRef storage) {
+        this.storage = storage;
+    }
+
     private static String runTest(SingleTestInput input) throws ScriptException, NoSuchMethodException {
         ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
         engine.eval(input.getJsScript());
@@ -25,7 +29,8 @@ public class TestActor extends AbstractActor {
                 .match(SingleTestInput.class, m -> {
                     String result = runTest(m);
                     boolean passed = result.equals(m.getTest().getExpectedResult());
-                    sender().tell();
+                    m.getTest().setSuccess(passed);
+                    storage.tell(m.getTest(), getSelf());
                 })
                 .build();
     }
