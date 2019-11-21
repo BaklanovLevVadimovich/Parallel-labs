@@ -16,11 +16,13 @@ public class TestActor extends AbstractActor {
         return invocable.invokeFunction(input.getFunctionName(), input.getTest().getParams()).toString();
     }
 
+    private boolean isTestSuccessful(String )
+
     @Override
     public Receive createReceive() {
         return receiveBuilder()
                 .match(SingleTestInput.class, m -> {
-                    
+
                 })
     }
 }
