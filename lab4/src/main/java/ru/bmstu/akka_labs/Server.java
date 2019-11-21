@@ -20,7 +20,7 @@ public class Server {
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         Server instance = new Server();
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = instance.createRoute().flow(system, materializer);
-        final CompletionStage<ServerBinding> binding = http.
+        final CompletionStage<ServerBinding> binding = http.bindAndHandle()
     }
 
     private Route createRoute() {
