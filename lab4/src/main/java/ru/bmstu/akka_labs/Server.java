@@ -1,6 +1,7 @@
 package ru.bmstu.akka_labs;
 
 import akka.NotUsed;
+import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.Http;
@@ -20,6 +21,7 @@ public class Server {
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         Server instance = new Server();
+        ActorRef router = system.actorOf()
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = instance.createRoute().flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(routeFlow, ConnectHttp.toHost("localhost", 8081), materializer);
         System.out.println("Server online at localhost:8081");
