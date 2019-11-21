@@ -1,4 +1,9 @@
 package ru.bmstu.akka_labs;
 
-public class RouteActor {
+import akka.actor.AbstractActor;
+
+public class RouteActor extends AbstractActor {
+
+    @Override
+    
 }
