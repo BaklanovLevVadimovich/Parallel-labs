@@ -15,9 +15,7 @@ import akka.stream.javadsl.Flow;
 import java.io.IOException;
 import java.util.concurrent.CompletionStage;
 
-import static akka.http.javadsl.server.Directives.get;
-import static akka.http.javadsl.server.Directives.path;
-import static akka.http.javadsl.server.Directives.route;
+import static akka.http.javadsl.server.Directives.*;
 
 public class Server {
 
@@ -39,7 +37,7 @@ public class Server {
                 path("result", () -> {
                     return route(
                             get(() -> {
-                                
+                                return parameter("")
                             })
                     )
                 })
