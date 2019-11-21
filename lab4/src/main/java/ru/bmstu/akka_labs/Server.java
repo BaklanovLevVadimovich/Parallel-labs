@@ -40,7 +40,9 @@ public class Server {
                     return route(
                             get(() -> {
                                 return parameter("packageId", id -> {
-                                    Future<Result> result = Patterns.ask()
+                                    Future<Result> result = Patterns.ask(
+                                            router,
+                                    )
                                 })
                             })
                     )
