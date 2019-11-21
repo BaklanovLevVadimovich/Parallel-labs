@@ -1,6 +1,7 @@
 package ru.bmstu.akka_labs;
 
 import akka.actor.AbstractActor;
+import akka.actor.ActorRef;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
@@ -9,7 +10,7 @@ import javax.script.ScriptException;
 
 public class TestActor extends AbstractActor {
 
-    private Actor
+    private ActorRef storage;
 
     private static String runTest(SingleTestInput input) throws ScriptException, NoSuchMethodException {
         ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
