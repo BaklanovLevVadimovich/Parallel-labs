@@ -19,6 +19,8 @@ public class RouteActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match(Input.class, m -> )
+                .match(Input.class, m -> {
+                    for (int i = 0; i < m.getTests().length)
+                })
     }
 }
