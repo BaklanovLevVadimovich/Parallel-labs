@@ -4,7 +4,7 @@ import akka.actor.AbstractActor;
 
 public class TestActor extends AbstractActor {
 
-    private void runTest() {
+    private  void runTest() {
 
     }
 
