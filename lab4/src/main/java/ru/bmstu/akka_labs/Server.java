@@ -30,6 +30,8 @@ public class Server {
 //        System.out.println("Server online at localhost:8081");
 //        System.in.read();
 //        binding.thenCompose(ServerBinding::unbind).thenAccept(unbound -> system.terminate());
+        Object[] params = new Object[2];
+        params[0] = 
         Test test = new Test("test", (float)2.0, )
         runTest(new SingleTestInput(11, "var divideFn = function(a,b) { return a/b}", "divideFn", ))
     }
