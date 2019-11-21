@@ -8,11 +8,11 @@ import javax.script.ScriptEngineManager;
 
 public class TestActor extends AbstractActor {
 
-    private String runTest() {
+    private String runTest(SingleTestInput input) {
         ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
-        engine.eval(jscript);
+        engine.eval(input.getJsScript());
         Invocable invocable = (Invocable) engine;
-        return invocable.invokeFunction(functionName, params).toString();
+        return invocable.invokeFunction(input.getFunctionName(), input.getTest().getParams()).toString();
 
     }
 
