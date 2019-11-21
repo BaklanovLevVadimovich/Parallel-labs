@@ -19,6 +19,8 @@ public class TestActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match()
+                .match(SingleTestInput.class, m -> {
+                    
+                })
     }
 }
