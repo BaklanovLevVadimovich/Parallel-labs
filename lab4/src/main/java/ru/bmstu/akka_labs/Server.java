@@ -31,7 +31,7 @@ public class Server {
 //        System.in.read();
 //        binding.thenCompose(ServerBinding::unbind).thenAccept(unbound -> system.terminate());
         Object[] params = new Object[2];
-        params[0] = 4;
+        params[0] = 5;
         params[1] = 2;
         Test test = new Test("test", (float)2.0, params);
         try {
