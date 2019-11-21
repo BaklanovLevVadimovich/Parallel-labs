@@ -14,12 +14,14 @@ public class StoreActor extends AbstractActor {
         if (store.containsKey(packageId)) {
             store.get(packageId).add(test);
         } else {
-            
+            ArrayList<Test> tests = new ArrayList<>();
+            tests.add(test);
+            store.put(packageId, tests);
         }
     }
 
     @Override
     public Receive createReceive() {
-
+        
     }
 }
