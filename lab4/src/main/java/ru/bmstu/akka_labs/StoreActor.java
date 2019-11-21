@@ -26,7 +26,7 @@ public class StoreActor extends AbstractActor {
         return ReceiveBuilder.create()
                 .match(SingleTestInput.class, m -> addTest(m.getPackageId(), m.getTest()))
                 .match(Integer.class, m -> {
-                    sender().tell( );
+                    sender().tell(Result.class, );
                 })
     }
 }
