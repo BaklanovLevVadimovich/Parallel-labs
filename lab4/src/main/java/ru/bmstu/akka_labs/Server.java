@@ -40,8 +40,8 @@ public class Server {
 
     private Route createRoute(ActorRef router) {
         return route(
-                path("result", () -> {
-                    route(
+                path("result", () ->
+                        (route(
                             get(() -> {
                                 return parameter("packageId", id -> {
                                     Future<Object> result = Patterns.ask(router, id, TIMEOUT_MILLIS);
@@ -49,7 +49,7 @@ public class Server {
                                 });
                             })
                     );
-                })
+        ))
         );
     }
 }
