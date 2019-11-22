@@ -38,7 +38,7 @@ public class StreamsApp {
     }
 
     private static Flow<HttpRequest, HttpResponse, NotUsed> createFlow(Http http, ActorSystem system, ActorMaterializer materializer) {
-        Flow.of(HttpRequest.class)
+        return Flow.of(HttpRequest.class)
                 .map(request -> {
                     Map<String, String> params = request.getUri().query().toMap();
                     String url = params.get("testUrl");
@@ -49,11 +49,11 @@ public class StreamsApp {
                     CompletionStage<Object> result = PatternsCS.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
                     boolean alreadyDone = false;
                     return result;
-                    result.thenCompose(res -> {
-                        if ((Long)res == -1) {
-
-                        }
-                    });
+//                    result.thenCompose(res -> {
+//                        if ((Long)res == -1) {
+//
+//                        }
+//                    });
                 })
                 .map(res -> {
                     System.out.println("res = " + String.valueOf(res));
