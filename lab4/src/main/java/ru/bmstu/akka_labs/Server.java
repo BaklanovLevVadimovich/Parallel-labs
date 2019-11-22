@@ -49,7 +49,10 @@ public class Server {
                                         }))
                         )
                 ),
-                path("run", )
+                path("run", () ->
+                        route(
+                                post()
+                        ))
         );
     }
 }
