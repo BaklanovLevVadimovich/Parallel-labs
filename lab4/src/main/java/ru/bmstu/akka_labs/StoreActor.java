@@ -19,6 +19,7 @@ public class StoreActor extends AbstractActor {
             tests.add(test);
             store.put(packageId, tests);
         }
+        System.out.println("saved test " + test.getName());
     }
 
     @Override
