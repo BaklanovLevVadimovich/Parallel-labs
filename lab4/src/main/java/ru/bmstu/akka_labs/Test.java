@@ -10,7 +10,8 @@ public class Test {
     private boolean success;
 
     @JsonCreator
-    Test(@JsonProperty("name") String name, String expectedResult, Object[] params) {
+    Test(@JsonProperty("testName") String name,
+         @JsonProperty("") String expectedResult, Object[] params) {
         this.name = name;
         this.expectedResult = expectedResult;
         this.params = params;
