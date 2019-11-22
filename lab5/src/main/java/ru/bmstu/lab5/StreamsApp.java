@@ -55,7 +55,7 @@ public class StreamsApp {
                     })
                 })
                 .map(res -> {
-                    return new HttpResponse.create()
+                    return HttpResponse.create().withStatus(200).withEntity()
                 })
     }
 }
