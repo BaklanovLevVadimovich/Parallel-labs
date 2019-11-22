@@ -28,5 +28,5 @@ public class StreamsApp {
         binding.thenCompose(ServerBinding::unbind).thenAccept(unbound -> system.terminate());
     }
 
-    private static Flow<HttpRequest, HttpResponse, NotUsed> createFlow(Http http, )
+    private static Flow<HttpRequest, HttpResponse, NotUsed> createFlow(Http http, ActorSystem system, )
 }
