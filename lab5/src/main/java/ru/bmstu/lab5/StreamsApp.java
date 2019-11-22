@@ -9,6 +9,7 @@ import akka.http.javadsl.Http;
 import akka.http.javadsl.ServerBinding;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
+import akka.japi.Pair;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 
@@ -35,7 +36,7 @@ public class StreamsApp {
                     Map<String, String> params = request.getUri().query().toMap();
                     String url = params.get("testUrl");
                     int count = Integer.parseInt(params.get("count"));
-                    
+                    return new Pair<>
                 })
     }
 }
