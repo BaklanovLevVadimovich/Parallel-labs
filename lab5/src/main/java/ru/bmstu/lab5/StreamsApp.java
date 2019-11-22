@@ -11,6 +11,7 @@ import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.japi.Pair;
 import akka.pattern.Patterns;
+import akka.pattern.PatternsCS;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import scala.concurrent.Future;
@@ -45,7 +46,7 @@ public class StreamsApp {
                     return new Pair<>(url, count);
                 })
                 .mapAsync(4, pair -> {
-                    CompletionStage<Long> result = Patterns.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
+                    CompletionStage<Long> result = PatternsCS.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
                     result.thenC
                 })
     }
