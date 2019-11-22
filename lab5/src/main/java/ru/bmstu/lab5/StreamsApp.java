@@ -81,8 +81,10 @@ public class StreamsApp {
                     }
                 })
                 .map(res -> {
-                    System.out.println("res = " + String.valueOf(res));
-                    return HttpResponse.create().withStatus(200).withEntity("Среднее время отклика " + String.valueOf(res) + " ms");
+                    long resultTime = ((Result)res).getResponseTime();
+                    System.out.println("res = " + String.valueOf(resultTime));
+                    storeActor.tell(res, ActorRef.noSender());
+                    return HttpResponse.create().withStatus(200).withEntity("Среднее время отклика " + String.valueOf(resultTime) + " ms");
                 });
     }
 }
