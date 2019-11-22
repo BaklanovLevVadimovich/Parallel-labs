@@ -14,6 +14,7 @@ import akka.pattern.Patterns;
 import akka.pattern.PatternsCS;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import akka.stream.javadsl.Keep;
 import akka.stream.javadsl.Sink;
 import scala.concurrent.Await;
 import scala.concurrent.Future;
@@ -70,7 +71,7 @@ public class StreamsApp {
                                     CompletionStage<Long> a = asyncHttpClient().prepareGet(p).execute().toCompletableFuture()
                                             .thenCompose(response -> CompletableFuture.completedFuture((long)Duration.between(startTime, Instant.now()).getNano()*1000000));
                                 })
-                                .toMat(Sink.fold(0, Long::sum))
+                                .toMat(Sink.fold(0, Long::sum), Keep.right())
                     }
                 })
                 .map(res -> {
