@@ -55,7 +55,7 @@ public class StreamsApp {
 //
 //                        }
 //                    });
-                    Sink<Pair<String, Integer>, > innerSink = 
+                    Sink<Pair<String, Integer>, > innerSink = Flow.
                 })
                 .map(res -> {
                     System.out.println("res = " + String.valueOf(res));
