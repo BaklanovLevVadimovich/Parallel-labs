@@ -76,7 +76,7 @@ public class StreamsApp {
                                 })
                                 .toMat(Sink.fold(0L, Long::sum), Keep.right());
                         return Source.from(Collections.singletonList(pair))
-                                .toMat(innerSink)
+                                .toMat(innerSink, Keep.right())
                     }
                 })
                 .map(res -> {
