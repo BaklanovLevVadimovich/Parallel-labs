@@ -1,10 +1,10 @@
 package ru.bmstu.akka_labs;
 
 public class SingleTestInput {
-    private final int packageId;
-    private final String jsScript;
-    private final String functionName;
-    private final Test test;
+    private int packageId;
+    private String jsScript;
+    private String functionName;
+    private Test test;
 
     public SingleTestInput(int packageId, String jsScript, String functionName, Test test) {
         this.packageId = packageId;

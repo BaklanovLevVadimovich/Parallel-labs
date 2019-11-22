@@ -9,7 +9,6 @@ public class Result {
         this.tests = tests;
     }
 
-
     public ArrayList<Test> getTests() {
         return tests;
     }

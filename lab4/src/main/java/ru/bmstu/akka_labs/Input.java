@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Input {
-    private final int packageId;
-    private final String jsScript;
-    private final String functionName;
-    private final Test[] tests;
+    private int packageId;
+    private String jsScript;
+    private String functionName;
+    private Test[] tests;
 
     @JsonCreator
     Input(@JsonProperty("packageId") int packageId,
