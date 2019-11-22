@@ -48,8 +48,8 @@ public class Server {
                                     return completeOKWithFuture(result, Jackson.marshaller());
                                 });
                             })
-                    )
+                    );
                 })
-        )
+        );
     }
 }
