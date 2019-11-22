@@ -47,7 +47,9 @@ public class StreamsApp {
                 })
                 .mapAsync(4, pair -> {
                     CompletionStage<Object> result = PatternsCS.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
-                    result.thenCo
+                    result.thenCompose(res -> {
+                        
+                    })
                 })
     }
 }
