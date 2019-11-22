@@ -2,6 +2,7 @@ package ru.bmstu.akka_labs;
 
 import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;
+import ru.bmstu.lab5.Result;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,17 +10,18 @@ import java.util.Map;
 
 public class StoreActor extends AbstractActor {
 
+    public static final long RESPONCE_TIME_DEFAULT_VALUE = -1;
+
     private Map<String, Long> store = new HashMap<>();
 
-    private void addResult(Integer packageId, Test test) {
-        if (store.containsKey(packageId)) {
-            store.get(packageId).add(test);
+    private Long getResult(String url) {
+        if (store.containsKey(url)) {
+            System.out.println("Already got result for " + url);
+            return store.get(result.getUrl());
         } else {
-            ArrayList<Test> tests = new ArrayList<>();
-            tests.add(test);
-            store.put(packageId, tests);
+            System.out.println("No result for " + result.getUrl());
+            return RESPONCE_TIME_DEFAULT_VALUE;
         }
-        System.out.println("saved test " + test.getName());
     }
 
     @Override
