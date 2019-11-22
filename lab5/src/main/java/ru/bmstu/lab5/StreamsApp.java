@@ -68,7 +68,7 @@ public class StreamsApp {
                                 .mapAsync(4, p -> {
                                     Instant startTime = Instant.now();
                                     asyncHttpClient().prepareGet(p).execute().toCompletableFuture()
-                                            .thenCompose(response -> CompletableFuture.completedFuture(Duration.between()))
+                                            .thenCompose(response -> CompletableFuture.completedFuture(Duration.between(startTime, Instant.now())))
                                 })
                     }
                 })
