@@ -36,7 +36,8 @@ public class StreamsApp {
                     Map<String, String> params = request.getUri().query().toMap();
                     String url = params.get("testUrl");
                     int count = Integer.parseInt(params.get("count"));
-                    return new Pair<>
+                    return new Pair<>(url, count);
                 })
+                .mapAsync()
     }
 }
