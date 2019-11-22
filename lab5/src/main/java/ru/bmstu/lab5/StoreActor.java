@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class StoreActor extends AbstractActor {
 
-    public static final long RESPONCE_TIME_DEFAULT_VALUE = -1;
+    public static final long RESPONSE_TIME_DEFAULT_VALUE = -1;
 
     private Map<String, Long> store = new HashMap<>();
 
@@ -20,7 +20,7 @@ public class StoreActor extends AbstractActor {
             return store.get(url);
         } else {
             System.out.println("No result for " + url);
-            return RESPONCE_TIME_DEFAULT_VALUE;
+            return RESPONSE_TIME_DEFAULT_VALUE;
         }
     }
 
