@@ -53,7 +53,7 @@ public class StreamsApp {
                 })
                 .mapAsync(4, pair -> {
                     Future<Object> result = Patterns.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
-                    long res = Await.result(result, )
+                    long res = Await.result(result, TIMEOUT_MILLIS)
                     Sink<Pair<String, Integer>, CompletionStage<Long>> innerSink = Flow.<Pair<String, Integer>>create()
                             .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p)))
                             .map()
