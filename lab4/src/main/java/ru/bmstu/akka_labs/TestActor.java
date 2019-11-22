@@ -30,9 +30,9 @@ public class TestActor extends AbstractActor {
                     String result = runTest(m);
                     boolean passed = result.equals(m.getTest().getExpectedResult());
                     if (passed) {
-                        System.out.println("Test " + m.getTest().getName() + " passed\n");
+                        System.out.println("Test " + m.getTest().getName() + " passed");
                     } else {
-                        System.out.println("Test " + m.getTest().getName() + " failed(EXPECTED " + m.getTest().getExpectedResult() + ", GOT " + result + ")\n");
+                        System.out.println("Test " + m.getTest().getName() + " failed(EXPECTED " + m.getTest().getExpectedResult() + ", GOT " + result + ")");
                     }
                     m.getTest().setSuccess(passed);
                     storage.tell(m.getTest(), getSelf());
