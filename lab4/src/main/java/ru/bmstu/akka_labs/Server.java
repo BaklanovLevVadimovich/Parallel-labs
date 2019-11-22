@@ -43,7 +43,9 @@ public class Server {
                 path("result", () ->
                         route(
                                 get(() ->
-                                        parameter("packageId", id -> ))
+                                        parameter("packageId", id -> {
+                                            
+                                        }))
                         ))
         )
 
