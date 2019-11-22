@@ -26,4 +26,9 @@ public class Result {
     public void setTests(ArrayList<Test> tests) {
         this.tests = tests;
     }
+
+    @Override
+    public String toString() {
+        return "kek";
+    }
 }
