@@ -1,6 +1,7 @@
 package ru.bmstu.akka_labs;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Input {
     private final int packageId;
@@ -9,7 +10,10 @@ public class Input {
     private final Test[] tests;
 
     @JsonCreator
-    Input(int packageId, String jsScript, String functionName, Test[] tests) {
+    Input(@JsonProperty("packageId") int packageId,
+          @JsonProperty("jsScript") String jsScript,
+          @JsonProperty("functionName") String functionName,
+          @JsonProperty("tests") Test[] tests) {
         this.packageId = packageId;
         this.jsScript = jsScript;
         this.functionName = functionName;
