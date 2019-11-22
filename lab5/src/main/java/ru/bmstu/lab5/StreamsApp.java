@@ -62,7 +62,9 @@ public class StreamsApp {
                     } else {
                         Sink<Pair<String, Integer>, CompletionStage<Long>> innerSink = Flow.<Pair<String, Integer>>create()
                                 .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p.first())))
-                                .mapAsync(4, )
+                                .mapAsync(4, p -> {
+                                    
+                                })
                     }
                 })
                 .map(res -> {
