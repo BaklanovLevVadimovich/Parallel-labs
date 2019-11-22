@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.TimeUnit;
 
@@ -57,7 +58,7 @@ public class StreamsApp {
                     Future<Object> result = Patterns.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
                     long res = (long)Await.result(result, Duration.create(5, TimeUnit.SECONDS));
                     if (res != StoreActor.RESPONSE_TIME_DEFAULT_VALUE) {
-                        CompletionStage
+                        return CompletableFuture.completedFuture(res);
                     } else {
                         Sink<Pair<String, Integer>, CompletionStage<Long>> innerSink = Flow.<Pair<String, Integer>>create()
                                 .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p)))
