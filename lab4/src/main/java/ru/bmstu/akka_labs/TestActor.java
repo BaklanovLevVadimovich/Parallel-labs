@@ -14,6 +14,7 @@ public class TestActor extends AbstractActor {
 
     public TestActor(ActorRef storage) {
         this.storage = storage;
+        System.out.println("storage init");
     }
 
     private static String runTest(SingleTestInput input) throws ScriptException, NoSuchMethodException {
