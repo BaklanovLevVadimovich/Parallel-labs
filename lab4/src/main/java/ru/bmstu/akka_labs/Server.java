@@ -51,7 +51,7 @@ public class Server {
                 ),
                 path("run", () ->
                         route(
-                                post(() -> )
+                                post(() -> entity(Jackson.unmarshaller()))
                         ))
         );
     }
