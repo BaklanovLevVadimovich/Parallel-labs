@@ -13,6 +13,7 @@ import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.concurrent.CompletionStage;
 
 public class StreamsApp {
@@ -31,7 +32,8 @@ public class StreamsApp {
     private static Flow<HttpRequest, HttpResponse, NotUsed> createFlow(Http http, ActorSystem system, ActorMaterializer materializer) {
         Flow.of(HttpRequest.class)
                 .map(request -> {
-                    Map<String, String> params = request.
+                    Map<String, String> params = request.getUri().query().toMap();
+                    
                 })
     }
 }
