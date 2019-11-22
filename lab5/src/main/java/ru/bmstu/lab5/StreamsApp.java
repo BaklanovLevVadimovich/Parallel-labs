@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.CompletionStage;
+import java.util.concurrent.TimeUnit;
 
 public class StreamsApp {
 
@@ -54,10 +55,14 @@ public class StreamsApp {
                 })
                 .mapAsync(4, pair -> {
                     Future<Object> result = Patterns.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
-                    long res = (long)Await.result(result, Duration.create());
-                    Sink<Pair<String, Integer>, CompletionStage<Long>> innerSink = Flow.<Pair<String, Integer>>create()
-                            .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p)))
-                            .map()
+                    long res = (long)Await.result(result, Duration.create(5, TimeUnit.SECONDS));
+                    if (res != StoreActor.RESPONSE_TIME_DEFAULT_VALUE) {
+                        CompletionStage
+                    } else {
+                        Sink<Pair<String, Integer>, CompletionStage<Long>> innerSink = Flow.<Pair<String, Integer>>create()
+                                .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p)))
+                                .map()
+                    }
                 })
                 .map(res -> {
                     System.out.println("res = " + String.valueOf(res));
