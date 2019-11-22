@@ -72,10 +72,7 @@ public class StreamsApp {
                                     return asyncHttpClient().prepareGet(p).execute().
                                             toCompletableFuture()
                                             .thenCompose(response ->
-                                            {
-                                                System.out.println((long)java.time.Duration.between(startTime, Instant.now()).getNano()/1000000);
-                                                return CompletableFuture.completedFuture((long)java.time.Duration.between(startTime, Instant.now()).getNano()/1000000);
-                                            });
+                                                    CompletableFuture.completedFuture((long)java.time.Duration.between(startTime, Instant.now()).getNano()/1000000));
                                 })
                                 .toMat(Sink.fold(0L, Long::sum), Keep.right());
                         return Source.from(Collections.singletonList(pair))
