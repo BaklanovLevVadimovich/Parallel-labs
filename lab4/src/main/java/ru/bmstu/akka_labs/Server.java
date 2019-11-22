@@ -53,6 +53,7 @@ public class Server {
                         route(
                                 post(() -> entity(Jackson.unmarshaller(Input.class), msg -> {
                                     router.tell(msg, ActorRef.noSender());
+                                    return complete("Started test\n");
                                 }) )
                         ))
         );
