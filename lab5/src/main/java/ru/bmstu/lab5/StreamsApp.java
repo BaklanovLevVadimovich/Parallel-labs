@@ -55,7 +55,8 @@ public class StreamsApp {
                     })
                 })
                 .map(res -> {
-                    return HttpResponse.create().withStatus(200).withEntity("Среднее время отклика " + String.valueOf(res) + "ms")
+                    
+                    return HttpResponse.create().withStatus(200).withEntity("Среднее время отклика " + String.valueOf(res) + " ms");
                 })
     }
 }
