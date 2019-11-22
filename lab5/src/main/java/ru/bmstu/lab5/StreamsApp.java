@@ -61,7 +61,7 @@ public class StreamsApp {
                         return CompletableFuture.completedFuture(res);
                     } else {
                         Sink<Pair<String, Integer>, CompletionStage<Long>> innerSink = Flow.<Pair<String, Integer>>create()
-                                .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p)))
+                                .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p.first())))
                                 .map()
                     }
                 })
