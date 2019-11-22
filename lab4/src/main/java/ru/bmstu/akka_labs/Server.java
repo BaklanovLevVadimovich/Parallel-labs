@@ -41,7 +41,7 @@ public class Server {
     private Route createRoute(ActorRef router) {
         return route(
                 path("result", () -> {
-                    return route(
+                    route(
                             get(() -> {
                                 return parameter("packageId", id -> {
                                     Future<Object> result = Patterns.ask(router, id, TIMEOUT_MILLIS);
