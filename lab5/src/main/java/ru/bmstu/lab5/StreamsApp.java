@@ -17,9 +17,9 @@ import akka.stream.javadsl.Flow;
 import akka.stream.javadsl.Sink;
 import scala.concurrent.Await;
 import scala.concurrent.Future;
-import scala.concurrent.duration.Duration;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -67,7 +67,8 @@ public class StreamsApp {
                                 .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p.first())))
                                 .mapAsync(4, p -> {
                                     Instant startTime = Instant.now();
-                                    asyncHttpClient().prepareGet(p).execute().toCompletableFuture().thenCompose(response -> CompletableFuture.completedFuture(Duration))
+                                    asyncHttpClient().prepareGet(p).execute().toCompletableFuture()
+                                            .thenCompose(response -> CompletableFuture.completedFuture(Duration.between()))
                                 })
                     }
                 })
