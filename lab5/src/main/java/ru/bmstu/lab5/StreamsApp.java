@@ -20,6 +20,7 @@ import scala.concurrent.Future;
 import scala.concurrent.duration.Duration;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
@@ -63,7 +64,7 @@ public class StreamsApp {
                         Sink<Pair<String, Integer>, CompletionStage<Long>> innerSink = Flow.<Pair<String, Integer>>create()
                                 .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p.first())))
                                 .mapAsync(4, p -> {
-                                    p
+                                    Instant 
                                 })
                     }
                 })
