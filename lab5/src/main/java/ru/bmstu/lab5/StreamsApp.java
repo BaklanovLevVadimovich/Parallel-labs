@@ -14,6 +14,7 @@ import akka.pattern.Patterns;
 import akka.pattern.PatternsCS;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import akka.stream.javadsl.Sink;
 import scala.concurrent.Future;
 
 import java.io.IOException;
@@ -54,6 +55,7 @@ public class StreamsApp {
 //
 //                        }
 //                    });
+                    Sink<>
                 })
                 .map(res -> {
                     System.out.println("res = " + String.valueOf(res));
