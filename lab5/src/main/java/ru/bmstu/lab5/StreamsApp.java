@@ -45,7 +45,8 @@ public class StreamsApp {
                     return new Pair<>(url, count);
                 })
                 .mapAsync(4, pair -> {
-                    Future<Long> result = Patterns.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
+                    CompletionStage<Long> result = Patterns.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
+                    result.thenC
                 })
     }
 }
