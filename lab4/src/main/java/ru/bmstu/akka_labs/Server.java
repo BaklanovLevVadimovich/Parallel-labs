@@ -42,7 +42,8 @@ public class Server {
         return route(
                 path("result", () ->
                         route(
-                                get(() -> )
+                                get(() ->
+                                        parameter())
                         ))
         )
 
