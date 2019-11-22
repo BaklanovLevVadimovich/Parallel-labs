@@ -12,6 +12,7 @@ import akka.http.javadsl.model.HttpResponse;
 import akka.japi.Pair;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import scala.concurrent.Future;
 
 import java.io.IOException;
 import java.util.Map;
@@ -42,7 +43,7 @@ public class StreamsApp {
                     return new Pair<>(url, count);
                 })
                 .mapAsync(4, pair -> {
-                    
+                    Future<Long> result =  
                 })
     }
 }
