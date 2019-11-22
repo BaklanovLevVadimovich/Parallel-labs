@@ -67,7 +67,8 @@ public class StreamsApp {
                                 .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p.first())))
                                 .mapAsync(4, p -> {
                                     Instant startTime = Instant.now();
-                                    asyncHttpClient().prepareGet(p).execute()
+                                    asyncHttpClient().prepareGet(p).execute().toCompletableFuture()
+                                            .
                                 })
                     }
                 })
