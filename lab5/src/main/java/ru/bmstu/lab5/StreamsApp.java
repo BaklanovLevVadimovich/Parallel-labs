@@ -10,6 +10,7 @@ import akka.http.javadsl.ServerBinding;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.japi.Pair;
+import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import scala.concurrent.Future;
@@ -43,7 +44,7 @@ public class StreamsApp {
                     return new Pair<>(url, count);
                 })
                 .mapAsync(4, pair -> {
-                    Future<Long> result =  
+                    Future<Long> result = Patterns.ask(storeActor, pair.first(), )
                 })
     }
 }
