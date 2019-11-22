@@ -33,7 +33,7 @@ public class StreamsApp {
         Flow.of(HttpRequest.class)
                 .map(request -> {
                     Map<String, String> params = request.getUri().query().toMap();
-                    
+                    String url = params.get("")
                 })
     }
 }
