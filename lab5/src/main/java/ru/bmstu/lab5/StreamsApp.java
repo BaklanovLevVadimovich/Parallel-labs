@@ -70,7 +70,7 @@ public class StreamsApp {
                                     CompletionStage<Long> a = asyncHttpClient().prepareGet(p).execute().toCompletableFuture()
                                             .thenCompose(response -> CompletableFuture.completedFuture((long)Duration.between(startTime, Instant.now()).getNano()*1000000));
                                 })
-                                .toMat()
+                                .toMat(Sink.fold(0, Long::sum))
                     }
                 })
                 .map(res -> {
