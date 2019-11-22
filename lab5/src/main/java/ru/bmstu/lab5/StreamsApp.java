@@ -46,10 +46,13 @@ public class StreamsApp {
                     Map<String, String> params = request.getUri().query().toMap();
                     String url = params.get("testUrl");
                     int count = Integer.parseInt(params.get("count"));
+                    System.out.println(url);
+                    System.out.println(count);
                     return new Pair<>(url, count);
                 })
                 .mapAsync(4, pair -> {
                     CompletionStage<Object> result = PatternsCS.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
+                    System.out.println("return");
                     return result;
 //                    boolean alreadyDone = false;
 //                    result.
