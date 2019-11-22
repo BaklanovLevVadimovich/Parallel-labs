@@ -68,10 +68,12 @@ public class StreamsApp {
                                 .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p.first())))
                                 .mapAsync(4, p -> {
                                     Instant startTime = Instant.now();
-                                    CompletionStage<Long> a = asyncHttpClient().prepareGet(p).execute().toCompletableFuture()
-                                            .thenCompose(response -> CompletableFuture.completedFuture((long)Duration.between(startTime, Instant.now()).getNano()*1000000));
+                                    return asyncHttpClient().prepareGet(p).execute().
+                                            toCompletableFuture()
+                                            .thenCompose(response ->
+                                                    CompletableFuture.completedFuture((long)Duration.between(startTime, Instant.now()).getNano()*1000000));
                                 })
-                                .toMat(Sink.fold(0, Long::sum), Keep.right())
+                                .toMat(Sink.fold(0L, Long::sum), Keep.right());
                     }
                 })
                 .map(res -> {
