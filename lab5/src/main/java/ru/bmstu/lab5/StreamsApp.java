@@ -48,15 +48,16 @@ public class StreamsApp {
                 .mapAsync(4, pair -> {
                     CompletionStage<Object> result = PatternsCS.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
                     boolean alreadyDone = false;
+                    return result;
                     result.thenCompose(res -> {
                         if ((Long)res == -1) {
 
                         }
-                    })
+                    });
                 })
                 .map(res -> {
-                    
+                    System.out.println("res = " + String.valueOf(res));
                     return HttpResponse.create().withStatus(200).withEntity("Среднее время отклика " + String.valueOf(res) + " ms");
-                })
+                });
     }
 }
