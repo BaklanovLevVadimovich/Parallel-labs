@@ -18,6 +18,7 @@ import akka.stream.javadsl.Sink;
 import scala.concurrent.Future;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.CompletionStage;
 
@@ -56,7 +57,7 @@ public class StreamsApp {
 //                        }
 //                    });
                     Sink<Pair<String, Integer>, CompletionStage<Long>> innerSink = Flow.<Pair<String, Integer>>create()
-                            .mapConcat(p -> new Pair<String, Integer>)
+                            .mapConcat(p -> new ArrayList<>())
                 })
                 .map(res -> {
                     System.out.println("res = " + String.valueOf(res));
