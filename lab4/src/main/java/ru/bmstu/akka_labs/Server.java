@@ -49,7 +49,7 @@ public class Server {
                                         }))
                         )
                 ),
-                path("")
+                path("run", )
         );
     }
 }
