@@ -63,7 +63,7 @@ public class StreamsApp {
                     Future<Object> result = Patterns.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
                     long res = (long)Await.result(result, Duration.create(5, TimeUnit.SECONDS));
                     if (res != StoreActor.RESPONSE_TIME_DEFAULT_VALUE) {
-                        return CompletableFuture.completedFuture(res);
+                        return CompletableFuture.completedFuture(res).thenApply(sum -> new Result(pair.first(), sum));
                     } else {
                         Sink<Pair<String, Integer>, CompletionStage<Long>> innerSink = Flow.<Pair<String, Integer>>create()
                                 .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p.first())))
