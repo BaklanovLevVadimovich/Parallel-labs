@@ -25,7 +25,7 @@ public class StoreActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(SingleTestInput.class, m -> addTest(m.getPackageId(), m.getTest()))
-                .match(String.class, m -> sender().tell(new Result(Integer.parseInt(m), store.getOrDefault(Integer.parseInt(m))), getSelf()))
+                .match(String.class, m -> sender().tell(new Result(Integer.parseInt(m), store.getOrDefault(Integer.parseInt(m), new ArrayList<>())), getSelf()))
                 .build();
     }
 }
