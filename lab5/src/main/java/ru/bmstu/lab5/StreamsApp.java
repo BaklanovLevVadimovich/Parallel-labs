@@ -15,6 +15,7 @@ import akka.pattern.PatternsCS;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import akka.stream.javadsl.Sink;
+import scala.concurrent.Await;
 import scala.concurrent.Future;
 
 import java.io.IOException;
@@ -52,7 +53,7 @@ public class StreamsApp {
                 })
                 .mapAsync(4, pair -> {
                     Future<Object> result = Patterns.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
-                    
+                    long res = Await.result(result, )
                     Sink<Pair<String, Integer>, CompletionStage<Long>> innerSink = Flow.<Pair<String, Integer>>create()
                             .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p)))
                             .map()
