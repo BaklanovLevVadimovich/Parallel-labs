@@ -21,6 +21,7 @@ import java.util.concurrent.CompletionStage;
 
 public class StreamsApp {
 
+    private static final int TIMEOUT_MILLIS = 5000;
     private static ActorRef storeActor;
 
     public static void main(String[] args) throws IOException {
@@ -44,7 +45,7 @@ public class StreamsApp {
                     return new Pair<>(url, count);
                 })
                 .mapAsync(4, pair -> {
-                    Future<Long> result = Patterns.ask(storeActor, pair.first(), )
+                    Future<Long> result = Patterns.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
                 })
     }
 }
