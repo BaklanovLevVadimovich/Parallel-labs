@@ -50,9 +50,9 @@ public class StreamsApp {
                     boolean alreadyDone = false;
                     result.thenCompose(res -> {
                         if ((Long)res == -1) {
-                            alreadyDone = true;
+
                         }
-                    })
+                    }).comple
                 })
     }
 }
