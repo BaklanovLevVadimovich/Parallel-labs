@@ -51,7 +51,9 @@ public class Server {
                 ),
                 path("run", () ->
                         route(
-                                post(() -> entity(Jackson.unmarshaller(Input.class)), )
+                                post(() -> entity(Jackson.unmarshaller(Input.class), msg -> {
+                                    
+                                }) )
                         ))
         );
     }
