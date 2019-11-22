@@ -41,7 +41,9 @@ public class Server {
     private Route createRoute(ActorRef router) {
         return route(
                 path("result", () ->
-                        route())
+                        route(
+                                get(() -> )
+                        ))
         )
 
         return route(
