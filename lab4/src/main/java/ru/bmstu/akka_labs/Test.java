@@ -1,12 +1,16 @@
 package ru.bmstu.akka_labs;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Test {
     private final String name;
     private final String expectedResult;
     private final Object[] params;
     private boolean success;
 
-    public Test(String name, String expectedResult, Object[] params) {
+    @JsonCreator
+    Test(@JsonProperty("name") String name, String expectedResult, Object[] params) {
         this.name = name;
         this.expectedResult = expectedResult;
         this.params = params;
