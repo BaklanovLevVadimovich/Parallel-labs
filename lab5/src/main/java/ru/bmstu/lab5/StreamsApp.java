@@ -56,7 +56,7 @@ public class StreamsApp {
 //                        }
 //                    });
                     Sink<Pair<String, Integer>, CompletionStage<Long>> innerSink = Flow.<Pair<String, Integer>>create()
-                            .mapConcat(p -> )
+                            .mapConcat(p -> new Pair<String, Integer>)
                 })
                 .map(res -> {
                     System.out.println("res = " + String.valueOf(res));
