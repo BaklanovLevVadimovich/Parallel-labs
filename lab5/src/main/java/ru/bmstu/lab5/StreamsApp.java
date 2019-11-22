@@ -16,6 +16,7 @@ import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import akka.stream.javadsl.Keep;
 import akka.stream.javadsl.Sink;
+import akka.stream.javadsl.Source;
 import scala.concurrent.Await;
 import scala.concurrent.Future;
 
@@ -74,6 +75,7 @@ public class StreamsApp {
                                                     CompletableFuture.completedFuture((long)Duration.between(startTime, Instant.now()).getNano()*1000000));
                                 })
                                 .toMat(Sink.fold(0L, Long::sum), Keep.right());
+                        return Source
                     }
                 })
                 .map(res -> {
