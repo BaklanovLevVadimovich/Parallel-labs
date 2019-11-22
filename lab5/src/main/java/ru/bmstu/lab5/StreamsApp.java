@@ -19,8 +19,11 @@ import java.util.concurrent.CompletionStage;
 
 public class StreamsApp {
 
+    private static ActorRef storeActor;
+
     public static void main(String[] args) throws IOException {
         ActorSystem system = ActorSystem.create("routes");
+        storeActor = system.
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = createFlow(http, system, materializer);
@@ -39,7 +42,7 @@ public class StreamsApp {
                     return new Pair<>(url, count);
                 })
                 .mapAsync(4, pair -> {
-                    
+
                 })
     }
 }
