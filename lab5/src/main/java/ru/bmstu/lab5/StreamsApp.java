@@ -19,9 +19,9 @@ import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
 import scala.concurrent.Await;
 import scala.concurrent.Future;
+import scala.concurrent.duration.Duration;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -72,7 +72,7 @@ public class StreamsApp {
                                     return asyncHttpClient().prepareGet(p).execute().
                                             toCompletableFuture()
                                             .thenCompose(response ->
-                                                    CompletableFuture.completedFuture((long)Duration.between(startTime, Instant.now()).getNano()*1000000));
+                                                    CompletableFuture.completedFuture((long)java.time.Duration.between(startTime, Instant.now()).getNano()*1000000));
                                 })
                                 .toMat(Sink.fold(0L, Long::sum), Keep.right());
                         return Source.from(Collections.singletonList(pair))
