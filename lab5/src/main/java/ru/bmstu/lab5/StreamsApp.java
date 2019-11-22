@@ -75,7 +75,8 @@ public class StreamsApp {
                                                     CompletableFuture.completedFuture((long)Duration.between(startTime, Instant.now()).getNano()*1000000));
                                 })
                                 .toMat(Sink.fold(0L, Long::sum), Keep.right());
-                        return Source.from(Collections.singletonList(pair)).
+                        return Source.from(Collections.singletonList(pair))
+                                .toMat()
                     }
                 })
                 .map(res -> {
