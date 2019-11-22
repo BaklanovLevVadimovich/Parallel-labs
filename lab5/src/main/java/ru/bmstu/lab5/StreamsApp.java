@@ -23,7 +23,7 @@ public class StreamsApp {
 
     public static void main(String[] args) throws IOException {
         ActorSystem system = ActorSystem.create("routes");
-        storeActor = system.
+        storeActor = system.actorOf(Props.create(StoreActor.class));
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = createFlow(http, system, materializer);
@@ -42,7 +42,7 @@ public class StreamsApp {
                     return new Pair<>(url, count);
                 })
                 .mapAsync(4, pair -> {
-
+                    
                 })
     }
 }

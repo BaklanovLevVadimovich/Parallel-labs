@@ -1,4 +1,4 @@
-package ru.bmstu.akka_labs;
+package ru.bmstu.lab5;
 
 import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;
