@@ -38,6 +38,8 @@ public class StreamsApp {
                     int count = Integer.parseInt(params.get("count"));
                     return new Pair<>(url, count);
                 })
-                .mapAsync()
+                .mapAsync(4, pair -> {
+                    
+                })
     }
 }
