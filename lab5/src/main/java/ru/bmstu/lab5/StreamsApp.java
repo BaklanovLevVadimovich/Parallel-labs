@@ -81,7 +81,7 @@ public class StreamsApp {
                     }
                 })
                 .map(res -> {
-                    long resultTime = ((Result)res).getResponseTime();
+                    long resultTime = res.getResponseTime();
                     System.out.println("res = " + String.valueOf(resultTime));
                     storeActor.tell(res, ActorRef.noSender());
                     return HttpResponse.create().withStatus(200).withEntity("Среднее время отклика " + String.valueOf(resultTime) + " ms");
