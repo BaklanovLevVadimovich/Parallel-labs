@@ -28,6 +28,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.TimeUnit;
 
+import static org.asynchttpclient.Dsl.asyncHttpClient;
+
 public class StreamsApp {
 
     private static final int TIMEOUT_MILLIS = 5000;
@@ -65,7 +67,7 @@ public class StreamsApp {
                                 .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p.first())))
                                 .mapAsync(4, p -> {
                                     Instant startTime = Instant.now();
-                                    
+                                    asyncHttpClient().
                                 })
                     }
                 })
