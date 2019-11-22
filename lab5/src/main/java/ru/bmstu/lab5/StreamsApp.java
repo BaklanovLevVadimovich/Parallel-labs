@@ -21,6 +21,7 @@ public class StreamsApp {
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
+        final Flow<>
         StreamsApp instance = new StreamsApp();
         ActorRef router = system.actorOf(Props.create(RouteActor.class));
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = instance.createRoute(router).flow(system, materializer);
