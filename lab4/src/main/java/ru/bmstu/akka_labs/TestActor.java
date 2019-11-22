@@ -29,6 +29,11 @@ public class TestActor extends AbstractActor {
                 .match(SingleTestInput.class, m -> {
                     String result = runTest(m);
                     boolean passed = result.equals(m.getTest().getExpectedResult());
+                    if (passed) {
+                        System.out.println("Test " + m.getTest().getName() + " passed\n");
+                    } else {
+                        System.out.println("Test " + m.getTest().getName() + " failed");
+                    }
                     m.getTest().setSuccess(passed);
                     storage.tell(m.getTest(), getSelf());
                 })
