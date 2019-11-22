@@ -51,19 +51,11 @@ public class StreamsApp {
                     return new Pair<>(url, count);
                 })
                 .mapAsync(4, pair -> {
-                    CompletionStage<Object> result = PatternsCS.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
-                    System.out.println("return");
-                    return result;
-//                    boolean alreadyDone = false;
-//                    result.
-//                    result.thenCompose(res -> {
-//                        if ((Long)res == -1) {
-//
-//                        }
-//                    });
-//                    Sink<Pair<String, Integer>, CompletionStage<Long>> innerSink = Flow.<Pair<String, Integer>>create()
-//                            .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p)))
-//                            .map()
+                    Future<Object> result = Patterns.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
+                    
+                    Sink<Pair<String, Integer>, CompletionStage<Long>> innerSink = Flow.<Pair<String, Integer>>create()
+                            .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p)))
+                            .map()
                 })
                 .map(res -> {
                     System.out.println("res = " + String.valueOf(res));
