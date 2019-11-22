@@ -12,8 +12,8 @@ public class RouteActor extends AbstractActor {
     private ActorRef storage;
 
     public RouteActor() {
-        worker = getContext().actorOf(new RoundRobinPool(ACTORS_POOL).props(Props.create(TestActor.class, storage)));
         storage = getContext().actorOf(Props.create(StoreActor.class));
+        worker = getContext().actorOf(new RoundRobinPool(ACTORS_POOL).props(Props.create(TestActor.class, storage)));
     }
 
     @Override

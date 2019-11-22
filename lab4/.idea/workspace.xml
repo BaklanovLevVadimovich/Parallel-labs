@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6d24abf-115c-4dc5-b01d-f4f76908bb38" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/TestActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/TestActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/RouteActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/RouteActor.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -22,13 +22,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4082" />
+          <entry key="java" value="4103" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4082" />
+          <entry key="JAVA" value="4103" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
@@ -107,25 +107,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/TestActor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="39" column="67" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="67" />
+            <state relative-caret-position="181">
+              <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#357#358#0" expanded="true" />
-                <element signature="e#395#396#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/RouteActor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="14" column="110" lean-forward="true" selection-start-line="14" selection-start-column="110" selection-end-line="14" selection-end-column="110" />
+              <caret line="14" column="71" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -162,10 +160,10 @@
         <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/Result.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/StoreActor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/RouteActor.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/Input.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/TestActor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/RouteActor.java" />
       </list>
     </option>
   </component>
@@ -231,7 +229,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574427439772" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574427442700" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -277,12 +275,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574370559372</updated>
-      <workItem from="1574370566634" duration="13674000" />
+      <workItem from="1574370566634" duration="14032000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13674000" />
+    <option name="totallyTimeSpent" value="14032000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
@@ -405,24 +403,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/RouteActor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/TestActor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="110" lean-forward="true" selection-start-line="14" selection-start-column="110" selection-end-line="14" selection-end-column="110" />
+        <state relative-caret-position="181">
+          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/TestActor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/akka_labs/RouteActor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="39" column="67" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="67" />
+        <state relative-caret-position="204">
+          <caret line="14" column="71" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#357#358#0" expanded="true" />
-            <element signature="e#395#396#0" expanded="true" />
           </folding>
         </state>
       </provider>
