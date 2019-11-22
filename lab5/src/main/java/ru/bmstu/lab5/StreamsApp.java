@@ -67,8 +67,8 @@ public class StreamsApp {
                                 .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p.first())))
                                 .mapAsync(4, p -> {
                                     Instant startTime = Instant.now();
-                                    asyncHttpClient().prepareGet(p).execute().toCompletableFuture()
-                                            .thenCompose(response -> CompletableFuture.completedFuture(Duration.between(startTime, Instant.now()).getNano()*1000000));
+                                    CompletionStage<Long> a = asyncHttpClient().prepareGet(p).execute().toCompletableFuture()
+                                            .thenCompose(response -> CompletableFuture.completedFuture((long)Duration.between(startTime, Instant.now()).getNano()*1000000));
                                 })
                     }
                 })
