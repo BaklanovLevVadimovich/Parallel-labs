@@ -55,7 +55,7 @@ public class StreamsApp {
                     })
                 })
                 .map(res -> {
-                    return new HttpResponse
+                    return new HttpResponse.create()
                 })
     }
 }
