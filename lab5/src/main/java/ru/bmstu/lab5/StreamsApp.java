@@ -54,6 +54,8 @@ public class StreamsApp {
                         }
                     })
                 })
-                .map()
+                .map(res -> {
+                    return new HttpResponse
+                })
     }
 }
