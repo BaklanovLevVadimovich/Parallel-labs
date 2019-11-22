@@ -6,7 +6,7 @@ public class Input {
     private final String functionName;
     private final Test[] tests;
 
-    public Input(int packageId, String jsScript, String functionName, Test[] tests) {
+    Input(int packageId, String jsScript, String functionName, Test[] tests) {
         this.packageId = packageId;
         this.jsScript = jsScript;
         this.functionName = functionName;
