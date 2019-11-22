@@ -35,6 +35,9 @@ public class TestActor extends AbstractActor {
                         System.out.println("Test " + m.getTest().getName() + " failed(EXPECTED " + m.getTest().getExpectedResult() + ", GOT " + result + ")");
                     }
                     m.getTest().setSuccess(passed);
+                    if (storage == null) System.out.println("storage null");
+                    if (m.getTest() == null) System.out.println("test null");
+                    if (getSelf() == null) System.out.println("self null");
                     storage.tell(m.getTest(), getSelf());
                 })
                 .build();
