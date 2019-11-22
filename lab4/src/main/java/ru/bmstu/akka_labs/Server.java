@@ -47,8 +47,9 @@ public class Server {
                                             Future<Object> result = Patterns.ask(router, id, TIMEOUT_MILLIS);
                                             return completeOKWithFuture(result, Jackson.marshaller());
                                         }))
-                        ))
-                
+                        )
+                ),
+                path("")
         );
     }
 }
