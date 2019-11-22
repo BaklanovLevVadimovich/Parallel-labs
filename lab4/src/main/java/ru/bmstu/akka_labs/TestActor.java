@@ -32,7 +32,7 @@ public class TestActor extends AbstractActor {
                     if (passed) {
                         System.out.println("Test " + m.getTest().getName() + " passed\n");
                     } else {
-                        System.out.println("Test " + m.getTest().getName() + " failed");
+                        System.out.println("Test " + m.getTest().getName() + " failed(EXPECTED " + m.getTest().getExpectedResult() + ", GOT " + result + ")\n");
                     }
                     m.getTest().setSuccess(passed);
                     storage.tell(m.getTest(), getSelf());
