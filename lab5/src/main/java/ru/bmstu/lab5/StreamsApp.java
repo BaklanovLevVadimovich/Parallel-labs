@@ -30,6 +30,8 @@ public class StreamsApp {
 
     private static Flow<HttpRequest, HttpResponse, NotUsed> createFlow(Http http, ActorSystem system, ActorMaterializer materializer) {
         Flow.of(HttpRequest.class)
-                .
+                .map(request -> {
+                    
+                })
     }
 }
