@@ -22,7 +22,8 @@ import java.util.concurrent.CompletionStage;
 import static akka.http.javadsl.server.Directives.*;
 
 public class Server {
-
+    private static final String RESULT_PATH = "result";
+    private static final String RUN_PATH = "run";
     private static final int TIMEOUT_MILLIS = 5000;
 
     public static void main(String[] args) throws IOException {
@@ -40,7 +41,7 @@ public class Server {
 
     private Route createRoute(ActorRef router) {
         return route(
-                path("result", () ->
+                path(RESULT_PATH, () ->
                         route(
                                 get(() ->
                                         parameter("packageId", id -> {
@@ -49,7 +50,7 @@ public class Server {
                                         }))
                         )
                 ),
-                path("run", () ->
+                path(RUN_PATH, () ->
                         route(
                                 post(() -> entity(Jackson.unmarshaller(Input.class), msg -> {
                                     router.tell(msg, ActorRef.noSender());

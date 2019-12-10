@@ -42,43 +42,44 @@ public class StreamsApp {
         storeActor = system.actorOf(Props.create(StoreActor.class));
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = createFlow(http, system, materializer);
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = createFlow(materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(routeFlow, ConnectHttp.toHost("localhost", 8081), materializer);
         System.out.println("Server online at localhost:8081");
         System.in.read();
         binding.thenCompose(ServerBinding::unbind).thenAccept(unbound -> system.terminate());
     }
 
-    private static Flow<HttpRequest, HttpResponse, NotUsed> createFlow(Http http, ActorSystem system, ActorMaterializer materializer) {
+    private static Flow<HttpRequest, HttpResponse, NotUsed> createFlow(ActorMaterializer materializer) {
         return Flow.of(HttpRequest.class)
                 .map(request -> {
                     Map<String, String> params = request.getUri().query().toMap();
                     String url = params.get("testUrl");
                     int count = Integer.parseInt(params.get("count"));
-                    System.out.println(url);
-                    System.out.println(count);
                     return new Pair<>(url, count);
                 })
                 .mapAsync(4, pair -> {
-                    Future<Object> result = Patterns.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
-                    long res = (long)Await.result(result, Duration.create(5, TimeUnit.SECONDS));
-                    if (res != StoreActor.RESPONSE_TIME_DEFAULT_VALUE) {
-                        return CompletableFuture.completedFuture(res).thenApply(sum -> new Result(pair.first(), sum));
-                    } else {
-                        Sink<Pair<String, Integer>, CompletionStage<Long>> innerSink = Flow.<Pair<String, Integer>>create()
-                                .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p.first())))
-                                .mapAsync(4, p -> {
-                                    Instant startTime = Instant.now();
-                                    return asyncHttpClient().prepareGet(p).execute().
-                                            toCompletableFuture()
-                                            .thenCompose(response ->
-                                                    CompletableFuture.completedFuture((long)java.time.Duration.between(startTime, Instant.now()).getNano()/1000000));
-                                })
-                                .toMat(Sink.fold(0L, Long::sum), Keep.right());
-                        return Source.from(Collections.singletonList(pair))
-                                .toMat(innerSink, Keep.right()).run(materializer)
-                                .thenApply(sum -> new Result(pair.first(), sum/pair.second()));
-                    }
+                    CompletionStage<Object> result = PatternsCS.ask(storeActor, pair.first(), TIMEOUT_MILLIS);
+                    return result.thenCompose(res -> {
+                        if ((Long)res != StoreActor.RESPONSE_TIME_DEFAULT_VALUE) {
+                            return CompletableFuture.completedFuture(res).thenApply(sum -> new Result(pair.first(), (long)sum));
+                        } else {
+                            Sink<Pair<String, Integer>, CompletionStage<Long>> innerSink = Flow.<Pair<String, Integer>>create()
+                                    .mapConcat(p -> new ArrayList<>(Collections.nCopies(p.second(), p.first())))
+                                    .mapAsync(4, p -> {
+                                        Instant startTime = Instant.now();
+                                        return asyncHttpClient().prepareGet(p).execute().
+                                                toCompletableFuture()
+                                                .thenCompose(response -> {
+                                                    System.out.println(java.time.Duration.between(startTime, Instant.now()).toMillis());
+                                                    return CompletableFuture.completedFuture(java.time.Duration.between(startTime, Instant.now()).toMillis());
+                                                });
+                                    })
+                                    .toMat(Sink.fold(0L, Long::sum), Keep.right());
+                            return Source.from(Collections.singletonList(pair))
+                                    .toMat(innerSink, Keep.right()).run(materializer)
+                                    .thenApply(sum -> new Result(pair.first(), sum/pair.second()));
+                        }
+                    });
                 })
                 .map(res -> {
                     long resultTime = res.getResponseTime();
