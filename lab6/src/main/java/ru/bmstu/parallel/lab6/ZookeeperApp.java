@@ -17,7 +17,8 @@ import java.util.concurrent.CompletionStage;
 
 public class ZookeeperApp{
 
-    
+    private int port;
+    private 
 
     public static void main(String[] args) throws IOException {
         ActorSystem system = ActorSystem.create("routes");
