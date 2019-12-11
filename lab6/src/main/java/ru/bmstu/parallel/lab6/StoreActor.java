@@ -16,5 +16,5 @@ public class StoreActor extends AbstractActor {
                 .build();
     }
 
-    private String 
+    private String getRandomServer()
 }
