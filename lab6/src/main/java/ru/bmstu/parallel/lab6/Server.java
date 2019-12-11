@@ -19,7 +19,8 @@ public class Server {
     public Route createRoute() {
         return route(
                 get(() ->
-                        parameter(URL_PARAMETER_NAME))
+                        parameter(URL_PARAMETER_NAME,
+                                url -> ))
         );
     }
 }
