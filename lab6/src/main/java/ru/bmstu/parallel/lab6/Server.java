@@ -28,9 +28,9 @@ public class Server {
                                         count -> {
                                             int countInt = Integer.parseInt(count);
                                             if (countInt > 0) {
-
+                                                redirect(url, countInt);
                                             } else {
-
+                                                sendRequest(url);
                                             }
                                         })
                         )
@@ -43,6 +43,6 @@ public class Server {
     }
 
     private CompletionStage<HttpResponse> redirect(String url, int count) {
-        
+
     }
 }
