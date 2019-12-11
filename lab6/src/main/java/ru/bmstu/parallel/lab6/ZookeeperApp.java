@@ -28,7 +28,7 @@ public class ZookeeperApp{
         Server server = new Server(http);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = server.createRoute().flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(routeFlow, ConnectHttp.toHost(HOST, port), materializer);
-        System.out.println("Server online at localhost:8081");
+        System.out.println("Server online at localhost:" + String.valueOf(port));
         System.in.read();
         binding.thenCompose(ServerBinding::unbind).thenAccept(unbound -> system.terminate());
     }
