@@ -47,6 +47,6 @@ public class Server {
     }
 
     private CompletionStage<HttpResponse> redirect(String url, int count) {
-        return Patterns.ask(storeActor, new GetRandomServerMessage(), TIMEOUT_MILLIS).thenCompose()
+        return Patterns.ask(storeActor, new GetRandomServerMessage(), TIMEOUT_MILLIS).
     }
 }
