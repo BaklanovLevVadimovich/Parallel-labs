@@ -28,9 +28,9 @@ public class Server {
                                         count -> {
                                             int countInt = Integer.parseInt(count);
                                             if (countInt > 0) {
-                                                redirect(url, countInt);
+                                                 return redirect(url, countInt);
                                             } else {
-                                                sendRequest(url);
+                                                return sendRequest(url);
                                             }
                                         })
                         )
