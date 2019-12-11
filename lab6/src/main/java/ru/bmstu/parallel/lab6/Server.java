@@ -10,7 +10,7 @@ public class Server {
         this.http = http;
     }
 
-    public void createRoute() {
+    public Route createRoute() {
 
     }
 }
