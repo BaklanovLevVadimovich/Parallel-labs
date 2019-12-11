@@ -23,7 +23,7 @@ public class StoreActor extends AbstractActor {
 
     private String getRandomServer() {
         if (random == null) {
-            random = new Random()
+            random = new Random(System.currentTimeMillis())
         }
         String server =
     }
