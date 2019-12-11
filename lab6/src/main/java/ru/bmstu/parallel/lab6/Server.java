@@ -35,6 +35,6 @@ public class Server {
     }
 
     private void sendRequest(String url) {
-        
+        return http.singleRequest()
     }
 }
