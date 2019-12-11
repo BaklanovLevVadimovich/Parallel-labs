@@ -5,6 +5,7 @@ import akka.http.javadsl.Http;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.server.Route;
+import akka.pattern.Patterns;
 
 import java.util.concurrent.CompletionStage;
 
@@ -46,6 +47,6 @@ public class Server {
     }
 
     private CompletionStage<HttpResponse> redirect(String url, int count) {
-        
+        Patterns.ask(storeActor)
     }
 }
