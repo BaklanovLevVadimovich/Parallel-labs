@@ -23,9 +23,9 @@ public class StoreActor extends AbstractActor {
 
     private String getRandomServer() {
         if (random == null) {
-            random = new Random(System.currentTimeMillis())
+            random = new Random(System.currentTimeMillis());
         }
-        String server =
+        String server = servers.get(random.nextInt(servers.size())-1);
     }
 
     private void setServers(ArrayList<String> servers) {
