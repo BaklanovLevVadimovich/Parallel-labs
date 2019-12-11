@@ -1,7 +1,11 @@
 package ru.bmstu.parallel.lab6;
 
 import akka.http.javadsl.Http;
+import akka.http.javadsl.model.HttpRequest;
+import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.server.Route;
+
+import java.util.concurrent.CompletionStage;
 
 import static akka.http.javadsl.server.Directives.*;
 
@@ -34,7 +38,7 @@ public class Server {
         );
     }
 
-    private void sendRequest(String url) {
-        return http.singleRequest()
+    private CompletionStage<HttpResponse> sendRequest(String url) {
+        return http.singleRequest(HttpRequest.create(url));
     }
 }
