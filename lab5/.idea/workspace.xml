@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="174f48c9-a4f0-4856-9787-f78993721064" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../lab6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/ru/bmstu/parallel/lab6/ZookeeperApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/ru/bmstu/parallel/lab6/ZookeeperApp.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -218,12 +217,12 @@
       <updated>1574430805707</updated>
       <workItem from="1574430841189" duration="15843000" />
       <workItem from="1574459712571" duration="5924000" />
-      <workItem from="1576090077445" duration="1200000" />
+      <workItem from="1576090077445" duration="1450000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22967000" />
+    <option name="totallyTimeSpent" value="23217000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
