@@ -1,5 +1,6 @@
 package ru.bmstu.parallel.lab6;
 
+import akka.actor.ActorRef;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
@@ -13,11 +14,13 @@ public class Server {
 
     private static final String URL_PARAMETER_NAME = "url";
     private static final String COUNT_PARAMETER_NAME = "count";
+    private ActorRef storeActor;
 
     private Http http;
 
-    public Server(Http http) {
+    public Server(Http http, ActorRef storeActor) {
         this.http = http;
+        this.storeActor = storeActor;
     }
 
     public Route createRoute() {
