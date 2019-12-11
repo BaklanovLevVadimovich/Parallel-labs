@@ -20,11 +20,11 @@ public class StoreActor extends AbstractActor {
     }
 
     private String getRandomServer() {
-
+        String server = 
     }
 
     private void setServers(ArrayList<String> servers) {
-        
+        System.out.println("New server list set");
         this.servers = servers;
     }
 }
