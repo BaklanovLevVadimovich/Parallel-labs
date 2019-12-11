@@ -20,7 +20,8 @@ public class Server {
         return route(
                 get(() ->
                         parameter(URL_PARAMETER_NAME,
-                                url -> ))
+                                url -> parameter(COUNT_PARAMETER_NAME,
+                                        count ->)))
         );
     }
 }
