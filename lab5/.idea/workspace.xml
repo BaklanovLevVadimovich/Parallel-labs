@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="174f48c9-a4f0-4856-9787-f78993721064" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/ru/bmstu/parallel/lab6/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/ru/bmstu/parallel/lab6/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/ru/bmstu/parallel/lab6/ZookeeperApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/ru/bmstu/parallel/lab6/ZookeeperApp.java" afterDir="false" />
-    </list>
+    <list default="true" id="174f48c9-a4f0-4856-9787-f78993721064" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,7 +59,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/lab5/StreamsApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="633">
+            <state relative-caret-position="495">
               <caret line="44" column="74" selection-start-line="44" selection-start-column="74" selection-end-line="44" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -218,12 +215,12 @@
       <updated>1574430805707</updated>
       <workItem from="1574430841189" duration="15843000" />
       <workItem from="1574459712571" duration="5924000" />
-      <workItem from="1576090077445" duration="1808000" />
+      <workItem from="1576090077445" duration="2050000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23575000" />
+    <option name="totallyTimeSpent" value="23817000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
@@ -294,7 +291,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/lab5/StreamsApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
+        <state relative-caret-position="495">
           <caret line="44" column="74" selection-start-line="44" selection-start-column="74" selection-end-line="44" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
