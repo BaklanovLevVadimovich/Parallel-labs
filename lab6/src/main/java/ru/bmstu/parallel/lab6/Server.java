@@ -3,6 +3,8 @@ package ru.bmstu.parallel.lab6;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.server.Route;
 
+import static akka.http.javadsl.server.Directives.*;
+
 public class Server {
 
     private Http http;
@@ -12,6 +14,8 @@ public class Server {
     }
 
     public Route createRoute() {
-        return get(()
+        return route(
+                get(() -> )
+        );
     }
 }
