@@ -15,4 +15,6 @@ public class StoreActor extends AbstractActor {
                 .match(SetServersMessage.class, m -> sender().tell(getResult(m), getSelf()))
                 .build();
     }
+
+    private String 
 }
