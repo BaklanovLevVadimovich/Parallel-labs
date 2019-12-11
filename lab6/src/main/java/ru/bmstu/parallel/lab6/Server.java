@@ -12,6 +12,6 @@ public class Server {
     }
 
     public Route createRoute() {
-        
+        return get(()
     }
 }
