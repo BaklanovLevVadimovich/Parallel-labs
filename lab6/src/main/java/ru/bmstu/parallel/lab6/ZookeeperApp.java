@@ -17,10 +17,11 @@ import java.util.concurrent.CompletionStage;
 
 public class ZookeeperApp{
 
-    private int port;
+    private static int port;
     private static final String HOST = "localhost";
 
     public static void main(String[] args) throws IOException {
+        port = Integer.parseInt(args[0]);
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
