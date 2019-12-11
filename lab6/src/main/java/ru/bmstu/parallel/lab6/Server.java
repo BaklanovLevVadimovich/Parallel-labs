@@ -1,6 +1,7 @@
 package ru.bmstu.parallel.lab6;
 
 import akka.http.javadsl.Http;
+import akka.http.javadsl.server.Route;
 
 public class Server {
 
