@@ -7,6 +7,9 @@ import static akka.http.javadsl.server.Directives.*;
 
 public class Server {
 
+    private static final String URL_PARAMETER_NAME = "url";
+    private static final String COUNT_PARAMETER_NAME = "count";
+
     private Http http;
 
     public Server(Http http) {
@@ -15,7 +18,8 @@ public class Server {
 
     public Route createRoute() {
         return route(
-                get(() -> )
+                get(() ->
+                        parameter())
         );
     }
 }
