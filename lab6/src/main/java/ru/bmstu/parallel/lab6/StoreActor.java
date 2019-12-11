@@ -26,6 +26,8 @@ public class StoreActor extends AbstractActor {
             random = new Random(System.currentTimeMillis());
         }
         String server = servers.get(random.nextInt(servers.size()));
+        System.out.println("Redirecting to " + server);
+        return server;
     }
 
     private void setServers(ArrayList<String> servers) {
