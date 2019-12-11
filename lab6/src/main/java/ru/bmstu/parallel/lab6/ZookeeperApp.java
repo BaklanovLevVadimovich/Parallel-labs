@@ -25,7 +25,7 @@ public class ZookeeperApp{
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
-        ActorRef storeActor = 
+        ActorRef storeActor = system.actorOf(Props.create())
         Server server = new Server(http, );
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = server.createRoute().flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(routeFlow, ConnectHttp.toHost(HOST, port), materializer);
