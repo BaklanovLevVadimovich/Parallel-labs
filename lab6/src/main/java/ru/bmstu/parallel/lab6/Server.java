@@ -34,5 +34,7 @@ public class Server {
         );
     }
 
-    private void sendRequest
+    private void sendRequest(String url) {
+        
+    }
 }
