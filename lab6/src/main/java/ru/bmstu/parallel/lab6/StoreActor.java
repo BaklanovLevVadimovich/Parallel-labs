@@ -6,10 +6,12 @@ import akka.japi.pf.ReceiveBuilder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class StoreActor extends AbstractActor {
 
     private ArrayList<String> servers;
+    private Random random;
 
     @Override
     public Receive createReceive() {
@@ -20,7 +22,10 @@ public class StoreActor extends AbstractActor {
     }
 
     private String getRandomServer() {
-        String server = 
+        if (random == null) {
+            random = new Random()
+        }
+        String server =
     }
 
     private void setServers(ArrayList<String> servers) {
