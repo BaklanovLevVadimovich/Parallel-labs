@@ -14,7 +14,7 @@ import akka.stream.javadsl.Flow;
 
 import java.util.concurrent.CompletionStage;
 
-public class ZookeeperApp {
+public class ZookeeperApp throws IOException{
 
     public static void main(String[] args) {
         ActorSystem system = ActorSystem.create("routes");
