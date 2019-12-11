@@ -24,6 +24,7 @@ public class StoreActor extends AbstractActor {
     }
 
     private void setServers(ArrayList<String> servers) {
+        
         this.servers = servers;
     }
 }
