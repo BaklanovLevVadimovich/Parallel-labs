@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="174f48c9-a4f0-4856-9787-f78993721064" name="Default Changelist" comment="" />
+    <list default="true" id="174f48c9-a4f0-4856-9787-f78993721064" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../lab6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/ru/bmstu/parallel/lab6/ZookeeperApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/ru/bmstu/parallel/lab6/ZookeeperApp.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,10 +59,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/lab5/StreamsApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1633">
+            <state relative-caret-position="805">
               <caret line="71" column="74" selection-start-line="71" selection-start-column="74" selection-end-line="71" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -68,7 +71,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/lab5/StoreActor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="633">
@@ -215,12 +218,12 @@
       <updated>1574430805707</updated>
       <workItem from="1574430841189" duration="15843000" />
       <workItem from="1574459712571" duration="5924000" />
-      <workItem from="1576090077445" duration="1123000" />
+      <workItem from="1576090077445" duration="1200000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22890000" />
+    <option name="totallyTimeSpent" value="22967000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
@@ -270,16 +273,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/lab5/StreamsApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1633">
-          <caret line="71" column="74" selection-start-line="71" selection-start-column="74" selection-end-line="71" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/lab5/Result.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -295,6 +288,16 @@
             <element signature="imports" expanded="true" />
             <element signature="e#729#730#0" expanded="true" />
             <element signature="e#797#798#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/lab5/StreamsApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="805">
+          <caret line="71" column="74" selection-start-line="71" selection-start-column="74" selection-end-line="71" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
