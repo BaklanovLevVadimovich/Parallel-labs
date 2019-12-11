@@ -12,9 +12,11 @@ public class StoreActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(GetRandomServerMessage.class, m -> saveResult(m))
-                .match(SetServersMessage.class, m -> sender().tell(getResult(m), getSelf()))
+                .match(SetServersMessage.class, m -> sender().tell(getRandomServer(), getSelf()))
                 .build();
     }
 
-    private String getRandomServer()
+    private String getRandomServer() {
+        
+    }
 }
