@@ -20,7 +20,7 @@ public class DataStore {
         for (int i = rangeBegin, j = 0; i <= rangeEnd; i++, j++) {
             data.put(i, valuesSplitted[j]);
         }
-        
+
 
 
     }
