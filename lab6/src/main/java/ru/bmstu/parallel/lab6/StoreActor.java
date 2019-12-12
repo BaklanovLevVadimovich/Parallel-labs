@@ -24,7 +24,7 @@ public class StoreActor extends AbstractActor {
             random = new Random(System.currentTimeMillis());
         }
         String server = servers.get(random.nextInt(servers.size()));
-        System.out.println("Redirecting to " + server);
+        System.out.println("Got random server from store: " + server);
         return server;
     }
 
