@@ -9,6 +9,7 @@ public class Client {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket requester = context.socket(SocketType.REQ);
         requester.connect("tcp://localhost:5559");
+        System.out.println("Socket connected");
         
     }
 }
