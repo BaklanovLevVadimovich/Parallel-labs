@@ -36,7 +36,7 @@ public class MainProxy {
 //                    clientWorker.sendMore(id);
                     message = clientWorker.recv(0);
                     System.out.println(new String(message));
-                    clientWorker.send()
+                    clientWorker.send(id.getBytes(), )
 //                    String[] lineSplitted = message.split(REQUEST_DELIMITER);
 //                    String requestType = lineSplitted[0];
 //                    int cellNum = Integer.parseInt(lineSplitted[1]);
