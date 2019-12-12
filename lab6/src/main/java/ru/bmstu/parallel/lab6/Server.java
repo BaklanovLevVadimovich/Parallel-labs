@@ -42,9 +42,11 @@ public class Server {
                                             System.out.println("Route: " + url + " " + count);
                                             int countInt = Integer.parseInt(count);
                                             if (countInt > 0) {
-                                                 return completeWithFuture(redirect(url, countInt).thenApply(response::getResponseBody));
+//                                                 return completeWithFuture(redirect(url, countInt).thenApply(Response::getResponseBody));
+                                                 return completeOKWithFutureString(redirect(url, countInt).thenApply(Response::getResponseBody));
                                             } else {
-                                                return completeWithFuture(sendRequest(url));
+                                                return completeOKWithFutureString(sendRequest(url).thenApply(Response::getResponseBody));
+//                                                return completeWithFuture(sendRequest(url));
                                             }
                                         })
                         )
