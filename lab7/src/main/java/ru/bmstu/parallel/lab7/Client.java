@@ -11,5 +11,8 @@ public class Client {
         requester.connect("tcp://localhost:5559");
         System.out.println("Socket connected");
         
+        for (;;) {
+
+        }
     }
 }
