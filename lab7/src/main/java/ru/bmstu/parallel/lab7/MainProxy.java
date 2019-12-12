@@ -32,8 +32,13 @@ public class MainProxy {
                 }
             }
             if (items.pollin(1)) {
-
+                while (true) {
+                    message = storeWorker.recvStr();
+                    more = clientWorker.hasReceiveMore();
+                    storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
+                }
             }
+            
         }
     }
 }
