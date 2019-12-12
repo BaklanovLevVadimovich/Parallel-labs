@@ -13,13 +13,14 @@ public class DataStore {
     public static void main(String[] args) {
         String range = args[0];
         String values = args[1];
-        String[] rangeSplited = range.split(RANGE_DELIMITER);
+        String[] rangeSplitted = range.split(RANGE_DELIMITER);
         rangeBegin = Integer.parseInt(rangeSplitted[0]);
         rangeEnd = Integer.parseInt(rangeSplitted[1]);
         String[] valuesSplitted = values.split(VALUES_DELIMITER);
         for (int i = rangeBegin, j = 0; i <= rangeEnd; i++, j++) {
             data.put(i, valuesSplitted[j]);
         }
+        
 
 
     }
