@@ -19,7 +19,7 @@ public class StoreActor extends AbstractActor {
     }
 
     private String getRandomServer() {
-        System.out.println("GET RANDOM SERVER");
+        System.out.println("GET RANDOM SERVER OF " + String.valueOf(servers.size()));
         if (random == null) {
             random = new Random(System.currentTimeMillis());
         }
