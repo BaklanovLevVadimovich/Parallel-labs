@@ -3,9 +3,14 @@ package ru.bmstu.parallel.lab7;
 import org.zeromq.SocketType;
 import org.zeromq.ZMQ;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainProxy {
 
     private static final String REQUEST_DELIMITER = " ";
+    private static List<String> clientIds = new ArrayList<>();
+    private static List<String> storeIds = new ArrayList<>();
 
     public static void main(String[] args) {
         ZMQ.Context context = ZMQ.context(1);
@@ -22,6 +27,7 @@ public class MainProxy {
             items.poll();
             if (items.pollin(0)) {
                 while (true) {
+                    
                     message = clientWorker.recv(0);
                     System.out.println(new String(message));
 //                    String[] lineSplitted = message.split(REQUEST_DELIMITER);
