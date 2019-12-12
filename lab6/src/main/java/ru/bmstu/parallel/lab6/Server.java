@@ -23,6 +23,7 @@ public class Server {
     public Server(Http http, ActorRef storeActor) {
         this.http = http;
         this.storeActor = storeActor;
+        ZookeeperHandler zookeeperHandler = new ZookeeperHandler()
     }
 
     public Route createRoute() {
