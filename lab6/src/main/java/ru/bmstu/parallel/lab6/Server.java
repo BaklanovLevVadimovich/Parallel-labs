@@ -53,7 +53,8 @@ public class Server {
 
     private CompletionStage<HttpResponse> sendRequest(String url) {
         System.out.println("send request " + url);
-        return http.singleRequest(HttpRequest.create(url));
+        return asyncHttpClient.
+//        return http.singleRequest(HttpRequest.create(url));
     }
 
     private CompletionStage<HttpResponse> redirect(String url, int count) {
