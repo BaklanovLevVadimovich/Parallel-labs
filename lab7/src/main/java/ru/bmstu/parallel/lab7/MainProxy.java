@@ -9,6 +9,6 @@ public class MainProxy {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket clientWorker = context.socket(SocketType.ROUTER);
         ZMQ.Socket storeWorker = context.socket(SocketType.ROUTER);
-        clientWorker.bind("")
+        clientWorker.bind("tcp")
     }
 }
