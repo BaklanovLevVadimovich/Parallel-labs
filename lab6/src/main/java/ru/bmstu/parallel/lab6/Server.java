@@ -8,6 +8,7 @@ import akka.http.javadsl.server.Route;
 import akka.pattern.Patterns;
 import akka.pattern.PatternsCS;
 import org.apache.zookeeper.KeeperException;
+import org.asynchttpclient.AsyncHttpClient;
 
 import java.io.IOException;
 import java.util.concurrent.CompletionStage;
@@ -21,9 +22,11 @@ public class Server {
     private static final int TIMEOUT_MILLIS = 5000;
     private ActorRef storeActor;
     private Http http;
+    private AsyncHttpClient asyncHttpClient;
 
-    public Server(Http http, ActorRef storeActor, int port) throws IOException, KeeperException, InterruptedException {
+    public Server(AsyncHttpClient asyncHttpClient, Http http, ActorRef storeActor, int port) throws IOException, KeeperException, InterruptedException {
         this.http = http;
+        this.asyncHttpClient = asyncHttpClient;
         this.storeActor = storeActor;
         ZookeeperHandler zookeeperHandler = new ZookeeperHandler(storeActor);
         zookeeperHandler.createServer(port);

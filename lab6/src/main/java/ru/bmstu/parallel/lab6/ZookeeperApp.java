@@ -12,9 +12,12 @@ import akka.http.javadsl.model.HttpResponse;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import org.apache.zookeeper.KeeperException;
+import org.asynchttpclient.AsyncHttpClient;
 
 import java.io.IOException;
 import java.util.concurrent.CompletionStage;
+
+import static org.asynchttpclient.Dsl.asyncHttpClient;
 
 public class ZookeeperApp{
 
@@ -28,7 +31,7 @@ public class ZookeeperApp{
         final AsyncHttpClient asyncHttpClient = asyncHttpClient();
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         ActorRef storeActor = system.actorOf(Props.create(StoreActor.class));
-        Server server = new Server(http, storeActor, port);
+        Server server = new Server(asyncHttpClient, http, storeActor, port);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = server.createRoute().flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(routeFlow, ConnectHttp.toHost(HOST, port), materializer);
         System.out.println("Server online at localhost:" + String.valueOf(port));
