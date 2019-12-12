@@ -26,7 +26,11 @@ public class Server {
         this.http = http;
         this.storeActor = storeActor;
         ZookeeperHandler zookeeperHandler = new ZookeeperHandler(storeActor);
-        zookeeperHandler.createServer(port);
+        try {
+            zookeeperHandler.createServer(port);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
     }
 
     public Route createRoute() {
