@@ -20,8 +20,10 @@ public class ZookeeperHandler {
     }
 
     public void createServer(int port) {
+        String name = HOST + ":" + String.valueOf(port);
         String serverPath = zoo.create(
-            
+            SERVERS_PATH + "/" + name,
+                
         )
     }
 }
