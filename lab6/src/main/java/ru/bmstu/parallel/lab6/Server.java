@@ -53,7 +53,7 @@ public class Server {
 
     private CompletionStage<HttpResponse> sendRequest(String url) {
         System.out.println("send request " + url);
-        return asyncHttpClient.
+        return asyncHttpClient.executeRequest()
 //        return http.singleRequest(HttpRequest.create(url));
     }
 
