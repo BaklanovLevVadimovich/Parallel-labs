@@ -7,6 +7,7 @@ import org.apache.zookeeper.ZooDefs;
 import org.apache.zookeeper.ZooKeeper;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ZookeeperHandler {
 
@@ -38,6 +39,6 @@ public class ZookeeperHandler {
     }
 
     private void watchServersUpdate() {
-
+        List<String> servers = 
     }
 }
