@@ -9,6 +9,7 @@ public class MainProxy {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket clientWorker = context.socket(SocketType.ROUTER);
         ZMQ.Socket storeWorker = context.socket(SocketType.ROUTER);
-        clientWorker.bind("tcp://*:")
+        clientWorker.bind("tcp://*:5559");
+        storeWorker.bind("tcp://*:5560");
     }
 }
