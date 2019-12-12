@@ -24,5 +24,7 @@ public class Client {
             String reply = requester.recvStr();
             System.out.println("Got reply: " + reply);
         }
+
+        
     }
 }
