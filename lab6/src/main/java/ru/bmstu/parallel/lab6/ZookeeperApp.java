@@ -21,6 +21,7 @@ public class ZookeeperApp{
     private static final String HOST = "localhost";
 
     public static void main(String[] args) throws IOException, KeeperException, InterruptedException {
+        System.out.println("started");
         int port = Integer.parseInt(args[0]);
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
