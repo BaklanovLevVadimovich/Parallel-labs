@@ -43,7 +43,7 @@ public class Server {
                                             int countInt = Integer.parseInt(count);
                                             if (countInt > 0) {
 //                                                 return completeWithFuture(redirect(url, countInt).thenApply(Response::getResponseBody));
-                                                 return completeOKWithFutureString(redirect(url, countInt).thenApply(Response::getResponseBody));
+                                                 return completeOKWithFuture(redirect(url, countInt).thenApply(Response::getResponseBody));
                                             } else {
                                                 return completeOKWithFutureString(sendRequest(url).thenApply(Response::getResponseBody));
 //                                                return completeWithFuture(sendRequest(url));
