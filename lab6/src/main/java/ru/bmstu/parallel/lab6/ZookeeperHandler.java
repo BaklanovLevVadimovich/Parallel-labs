@@ -21,7 +21,6 @@ public class ZookeeperHandler {
     public ZookeeperHandler(ActorRef storageActor) throws IOException {
         this.storageActor = storageActor;
         zoo = new ZooKeeper(connectString, TIMEOUT_MILLIS, null);
-//        watchServersUpdate();
     }
 
     public void createServer(int port) throws KeeperException, InterruptedException {
@@ -47,14 +46,12 @@ public class ZookeeperHandler {
 
     private void watchServersUpdate() {
         try {
-            System.out.println("UPDATING SERVERS");
             List<String> servers = zoo.getChildren(SERVERS_PATH, event -> {
-                System.out.println("Zookeeper event: " + event.toString());
                 watchServersUpdate();
             });
             setServers(servers);
         } catch (KeeperException | InterruptedException e) {
-            throw  new RuntimeException(e);
+            throw new RuntimeException(e);
         }
     }
 }
