@@ -28,7 +28,7 @@ public class MainProxy {
                     int cellNum = Integer.parseInt(lineSplitted[1]);
                     System.out.println("Type: " + requestType + " | num: " + cellNum);
                     more = clientWorker.hasReceiveMore();
-                    storeWorker.send(message, more ? ZMQ.SNDMORE)
+                    storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
                 }
             }
             if (items.pollin(1)) {
