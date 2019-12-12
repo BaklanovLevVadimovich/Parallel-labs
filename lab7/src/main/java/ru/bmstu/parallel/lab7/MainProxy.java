@@ -22,7 +22,7 @@ public class MainProxy {
             items.poll();
             if (items.pollin(0)) {
                 while (true) {
-                    message = clientWorker.recvStr();
+                    message = clientWorker.recvStr(0);
                     System.out.println(message);
                     String[] lineSplitted = message.split(REQUEST_DELIMITER);
                     String requestType = lineSplitted[0];
