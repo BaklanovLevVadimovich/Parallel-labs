@@ -23,6 +23,7 @@ public class ZookeeperHandler {
         String name = HOST + ":" + String.valueOf(port);
         String serverPath = zoo.create(
             SERVERS_PATH + "/" + name,
+                name.getBytes(),
                 
         )
     }
