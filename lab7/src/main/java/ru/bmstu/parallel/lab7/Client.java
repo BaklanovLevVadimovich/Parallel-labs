@@ -3,6 +3,8 @@ package ru.bmstu.parallel.lab7;
 import org.zeromq.SocketType;
 import org.zeromq.ZMQ;
 
+import java.util.Scanner;
+
 public class Client {
 
     public static void main(String[] args) {
