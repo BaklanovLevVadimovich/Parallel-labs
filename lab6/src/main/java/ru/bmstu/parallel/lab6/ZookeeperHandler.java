@@ -32,7 +32,7 @@ public class ZookeeperHandler {
         System.out.println("Created server: " + serverPath);
     }
 
-    private void setServers() {
-        
+    private void setServers(SetServersMessage msg) {
+        storageActor.tell(msg, ActorRef.noSender());
     }
 }
