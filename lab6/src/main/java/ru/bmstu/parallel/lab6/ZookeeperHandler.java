@@ -34,7 +34,13 @@ public class ZookeeperHandler {
         System.out.println("Created server: " + serverPath);
     }
 
-    private void setServers(SetServersMessage msg) {
+    private void setServers(List<String> servers) {
+        SetServersMessage msg = new SetServersMessage();
+        msg.setServers(servers);
+        System.out.println("Setting servers:");
+        for (int i = 0; i < servers.size(); i++) {
+            System.out.println(servers.get(i));
+        }
         storageActor.tell(msg, ActorRef.noSender());
     }
 

@@ -1,16 +1,17 @@
 package ru.bmstu.parallel.lab6;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SetServersMessage {
 
-    private ArrayList<String> servers;
+    private List<String> servers;
 
-    public ArrayList<String> getServers() {
+    public List<String> getServers() {
         return servers;
     }
 
-    public void setServers(ArrayList<String> servers) {
+    public void setServers(List<String> servers) {
         this.servers = servers;
     }
 }
