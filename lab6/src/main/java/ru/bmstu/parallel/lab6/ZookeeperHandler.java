@@ -39,10 +39,8 @@ public class ZookeeperHandler {
     }
 
     private void watchServersUpdate() {
-        List<String> servers = zoo.getChildren(SERVERS_PATH, this);
-    }
-
-    private String getChildren() {
-
+        List<String> servers = zoo.getChildren(SERVERS_PATH, event -> {
+            
+        });
     }
 }
