@@ -44,8 +44,9 @@ public class ZookeeperHandler {
                 System.out.println("Zookeeper event: " + event.toString());
                 watchServersUpdate();
             });
-        } catch (KeeperException | InterruptedException e) {
             
+        } catch (KeeperException | InterruptedException e) {
+            throw  new RuntimeException(e);
         }
     }
 }
