@@ -5,6 +5,8 @@ import org.zeromq.ZMQ;
 
 public class MainProxy {
 
+    private static final String REQUEST_DELIMITER = " ";
+
     public static void main(String[] args) {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket clientWorker = context.socket(SocketType.ROUTER);
@@ -20,7 +22,11 @@ public class MainProxy {
             items.poll();
             if (items.pollin(0)) {
                 while (true) {
-                    message = clientWorker.recvStr()
+                    message = clientWorker.recvStr();
+                    String[] lineSplitted = message.split(REQUEST_DELIMITER);
+                    String requestType = lineSplitted[0];
+                    int cellNum = Integer.parseInt(lineSplitted[1]);
+                    System.out.println("Type: " + requestType + " | num: " + cellNum);
                 }
             }
             if (items.pollin(1)) {

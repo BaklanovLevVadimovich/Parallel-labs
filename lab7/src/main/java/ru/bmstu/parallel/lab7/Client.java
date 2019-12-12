@@ -7,8 +7,6 @@ import java.util.Scanner;
 
 public class Client {
 
-    private static final String REQUEST_DELIMITER = " ";
-
     public static void main(String[] args) {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket requester = context.socket(SocketType.REQ);
@@ -17,9 +15,6 @@ public class Client {
         Scanner in = new Scanner(System.in);
         while (!Thread.currentThread().isInterrupted()) {
             String line = in.nextLine();
-//            String[] lineSplitted = line.split(REQUEST_DELIMITER);
-//            String requestType = lineSplitted[0];
-//            int cellNum = Integer.parseInt(lineSplitted[1]);
             requester.send(line);
             String reply = requester.recvStr();
             System.out.println("Got reply: " + reply);
