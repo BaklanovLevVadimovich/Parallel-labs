@@ -48,6 +48,7 @@ public class ZookeeperHandler {
 
     private void watchServersUpdate() {
         try {
+            System.out.println("UPDATING SERVERS");
             List<String> servers = zoo.getChildren(SERVERS_PATH, event -> {
                 System.out.println("Zookeeper event: " + event.toString());
                 watchServersUpdate();
