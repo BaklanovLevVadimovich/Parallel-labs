@@ -27,7 +27,10 @@ public class MainProxy {
             items.poll();
             if (items.pollin(0)) {
                 while (true) {
-                    String id = 
+                    String id = clientWorker.recvStr();
+                    if (isNewClient(id)) {
+                        clientIds.add(id);
+                    }
                     message = clientWorker.recv(0);
                     System.out.println(new String(message));
 //                    String[] lineSplitted = message.split(REQUEST_DELIMITER);
@@ -53,5 +56,23 @@ public class MainProxy {
             }
 
         }
+    }
+
+    private static boolean isNewClient(String id) {
+        for (int i = 0; i < clientIds.size(); i++) {
+            if (clientIds.get(i).equals(id)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean isNewStore(String id) {
+        for (int i = 0; i < storeIds.size(); i++) {
+            if (storeIds.get(i).equals(id)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
