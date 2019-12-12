@@ -7,7 +7,7 @@ public class ZookeeperHandler {
 
     private ActorRef storageActor;
     private ZooKeeper zoo;
-    private static final connectString =
+    private static final String connectString =
 
     public ZookeeperHandler(ActorRef storageActor) {
         this.storageActor = storageActor;
