@@ -23,7 +23,7 @@ public class MainProxy {
             if (items.pollin(0)) {
                 while (true) {
                     message = clientWorker.recv(0);
-                    System.out.println(message);
+                    System.out.println(new String(message));
 //                    String[] lineSplitted = message.split(REQUEST_DELIMITER);
 //                    String requestType = lineSplitted[0];
 //                    int cellNum = Integer.parseInt(lineSplitted[1]);
