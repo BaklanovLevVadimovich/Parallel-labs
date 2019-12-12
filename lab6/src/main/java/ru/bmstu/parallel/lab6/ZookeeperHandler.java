@@ -39,6 +39,6 @@ public class ZookeeperHandler {
     }
 
     private void watchServersUpdate() {
-        List<String> servers = zoo.getChildren(SERVERS_PATH, )
+        List<String> servers = zoo.getChildren(SERVERS_PATH, this);
     }
 }
