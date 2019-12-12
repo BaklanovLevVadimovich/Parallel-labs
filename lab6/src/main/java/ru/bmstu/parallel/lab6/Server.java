@@ -9,6 +9,7 @@ import akka.pattern.Patterns;
 import akka.pattern.PatternsCS;
 import org.apache.zookeeper.KeeperException;
 import org.asynchttpclient.AsyncHttpClient;
+import org.asynchttpclient.Response;
 
 import java.io.IOException;
 import java.util.concurrent.CompletionStage;
@@ -51,13 +52,13 @@ public class Server {
         );
     }
 
-    private CompletionStage<HttpResponse> sendRequest(String url) {
+    private CompletionStage<Response> sendRequest(String url) {
         System.out.println("send request " + url);
-        return asyncHttpClient.executeRequest()
+        return asyncHttpClient.executeRequest(asyncHttpClient.prepareGet(url).build()).toCompletableFuture();
 //        return http.singleRequest(HttpRequest.create(url));
     }
 
-    private CompletionStage<HttpResponse> redirect(String url, int count) {
+    private CompletionStage<Response> redirect(String url, int count) {
         return PatternsCS.ask(storeActor, new GetRandomServerMessage(), TIMEOUT_MILLIS)
                 .thenCompose(serverUrl ->
                         sendRequest("http://" + serverUrl + "/?url=" + url + "&count=" + String.valueOf(count-1)));
