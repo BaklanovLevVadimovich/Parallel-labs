@@ -15,7 +15,7 @@ public class Client {
         requester.connect("tcp://localhost:5559");
         System.out.println("Socket connected");
         Scanner in = new Scanner(System.in);
-        for (;;) {
+        while (!Thread.currentThread().isInterrupted()) {
             String line = in.nextLine();
 //            String[] lineSplitted = line.split(REQUEST_DELIMITER);
 //            String requestType = lineSplitted[0];
