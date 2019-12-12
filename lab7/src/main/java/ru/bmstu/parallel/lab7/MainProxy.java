@@ -27,6 +27,7 @@ public class MainProxy {
             items.poll();
             if (items.pollin(0)) {
                 while (true) {
+                    System.out.println("GETTING NEW MESSAGE");
                     String id = clientWorker.recvStr();
                     if (isNewClient(id)) {
                         clientIds.add(id);
