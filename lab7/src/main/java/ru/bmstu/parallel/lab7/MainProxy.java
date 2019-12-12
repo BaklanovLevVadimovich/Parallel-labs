@@ -20,7 +20,9 @@ public class MainProxy {
             if (items.pollin(0)) {
 
             }
-            
+            if (items.pollin(1)) {
+                
+            }
         }
     }
 }
