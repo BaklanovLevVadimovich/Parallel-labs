@@ -27,7 +27,7 @@ public class MainProxy {
             items.poll();
             if (items.pollin(0)) {
                 while (true) {
-                    
+                    String id = 
                     message = clientWorker.recv(0);
                     System.out.println(new String(message));
 //                    String[] lineSplitted = message.split(REQUEST_DELIMITER);
