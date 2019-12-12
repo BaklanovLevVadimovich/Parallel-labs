@@ -33,10 +33,10 @@ public class MainProxy {
                         clientIds.add(id);
                     }
                     System.out.println(id);
-                    clientWorker.sendMore(id);
+//                    clientWorker.sendMore(id);
                     message = clientWorker.recv(0);
                     System.out.println(new String(message));
-                    
+                    clientWorker.
 //                    String[] lineSplitted = message.split(REQUEST_DELIMITER);
 //                    String requestType = lineSplitted[0];
 //                    int cellNum = Integer.parseInt(lineSplitted[1]);
