@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="174f48c9-a4f0-4856-9787-f78993721064" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../lab6/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="174f48c9-a4f0-4856-9787-f78993721064" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,7 +14,7 @@
     <session id="-214537871">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.36" value="1" />
