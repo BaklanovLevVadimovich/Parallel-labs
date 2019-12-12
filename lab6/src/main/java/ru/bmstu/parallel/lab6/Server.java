@@ -35,6 +35,7 @@ public class Server {
                         parameter(URL_PARAMETER_NAME,
                                 url -> parameter(COUNT_PARAMETER_NAME,
                                         count -> {
+                                            System.out.println("Route: " + url);
                                             int countInt = Integer.parseInt(count);
                                             if (countInt > 0) {
                                                  return completeWithFuture(redirect(url, countInt));
