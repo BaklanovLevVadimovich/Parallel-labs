@@ -17,9 +17,10 @@ public class Client {
         Scanner in = new Scanner(System.in);
         for (;;) {
             String line = in.nextLine();
-            String[] lineSplitted = line.split(REQUEST_DELIMITER);
-            String requestType = lineSplitted[0];
-            int 
+//            String[] lineSplitted = line.split(REQUEST_DELIMITER);
+//            String requestType = lineSplitted[0];
+//            int cellNum = Integer.parseInt(lineSplitted[1]);
+//            
         }
     }
 }
