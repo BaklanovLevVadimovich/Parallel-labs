@@ -7,10 +7,10 @@ public class ZookeeperHandler {
 
     private ActorRef storageActor;
     private ZooKeeper zoo;
-    private static final String connectString =
+    private static final String connectString = "localhost:2081";
 
     public ZookeeperHandler(ActorRef storageActor) {
         this.storageActor = storageActor;
-        zoo = new ZooKeeper()
+        zoo = new ZooKeeper(connectString, )
     }
 }
