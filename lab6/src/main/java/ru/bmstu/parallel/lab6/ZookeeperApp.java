@@ -25,7 +25,7 @@ public class ZookeeperApp{
         int port = Integer.parseInt(args[0]);
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
-        
+        final AsyncHttpClient asyncHttpClient = asyncHttpClient();
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         ActorRef storeActor = system.actorOf(Props.create(StoreActor.class));
         Server server = new Server(http, storeActor, port);
