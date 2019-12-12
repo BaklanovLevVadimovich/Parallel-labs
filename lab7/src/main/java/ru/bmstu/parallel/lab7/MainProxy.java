@@ -27,7 +27,7 @@ public class MainProxy {
                     String requestType = lineSplitted[0];
                     int cellNum = Integer.parseInt(lineSplitted[1]);
                     System.out.println("Type: " + requestType + " | num: " + cellNum);
-                    more = clientWorker.
+                    more = clientWorker.hasReceiveMore();
                 }
             }
             if (items.pollin(1)) {
