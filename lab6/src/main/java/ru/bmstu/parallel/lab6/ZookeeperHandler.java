@@ -13,7 +13,7 @@ public class ZookeeperHandler {
 
     private ActorRef storageActor;
     private ZooKeeper zoo;
-    private static final String connectString = "localhost:2081";
+    private static final String connectString = "128.0.0.1:2081";
     private static final String HOST = "localhost";
     private static final String SERVERS_PATH = "/servers";
     private static final int TIMEOUT_MILLIS = 5000;
