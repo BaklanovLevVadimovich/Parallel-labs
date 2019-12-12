@@ -37,7 +37,7 @@ public class MainProxy {
             }
             if (items.pollin(1)) {
                 while (true) {
-                    message = storeWorker.recvStr();
+                    message = storeWorker.recv();
                     more = clientWorker.hasReceiveMore();
                     storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
                     if (!more) {
