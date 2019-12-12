@@ -16,7 +16,7 @@ public class MainProxy {
         items.register(clientWorker, ZMQ.Poller.POLLIN);
         boolean more = false;
         while (!Thread.currentThread().isInterrupted()) {
-            
+            items.poll();
         }
     }
 }
