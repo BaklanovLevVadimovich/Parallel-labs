@@ -12,6 +12,6 @@ public class ZookeeperHandler {
 
     public ZookeeperHandler(ActorRef storageActor) {
         this.storageActor = storageActor;
-        zoo = new ZooKeeper(connectString, TIMEOUT_MILLIS, )
+        zoo = new ZooKeeper(connectString, TIMEOUT_MILLIS, null);
     }
 }
