@@ -3,6 +3,8 @@ package ru.bmstu.parallel.lab6;
 import akka.actor.ActorRef;
 import org.apache.zookeeper.ZooKeeper;
 
+import java.io.IOException;
+
 public class ZookeeperHandler {
 
     private ActorRef storageActor;
@@ -10,8 +12,9 @@ public class ZookeeperHandler {
     private static final String connectString = "localhost:2081";
     private static final int TIMEOUT_MILLIS = 5000;
 
-    public ZookeeperHandler(ActorRef storageActor) {
+    public ZookeeperHandler(ActorRef storageActor) throws IOException {
         this.storageActor = storageActor;
         zoo = new ZooKeeper(connectString, TIMEOUT_MILLIS, null);
+        
     }
 }
