@@ -7,7 +7,9 @@ import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.server.Route;
 import akka.pattern.Patterns;
 import akka.pattern.PatternsCS;
+import org.apache.zookeeper.KeeperException;
 
+import java.io.IOException;
 import java.util.concurrent.CompletionStage;
 
 import static akka.http.javadsl.server.Directives.*;
@@ -20,10 +22,11 @@ public class Server {
     private ActorRef storeActor;
     private Http http;
 
-    public Server(Http http, ActorRef storeActor) {
+    public Server(Http http, ActorRef storeActor, int port) throws IOException, KeeperException, InterruptedException {
         this.http = http;
         this.storeActor = storeActor;
-        ZookeeperHandler zookeeperHandler = new ZookeeperHandler()
+        ZookeeperHandler zookeeperHandler = new ZookeeperHandler(storeActor);
+        zookeeperHandler.createServer(port);
     }
 
     public Route createRoute() {
