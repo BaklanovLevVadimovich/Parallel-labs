@@ -1,6 +1,8 @@
 package ru.bmstu.parallel.lab6;
 
 import akka.actor.ActorRef;
+import org.apache.zookeeper.CreateMode;
+import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.ZooDefs;
 import org.apache.zookeeper.ZooKeeper;
 
@@ -20,12 +22,13 @@ public class ZookeeperHandler {
         zoo = new ZooKeeper(connectString, TIMEOUT_MILLIS, null);
     }
 
-    public void createServer(int port) {
+    public void createServer(int port) throws KeeperException, InterruptedException {
         String name = HOST + ":" + String.valueOf(port);
         String serverPath = zoo.create(
             SERVERS_PATH + "/" + name,
                 name.getBytes(),
-                ZooDefs.Ids.OPEN_ACL_UNSAFE
-        )
+                ZooDefs.Ids.OPEN_ACL_UNSAFE,
+                CreateMode.EPHEMERAL);
+        System.out.println("Created server: " + serverPath);
     }
 }
