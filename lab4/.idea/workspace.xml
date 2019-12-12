@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6d24abf-115c-4dc5-b01d-f4f76908bb38" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/ru/bmstu/parallel/lab6/StoreActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/ru/bmstu/parallel/lab6/StoreActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -245,12 +245,12 @@
       <workItem from="1574951268482" duration="810000" />
       <workItem from="1575968470192" duration="251000" />
       <workItem from="1576091416984" duration="4224000" />
-      <workItem from="1576176234591" duration="259000" />
+      <workItem from="1576176234591" duration="538000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33803000" />
+    <option name="totallyTimeSpent" value="34082000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
