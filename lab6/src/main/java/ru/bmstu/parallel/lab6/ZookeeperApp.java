@@ -11,6 +11,7 @@ import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import org.apache.zookeeper.KeeperException;
 
 import java.io.IOException;
 import java.util.concurrent.CompletionStage;
@@ -19,7 +20,7 @@ public class ZookeeperApp{
 
     private static final String HOST = "localhost";
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, KeeperException, InterruptedException {
         int port = Integer.parseInt(args[0]);
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
