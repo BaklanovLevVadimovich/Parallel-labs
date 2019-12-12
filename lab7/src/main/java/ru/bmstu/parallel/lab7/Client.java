@@ -14,7 +14,8 @@ public class Client {
         System.out.println("Socket connected");
         Scanner in = new Scanner(System.in);
         for (;;) {
-            
+            String line = in.nextLine();
+            String[] 
         }
     }
 }
