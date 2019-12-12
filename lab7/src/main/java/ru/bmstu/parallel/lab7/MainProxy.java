@@ -17,7 +17,7 @@ public class MainProxy {
         ZMQ.Poller items = context.poller(2);
         items.register(clientWorker, ZMQ.Poller.POLLIN);
         boolean more = false;
-        String message;
+        byte[] message;
         while (!Thread.currentThread().isInterrupted()) {
             items.poll();
             if (items.pollin(0)) {
