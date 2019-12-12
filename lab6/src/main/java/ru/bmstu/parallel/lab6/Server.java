@@ -49,6 +49,7 @@ public class Server {
     }
 
     private CompletionStage<HttpResponse> sendRequest(String url) {
+        System.out.println("send request " + url);
         return http.singleRequest(HttpRequest.create(url));
     }
 
