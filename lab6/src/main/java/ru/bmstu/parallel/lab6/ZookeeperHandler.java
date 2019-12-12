@@ -11,7 +11,7 @@ public class ZookeeperHandler {
     private ZooKeeper zoo;
     private static final String connectString = "localhost:2081";
     private static final String HOST = "localhost";
-    private static final String serversPath = ""
+    private static final String SERVERS_PATH = "/servers";
     private static final int TIMEOUT_MILLIS = 5000;
 
     public ZookeeperHandler(ActorRef storageActor) throws IOException {
@@ -21,7 +21,7 @@ public class ZookeeperHandler {
 
     public void createServer(int port) {
         String serverPath = zoo.create(
-
+            
         )
     }
 }
