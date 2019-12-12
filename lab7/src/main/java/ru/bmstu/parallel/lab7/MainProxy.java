@@ -31,6 +31,7 @@ public class MainProxy {
                     if (isNewClient(id)) {
                         clientIds.add(id);
                     }
+                    System.out.println(id);
                     message = clientWorker.recv(0);
                     System.out.println(new String(message));
 //                    String[] lineSplitted = message.split(REQUEST_DELIMITER);
