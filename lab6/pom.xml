@@ -9,32 +9,21 @@
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <build>
-        <finalName>test</finalName>
-        <defaultGoal>package</defaultGoal>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.1</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
-            <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.1.2</version>
                 <configuration>
-                    <goal>jar:inplace</goal>
                     <archive>
-                        <manifestFile>META-INF/MANIFEST.MF</manifestFile>
+                        <manifest>
+                            <mainClass>ru.bmstu.parallel.lab6.ZookeeperApp</mainClass>
+                        </manifest>
                     </archive>
-                    <outputDirectory>artifacts</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 
     <properties>
         <akka.version>2.5.26</akka.version>
