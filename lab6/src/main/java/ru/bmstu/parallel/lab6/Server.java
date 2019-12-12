@@ -18,7 +18,7 @@ public class Server {
 
     private static final String URL_PARAMETER_NAME = "url";
     private static final String COUNT_PARAMETER_NAME = "count";
-    private static final int TIMEOUT_MILLIS = 5000;
+    private static final int TIMEOUT_MILLIS = 10000;
     private ActorRef storeActor;
     private Http http;
 
