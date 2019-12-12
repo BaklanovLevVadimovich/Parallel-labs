@@ -13,6 +13,8 @@ public class MainProxy {
         storeWorker.bind("tcp://*:5560");
         System.out.println("Launched proxy");
         ZMQ.Poller items = context.poller(2);
-        items.register(clientWorker, ZMQ.Poller.POLLIN)
+        items.register(clientWorker, ZMQ.Poller.POLLIN);
+        boolean more = false;
+        
     }
 }
