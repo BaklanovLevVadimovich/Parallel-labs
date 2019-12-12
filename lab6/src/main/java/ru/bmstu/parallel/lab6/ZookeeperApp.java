@@ -12,12 +12,8 @@ import akka.http.javadsl.model.HttpResponse;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import org.apache.zookeeper.KeeperException;
-import org.asynchttpclient.AsyncHttpClient;
-
 import java.io.IOException;
 import java.util.concurrent.CompletionStage;
-
-import static org.asynchttpclient.Dsl.asyncHttpClient;
 
 public class ZookeeperApp{
 
