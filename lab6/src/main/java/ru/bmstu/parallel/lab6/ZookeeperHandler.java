@@ -10,6 +10,7 @@ public class ZookeeperHandler {
     private ActorRef storageActor;
     private ZooKeeper zoo;
     private static final String connectString = "localhost:2081";
+    private static final String HOST = "localhost";
     private static final int TIMEOUT_MILLIS = 5000;
 
     public ZookeeperHandler(ActorRef storageActor) throws IOException {
@@ -17,5 +18,7 @@ public class ZookeeperHandler {
         zoo = new ZooKeeper(connectString, TIMEOUT_MILLIS, null);
     }
 
-    public void createServer(int port, )
+    public void createServer(int port) {
+        
+    }
 }
