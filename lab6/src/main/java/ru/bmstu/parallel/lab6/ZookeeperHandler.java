@@ -25,7 +25,7 @@ public class ZookeeperHandler {
         String serverPath = zoo.create(
             SERVERS_PATH + "/" + name,
                 name.getBytes(),
-                ZooDefs.Ids.
+                ZooDefs.Ids.OPEN_ACL_UNSAFE
         )
     }
 }
