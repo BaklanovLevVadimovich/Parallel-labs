@@ -11,6 +11,7 @@ public class MainProxy {
         ZMQ.Socket storeWorker = context.socket(SocketType.ROUTER);
         clientWorker.bind("tcp://*:5559");
         storeWorker.bind("tcp://*:5560");
+        System.out.println("Launched proxy");
         
     }
 }
