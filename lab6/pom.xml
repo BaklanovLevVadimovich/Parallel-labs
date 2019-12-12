@@ -17,7 +17,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>[main class here]</mainClass>
+                            <mainClass>ru.bmstu.parallel.lab6.ZookeeperApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
