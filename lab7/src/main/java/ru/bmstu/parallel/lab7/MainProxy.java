@@ -29,6 +29,9 @@ public class MainProxy {
                     System.out.println("Type: " + requestType + " | num: " + cellNum);
                     more = clientWorker.hasReceiveMore();
                     storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
+                    if (!more) {
+                        break;
+                    }
                 }
             }
             if (items.pollin(1)) {
@@ -36,9 +39,12 @@ public class MainProxy {
                     message = storeWorker.recvStr();
                     more = clientWorker.hasReceiveMore();
                     storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
+                    if (!more) {
+                        break;
+                    }
                 }
             }
-            
+
         }
     }
 }
