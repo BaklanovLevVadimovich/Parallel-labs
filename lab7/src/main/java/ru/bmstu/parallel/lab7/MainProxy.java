@@ -5,6 +5,7 @@ import org.zeromq.ZMQ;
 public class MainProxy {
 
     public static void main(String[] args) {
-        ZMQ.Context context = ZMQ.context()
+        ZMQ.Context context = ZMQ.context(1);
+        
     }
 }
