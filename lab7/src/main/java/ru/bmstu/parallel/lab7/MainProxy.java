@@ -17,7 +17,10 @@ public class MainProxy {
         boolean more = false;
         while (!Thread.currentThread().isInterrupted()) {
             items.poll();
-            if (items.pollin())
+            if (items.pollin(0)) {
+
+            }
+            
         }
     }
 }
