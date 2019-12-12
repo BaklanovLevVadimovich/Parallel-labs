@@ -20,7 +20,7 @@ public class MainProxy {
             items.poll();
             if (items.pollin(0)) {
                 while (true) {
-                    message = 
+                    message = clientWorker.recvStr()
                 }
             }
             if (items.pollin(1)) {
