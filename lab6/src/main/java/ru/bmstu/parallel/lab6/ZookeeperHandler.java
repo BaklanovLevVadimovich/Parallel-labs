@@ -1,6 +1,7 @@
 package ru.bmstu.parallel.lab6;
 
 import akka.actor.ActorRef;
+import org.apache.zookeeper.ZooDefs;
 import org.apache.zookeeper.ZooKeeper;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class ZookeeperHandler {
         String serverPath = zoo.create(
             SERVERS_PATH + "/" + name,
                 name.getBytes(),
-                
+                ZooDefs.
         )
     }
 }
