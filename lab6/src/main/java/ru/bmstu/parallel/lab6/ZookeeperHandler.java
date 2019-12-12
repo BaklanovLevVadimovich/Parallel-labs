@@ -31,4 +31,8 @@ public class ZookeeperHandler {
                 CreateMode.EPHEMERAL);
         System.out.println("Created server: " + serverPath);
     }
+
+    private void setServers() {
+        
+    }
 }
