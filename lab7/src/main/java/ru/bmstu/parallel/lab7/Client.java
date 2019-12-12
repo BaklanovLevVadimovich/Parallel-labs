@@ -12,7 +12,7 @@ public class Client {
         ZMQ.Socket requester = context.socket(SocketType.REQ);
         requester.connect("tcp://localhost:5559");
         System.out.println("Socket connected");
-        Scanner in = 
+        Scanner in = Scanner(System.in);
         for (;;) {
 
         }
