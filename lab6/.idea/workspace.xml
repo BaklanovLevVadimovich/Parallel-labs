@@ -74,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab6/ZookeeperApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+            <state relative-caret-position="296">
+              <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,8 +86,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab6/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="52" column="59" lean-forward="true" selection-start-line="52" selection-start-column="59" selection-end-line="52" selection-end-column="59" />
+            <state relative-caret-position="219">
+              <caret line="41" column="52" lean-forward="true" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -205,7 +205,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576182327161" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576182422189" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab5" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -267,12 +267,12 @@
       <updated>1575968720665</updated>
       <workItem from="1575968730356" duration="1438000" />
       <workItem from="1576089313904" duration="10024000" />
-      <workItem from="1576176230578" duration="6043000" />
+      <workItem from="1576176230578" duration="6294000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17505000" />
+    <option name="totallyTimeSpent" value="17756000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
@@ -356,16 +356,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab6/ZookeeperApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab6/StoreActor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
@@ -377,10 +367,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab6/ZookeeperApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab6/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="52" column="59" lean-forward="true" selection-start-line="52" selection-start-column="59" selection-end-line="52" selection-end-column="59" />
+        <state relative-caret-position="219">
+          <caret line="41" column="52" lean-forward="true" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
