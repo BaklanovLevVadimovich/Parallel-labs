@@ -33,6 +33,7 @@ public class ZookeeperHandler {
                 ZooDefs.Ids.OPEN_ACL_UNSAFE,
                 CreateMode.EPHEMERAL);
         System.out.println("Created server: " + serverPath);
+        watchServersUpdate();
     }
 
     private void setServers(List<String> servers) {
