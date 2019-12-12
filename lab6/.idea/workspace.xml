@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb92cba1-d3ae-40ca-9a60-0a12fc9f7319" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab6/StoreActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab6/StoreActor.java" afterDir="false" />
-    </list>
+    <list default="true" id="fb92cba1-d3ae-40ca-9a60-0a12fc9f7319" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,10 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab6/StoreActor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="426">
               <caret line="26" column="58" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -84,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab6/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-486">
-              <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+            <state relative-caret-position="457">
+              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -206,7 +204,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576180660852" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576180667062" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab5" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -223,7 +221,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Zookeeper8082">
     <configuration name="Zookeeper8081" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="ru.bmstu.parallel.lab6.ZookeeperApp" />
       <module name="lab6" />
@@ -238,6 +236,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Zookeeper8082" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ru.bmstu.parallel.lab6.ZookeeperApp" />
+      <module name="lab6" />
+      <option name="PROGRAM_PARAMETERS" value="8082" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Zookeeper8082" />
+      <item itemvalue="Application.Zookeeper8081" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Zookeeper8081" />
@@ -256,16 +266,15 @@
       <updated>1575968720665</updated>
       <workItem from="1575968730356" duration="1438000" />
       <workItem from="1576089313904" duration="10024000" />
-      <workItem from="1576176230578" duration="4219000" />
+      <workItem from="1576176230578" duration="4476000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15681000" />
+    <option name="totallyTimeSpent" value="15938000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25506938" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -345,6 +354,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab6/StoreActor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="26" column="58" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab6/ZookeeperApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89">
@@ -357,18 +376,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab6/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-486">
-          <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab6/StoreActor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="26" column="58" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
+        <state relative-caret-position="457">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
