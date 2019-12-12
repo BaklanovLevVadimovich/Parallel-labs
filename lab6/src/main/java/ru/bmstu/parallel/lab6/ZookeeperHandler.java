@@ -15,6 +15,7 @@ public class ZookeeperHandler {
     public ZookeeperHandler(ActorRef storageActor) throws IOException {
         this.storageActor = storageActor;
         zoo = new ZooKeeper(connectString, TIMEOUT_MILLIS, null);
-        
     }
+
+    public void createServer()
 }
