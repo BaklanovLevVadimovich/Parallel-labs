@@ -26,6 +26,7 @@ public class ZookeeperHandler {
 
     public void createServer(int port) throws KeeperException, InterruptedException {
         String name = HOST + ":" + String.valueOf(port);
+        System.out.println("Creating server");
         String serverPath = zoo.create(
             SERVERS_PATH + "/" + name,
                 name.getBytes(),
