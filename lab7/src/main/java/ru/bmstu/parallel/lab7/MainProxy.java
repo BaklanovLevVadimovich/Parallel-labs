@@ -6,6 +6,6 @@ public class MainProxy {
 
     public static void main(String[] args) {
         ZMQ.Context context = ZMQ.context(1);
-        
+        ZMQ.Socket clientWorker = 
     }
 }
