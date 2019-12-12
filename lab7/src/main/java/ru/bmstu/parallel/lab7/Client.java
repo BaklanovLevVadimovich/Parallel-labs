@@ -22,6 +22,7 @@ public class Client {
 //            int cellNum = Integer.parseInt(lineSplitted[1]);
             requester.send(line);
             String reply = requester.recvStr();
+            System.out.println("Got reply: " + reply);
         }
     }
 }
