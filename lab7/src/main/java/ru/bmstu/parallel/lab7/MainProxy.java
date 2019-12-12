@@ -18,10 +18,10 @@ public class MainProxy {
         while (!Thread.currentThread().isInterrupted()) {
             items.poll();
             if (items.pollin(0)) {
-
+                while ()
             }
             if (items.pollin(1)) {
-                
+
             }
         }
     }
