@@ -39,8 +39,13 @@ public class ZookeeperHandler {
     }
 
     private void watchServersUpdate() {
-        List<String> servers = zoo.getChildren(SERVERS_PATH, event -> {
-            watchServersUpdate();
-        });
+        try {
+            List<String> servers = zoo.getChildren(SERVERS_PATH, event -> {
+                System.out.println("Zookeeper event: " + event.toString());
+                watchServersUpdate();
+            });
+        } catch (KeeperException, InterruptedException e) {
+
+        }
     }
 }
