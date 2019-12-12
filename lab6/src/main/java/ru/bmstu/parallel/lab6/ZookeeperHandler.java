@@ -20,6 +20,7 @@ public class ZookeeperHandler {
     public ZookeeperHandler(ActorRef storageActor) throws IOException {
         this.storageActor = storageActor;
         zoo = new ZooKeeper(connectString, TIMEOUT_MILLIS, null);
+        watchServersUpdate();
     }
 
     public void createServer(int port) throws KeeperException, InterruptedException {
@@ -34,5 +35,9 @@ public class ZookeeperHandler {
 
     private void setServers(SetServersMessage msg) {
         storageActor.tell(msg, ActorRef.noSender());
+    }
+
+    private void watchServersUpdate() {
+
     }
 }
