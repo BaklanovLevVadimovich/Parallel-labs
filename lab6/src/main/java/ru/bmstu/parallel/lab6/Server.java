@@ -8,8 +8,6 @@ import akka.http.javadsl.server.Route;
 import akka.pattern.Patterns;
 import akka.pattern.PatternsCS;
 import org.apache.zookeeper.KeeperException;
-import org.asynchttpclient.AsyncHttpClient;
-import org.asynchttpclient.Response;
 
 import java.io.IOException;
 import java.util.concurrent.CompletionStage;
@@ -23,11 +21,9 @@ public class Server {
     private static final int TIMEOUT_MILLIS = 5000;
     private ActorRef storeActor;
     private Http http;
-    private AsyncHttpClient asyncHttpClient;
 
-    public Server(AsyncHttpClient asyncHttpClient, Http http, ActorRef storeActor, int port) throws IOException, KeeperException, InterruptedException {
+    public Server(Http http, ActorRef storeActor, int port) throws IOException, KeeperException, InterruptedException {
         this.http = http;
-        this.asyncHttpClient = asyncHttpClient;
         this.storeActor = storeActor;
         ZookeeperHandler zookeeperHandler = new ZookeeperHandler(storeActor);
         zookeeperHandler.createServer(port);
@@ -42,11 +38,9 @@ public class Server {
                                             System.out.println("Route: " + url + " " + count);
                                             int countInt = Integer.parseInt(count);
                                             if (countInt > 0) {
-//                                                 return completeWithFuture(redirect(url, countInt).thenApply(Response::getResponseBody));
-                                                 return completeOKWithFutureString(redirect(url, countInt).thenApply(Response::getResponseBody));
+                                                 return completeWithFuture(redirect(url, countInt));
                                             } else {
-                                                return completeOKWithFutureString(sendRequest(url).thenApply(Response::getResponseBody));
-//                                                return completeWithFuture(sendRequest(url));
+                                                return completeWithFuture(sendRequest(url));
                                             }
                                         })
                         )
@@ -54,13 +48,12 @@ public class Server {
         );
     }
 
-    private CompletionStage<Response> sendRequest(String url) {
+    private CompletionStage<HttpResponse> sendRequest(String url) {
         System.out.println("send request " + url);
-        return asyncHttpClient.executeRequest(asyncHttpClient.prepareGet(url).build()).toCompletableFuture();
-//        return http.singleRequest(HttpRequest.create(url));
+        return http.singleRequest(HttpRequest.create(url));
     }
 
-    private CompletionStage<Response> redirect(String url, int count) {
+    private CompletionStage<HttpResponse> redirect(String url, int count) {
         return PatternsCS.ask(storeActor, new GetRandomServerMessage(), TIMEOUT_MILLIS)
                 .thenCompose(serverUrl ->
                         sendRequest("http://" + serverUrl + "/?url=" + url + "&count=" + String.valueOf(count-1)));

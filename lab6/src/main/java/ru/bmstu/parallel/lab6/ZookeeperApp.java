@@ -28,10 +28,9 @@ public class ZookeeperApp{
         int port = Integer.parseInt(args[0]);
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
-        final AsyncHttpClient asyncHttpClient = asyncHttpClient();
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         ActorRef storeActor = system.actorOf(Props.create(StoreActor.class));
-        Server server = new Server(asyncHttpClient, http, storeActor, port);
+        Server server = new Server(http, storeActor, port);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = server.createRoute().flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(routeFlow, ConnectHttp.toHost(HOST, port), materializer);
         System.out.println("Server online at localhost:" + String.valueOf(port));
