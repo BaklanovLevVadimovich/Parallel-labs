@@ -3,14 +3,11 @@ package ru.bmstu.parallel.lab6;
 import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class StoreActor extends AbstractActor {
 
-    private ArrayList<String> servers;
+    private List<String> servers;
     private Random random;
 
     @Override
@@ -30,7 +27,7 @@ public class StoreActor extends AbstractActor {
         return server;
     }
 
-    private void setServers(ArrayList<String> servers) {
+    private void setServers(List<String> servers) {
         System.out.println("New server list set");
         this.servers = servers;
     }
