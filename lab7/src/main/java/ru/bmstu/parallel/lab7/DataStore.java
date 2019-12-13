@@ -40,12 +40,14 @@ public class DataStore {
             System.out.println("GOT MESSAGE: " + message);
             String[] messageParts = message.split(REQUEST_DELIMITER);
             int cellNum = Integer.parseInt(messageParts[1]);
+            ZMsg resultMsg = new ZMsg();
             if (messageParts[0].equals("get")) {
-                socket.send("VALUE/" + data.get(cellNum));
+                resultMsg.add(new ZFrame("VALUE/" + data.get(cellNum)));
             } else {
                 data.replace(cellNum, messageParts[2]);
-                socket.send("UPDATE/SUCCESS");
+                resultMsg.add(new ZFrame("UPDATE/SUCCESS"));
             }
+            resultMsg.add(new ZFrame(zMsg.getLast().getData()));
             long currentTime = System.currentTimeMillis();
             if (currentTime - lastNotifyTime > 10000) {
                 socket.send("NOTIFY/" + range + "/");
