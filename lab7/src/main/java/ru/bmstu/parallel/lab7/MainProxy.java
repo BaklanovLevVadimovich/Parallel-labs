@@ -36,11 +36,6 @@ public class MainProxy {
             if (items.pollin(0)) {
                 while (true) {
                     System.out.println("GETTING NEW MESSAGE");
-
-//                    System.out.println("id:" + id);
-////                    clientWorker.sendMore(id);
-//                    clientWorker.recvStr();
-//                    message = clientWorker.recvStr();
                     ZMsg msg = ZMsg.recvMsg(clientWorker);
                     System.out.println(msg.toString());
                     byte[] id = msg.getFirst().getData();
@@ -67,7 +62,6 @@ public class MainProxy {
 
                     }
                     more = clientWorker.hasReceiveMore();
-//                    storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
                     if (!more) {
                         break;
                     }
@@ -89,21 +83,8 @@ public class MainProxy {
                     ZMsg storeMsg = new ZMsg();
                     storeMsg.add(new ZFrame(id));
                     storeMsg.add("ping");
-//                    ZFrame first = new ZFrame(trueId.toString().getBytes(ZMQ.CHARSET));
-//                    ZFrame second = new ZFrame("ping");
-//                    storeMsg.add(new ZFrame(id));
-//                    storeMsg.add(new ZFrame("ping"));
-//                    System.out.println(msg);
                     System.out.println(storeMsg);
-//                    first.send(storeWorker, ZMQ.SNDMORE);
-//                    second.send(storeWorker, 0);
                     storeMsg.send(storeWorker);
-                    System.out.println("ping send");
-//                    storeMsg.las
-//                    storeMsg.send(storeWorker);
-//                    storeWorker.sendMore(id);
-//                    storeWorker.sendMore("");
-//                    storeWorker.send("ping", 0);
                     String[] messageParts = message.split(STORE_MESSAGE_DELIMITER);
                     if (messageParts[0].equals("NOTIFY")) {
                         String[] rangeParts = messageParts[1].split(STORE_RANGE_DELIMITER);
