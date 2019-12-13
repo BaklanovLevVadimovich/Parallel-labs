@@ -69,7 +69,7 @@ public class MainProxy {
                         storeInfos.add(info);
                     }
                     System.out.println("id: " + id);
-                    storeWorker.sendMore(id);
+//                    storeWorker.sendMore(id);
 //                    String delim = storeWorker.recvStr();
 //                    System.out.println("delim:" + delim);
                     message = storeWorker.recvStr(0);
