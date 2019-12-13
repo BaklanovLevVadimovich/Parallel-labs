@@ -43,7 +43,7 @@ public class MainProxy {
 //                    message = clientWorker.recvStr();
                     ZMsg msg = ZMsg.recvMsg(clientWorker);
                     System.out.println(msg.toString());
-                    String id = msg.getFirst().toString();
+                    byte[] id = msg.getFirst().getData();
                     if (isNewClient(id)) {
                         clientIds.add(id);
                     }
@@ -52,11 +52,12 @@ public class MainProxy {
                     System.out.println("message: " + message);
                     if (message.contains("get")) {
                         String[] messageParts = message.split(REQUEST_DELIMITER);
-                        String storeId = getDataStoreIdContainingCell(Integer.parseInt(messageParts[1]));
-                        System.out.println("SEND GET REQUEST TO DATA STORE " + storeId);
+                        byte[] storeId = getDataStoreIdContainingCell(Integer.parseInt(messageParts[1]));
+                        System.out.println("SEND GET REQUEST TO DATA STORE");
                         ZMsg storeMsg = new ZMsg();
                         storeMsg.add(new ZFrame(storeId));
                         storeMsg.add(new ZFrame(message + " " + id));
+                        storeMsg.send(storeWorker);
 //                        storeWorker.sendMore(storeId);
 //                        storeWorker.sendMore("");
 //                        System.out.println("SEND MORE PASSED");
@@ -85,22 +86,18 @@ public class MainProxy {
                     message = msg.getLast().toString();
                     System.out.println("id: " + id);
                     System.out.println("GOT MES FROM STORE " + message);
-//                    String delim = storeWorker.recvStr();
-//                    System.out.println("delim:" + delim);
-//                    message = storeWorker.recvStr(0);
-//                    storeWorker.send(id, 0);
                     ZMsg storeMsg = new ZMsg();
-//                    msg.send(storeWorker, false);
-                    msg.getFirst().reset(var4);
-                    ZFrame first = new ZFrame(trueId.toString().getBytes(ZMQ.CHARSET));
-                    ZFrame second = new ZFrame("ping");
                     storeMsg.add(new ZFrame(id));
-                    storeMsg.add(new ZFrame("ping"));
-                    System.out.println(msg);
+                    storeMsg.add("ping");
+//                    ZFrame first = new ZFrame(trueId.toString().getBytes(ZMQ.CHARSET));
+//                    ZFrame second = new ZFrame("ping");
+//                    storeMsg.add(new ZFrame(id));
+//                    storeMsg.add(new ZFrame("ping"));
+//                    System.out.println(msg);
                     System.out.println(storeMsg);
-                    storeMsg = msg;
-                    first.send(storeWorker, ZMQ.SNDMORE);
-                    second.send(storeWorker, 0);
+//                    first.send(storeWorker, ZMQ.SNDMORE);
+//                    second.send(storeWorker, 0);
+                    storeMsg.send(storeWorker);
                     System.out.println("ping send");
 //                    storeMsg.las
 //                    storeMsg.send(storeWorker);
