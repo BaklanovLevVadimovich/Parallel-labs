@@ -79,6 +79,10 @@ public class MainProxy {
                     var3 = msg.getFirst().getData().toString();
                     var4 = msg.getFirst().getString(ZMQ.CHARSET);
                     byte[] trueId = msg.getFirst().getData();
+                    System.out.println(trueId);
+                    System.out.println(trueId.toString());
+                    System.out.println(trueId.toString().getBytes());
+                    System.out.println(trueId.toString().getBytes(ZMQ.CHARSET));
                     System.out.println(var1);
                     System.out.println(var2);
                     System.out.println(var3);
