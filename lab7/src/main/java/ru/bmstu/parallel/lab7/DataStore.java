@@ -56,6 +56,7 @@ public class DataStore {
 //        notifyThread.run();
         socket.send(NOTIFY_MESSAGE + RESPONSE_DELIMITER + range, 0);
         while (true) {
+            System.out.println("started cycle");
             ZMsg zMsg = ZMsg.recvMsg(socket);
             String message = zMsg.getFirst().toString();
             System.out.println("GOT MESSAGE: " + message);
