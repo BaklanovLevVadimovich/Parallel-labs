@@ -9,6 +9,7 @@ import java.util.List;
 public class MainProxy {
 
     private static final String REQUEST_DELIMITER = " ";
+    private static final String STORE_RANGE_DELIMITER = "-";
     private static final String STORE_MESSAGE_DELIMITER = "|";
     private static List<String> clientIds = new ArrayList<>();
     private static List<String> storeIds = new ArrayList<>();
@@ -47,6 +48,11 @@ public class MainProxy {
                     } else {
 
                     }
+                    more = clientWorker.hasReceiveMore();
+//                    storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
+                    if (!more) {
+                        break;
+                    }
                 }
             }
             if (items.pollin(1)) {
@@ -64,12 +70,24 @@ public class MainProxy {
                     message = clientWorker.recvStr(0);
                     System.out.println("GOT MES FROM STORE " + message);
                     String[] messageParts = message.split(STORE_MESSAGE_DELIMITER);
-                    if (messageParts[0].equals("NOTICE")
-//                    more = clientWorker.hasReceiveMore();
+                    if (messageParts[0].equals("NOTIFY")) {
+                        String[] rangeParts = messageParts[1].split(STORE_RANGE_DELIMITER);
+                        int rangeStart = Integer.parseInt(rangeParts[0]);
+                        int rangeEnd = Integer.parseInt(rangeParts[1]);
+                        setNewDataStoreInfo(id, rangeStart, rangeEnd);
+                    }
+                    if (messageParts[0].equals("VALUE")) {
+                        clientWorker.sendMore(messageParts[2]);
+                        clientWorker.send(messageParts[1], 0);
+                    }
+                    if (messageParts[0].equals("UPDATE")) {
+
+                    }
+                    more = clientWorker.hasReceiveMore();
 //                    storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
-//                    if (!more) {
-//                        break;
-//                    }
+                    if (!more) {
+                        break;
+                    }
                 }
             }
 
@@ -92,5 +110,15 @@ public class MainProxy {
             }
         }
         return true;
+    }
+
+    private static void setNewDataStoreInfo(String id, int rangeStart, int rangeEnd) {
+        for (int i = 0; i < storeInfos.size(); i++) {
+            DataStoreInfo currentInfo = storeInfos.get(i);
+            if (currentInfo.getId().equals(id)) {
+                currentInfo.setBeginRange(rangeStart);
+                currentInfo.setEndRange(rangeEnd);
+            }
+        }
     }
 }
