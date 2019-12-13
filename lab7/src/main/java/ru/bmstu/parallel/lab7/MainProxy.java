@@ -38,27 +38,33 @@ public class MainProxy {
                     clientWorker.recvStr();
                     message = clientWorker.recvStr(0);
                     System.out.println(message);
-//                    clientWorker.send(id.getBytes(), ZMQ.SNDMORE);
-//                    clientWorker.send("kek".getBytes(), 0);
-//                    String[] lineSplitted = message.split(REQUEST_DELIMITER);
-//                    String requestType = lineSplitted[0];
-//                    int cellNum = Integer.parseInt(lineSplitted[1]);
-//                    System.out.println("Type: " + requestType + " | num: " + cellNum);
-//                    more = clientWorker.hasReceiveMore();
-//                    clientWorker.send(message, more ? ZMQ.SNDMORE : 0);
-//                    if (!more) {
-//                        break;
-//                    }
+                    if (message.contains("get")) {
+                        System.out.println("SEND GET REQUEST TO DATA STORE");
+                        storeWorker.send(message, 0);
+                        storeWorker.recvStr()
+                    } else {
+
+                    }
                 }
             }
             if (items.pollin(1)) {
                 while (true) {
                     message = storeWorker.recvStr();
-                    more = clientWorker.hasReceiveMore();
-                    storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
-                    if (!more) {
-                        break;
+                    System.out.println("GETTING NEW STORE MESSAGE");
+                    String id = clientWorker.recvStr();
+                    if (isNewStore(id)) {
+                        storeIds.add(id);
                     }
+                    System.out.println(id);
+                    clientWorker.sendMore(id);
+                    clientWorker.recvStr();
+                    message = clientWorker.recvStr(0);
+
+//                    more = clientWorker.hasReceiveMore();
+//                    storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
+//                    if (!more) {
+//                        break;
+//                    }
                 }
             }
 
