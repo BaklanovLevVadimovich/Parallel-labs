@@ -43,7 +43,8 @@ public class MainProxy {
                     System.out.println("GOT MESSAGE FROM CLIENT: " + msg.toString());
                     if (message.contains("get")) {
                         String[] messageParts = message.split(REQUEST_DELIMITER);
-                        byte[] storeId = getDataStoreIdContainingCell(Integer.parseInt(messageParts[1]));
+                        int cellNum = Integer.parseInt(messageParts[1]);
+                        byte[] storeId = getDataStoreIdContainingCell(cellNum);
                         ZMsg storeMsg = new ZMsg();
                         storeMsg.add(new ZFrame(storeId));
                         storeMsg.add(new ZFrame(message));
@@ -51,7 +52,24 @@ public class MainProxy {
                         System.out.println("SEND GET REQUEST TO DATA STORE: " + storeMsg.toString());
                         storeMsg.send(storeWorker);
                     } else {
-
+                        if (message.contains("put")) {
+                            String[] messageParts = message.split(REQUEST_DELIMITER);
+                            int cellNum = Integer.parseInt(messageParts[1]);
+                            String newData = messageParts[2];
+                            List<byte[]> storeIds = getAllDataStoreIdsContainingCell(cellNum);
+                            ZMsg storeMsg = new ZMsg();
+                            storeMsg.add(new ZFrame(""));
+                            storeMsg.add(new ZFrame(message));
+                            for (int i = 0; i < storeIds.size(); i++) {
+                                storeMsg.getFirst().reset(storeIds.get(i));
+                                storeMsg.send(storeWorker);
+                            }
+                            msg.getLast().reset("Updated");
+                            msg.send(clientWorker);
+                        } else {
+                            msg.getLast().reset("Unknown command");
+                            msg.send(clientWorker);
+                        }
                     }
                     more = clientWorker.hasReceiveMore();
                     if (!more) {
@@ -139,6 +157,13 @@ public class MainProxy {
     }
 
     private static List<byte[]> getAllDataStoreIdsContainingCell(int cellNum) {
-        
+        List<byte[]> result = new ArrayList<>();
+        for (int i = 0; i < storeInfos.size(); i++) {
+            DataStoreInfo currentInfo = storeInfos.get(i);
+            if (cellNum >= currentInfo.getRangeStart() && cellNum <= currentInfo.getRangeEnd()) {
+                result.add(currentInfo.getId());
+            }
+        }
+        return result;
     }
 }
