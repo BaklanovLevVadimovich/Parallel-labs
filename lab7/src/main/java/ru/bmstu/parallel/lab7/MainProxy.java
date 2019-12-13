@@ -77,6 +77,7 @@ public class MainProxy {
                     var1 = msg.getFirst().strhex();
                     var2 = msg.getFirst().toString();
                     var3 = msg.getFirst().getData().toString();
+                    String var5 = msg.getFirst().getData();
                     var4 = msg.getFirst().getString(ZMQ.CHARSET);
                     byte[] trueId = msg.getFirst().getData();
                     System.out.println(trueId);
@@ -95,6 +96,8 @@ public class MainProxy {
                     System.out.println(msg.getFirst().hasSameData(new ZFrame(var3.getBytes(ZMQ.CHARSET))));
                     System.out.println(msg.getFirst().hasSameData(new ZFrame(var4.getBytes())));
                     System.out.println(msg.getFirst().hasSameData(new ZFrame(var4.getBytes(ZMQ.CHARSET))));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var5.getBytes())));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var5.getBytes(ZMQ.CHARSET))));
                     System.out.println(msg.getFirst().hasSameData(new ZFrame(msg.getFirst().getData())));
                     String id = msg.getFirst().getData().toString();
                     if (isNewStore(id)) {
