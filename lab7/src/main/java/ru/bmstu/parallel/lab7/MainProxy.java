@@ -1,6 +1,7 @@
 package ru.bmstu.parallel.lab7;
 
 import org.zeromq.SocketType;
+import org.zeromq.ZFrame;
 import org.zeromq.ZMQ;
 import org.zeromq.ZMsg;
 
@@ -42,10 +43,19 @@ public class MainProxy {
 //                    message = clientWorker.recvStr();
                     ZMsg msg = ZMsg.recvMsg(clientWorker);
                     System.out.println(msg.toString());
-                    System.out.println(msg.popString());
-                    System.out.println(msg.popString());
-                    System.out.println(msg.getFirst().toString());
-                    msg.send(clientWorker);
+                    String kek, kek1, kek2;
+                    kek = msg.popString();
+                    kek1 = msg.popString();
+                    kek2 = msg.popString();
+//                    System.out.println(msg.popString());
+//                    System.out.println(msg.popString());
+//                    System.out.println(msg.getFirst().toString());
+//                    msg.send(clientWorker);
+                    ZMsg msg1 = new ZMsg();
+                    msg1.add(new ZFrame(kek));
+                    msg1.add(new ZFrame(kek1));
+                    msg1.add(new ZFrame(kek2));
+                    msg1.send(clientWorker);
 //                    System.out.println(message);
 //                    clientWorker.sendMore("");
 //                    clientWorker.send("roflan", 0);
