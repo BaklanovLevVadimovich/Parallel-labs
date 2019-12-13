@@ -37,7 +37,7 @@ public class MainProxy {
                     message = clientWorker.recv(0);
                     System.out.println(new String(message));
 //                    clientWorker.send(id.getBytes(), ZMQ.SNDMORE);
-                    clientWorker.send("kek".getBytes(), 0);
+//                    clientWorker.send("kek".getBytes(), 0);
 //                    String[] lineSplitted = message.split(REQUEST_DELIMITER);
 //                    String requestType = lineSplitted[0];
 //                    int cellNum = Integer.parseInt(lineSplitted[1]);
