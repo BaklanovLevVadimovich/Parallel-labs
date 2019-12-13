@@ -45,7 +45,7 @@ public class MainProxy {
                     System.out.println(msg.toString());
                     String kek, kek1, kek2;
                     ZMsg msg1 = msg;
-                    msg1.send(clientWorker, false)
+                    msg1.send(clientWorker, false);
 //                    kek = msg.popString();
 //                    kek1 = msg.popString();
 //                    kek2 = msg.popString();
