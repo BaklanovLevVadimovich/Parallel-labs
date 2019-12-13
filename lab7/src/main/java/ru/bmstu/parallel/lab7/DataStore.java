@@ -1,5 +1,8 @@
 package ru.bmstu.parallel.lab7;
 
+import org.zeromq.SocketType;
+import org.zeromq.ZMQ;
+
 import java.util.HashMap;
 
 public class DataStore {
@@ -21,6 +24,9 @@ public class DataStore {
             data.put(i, valuesSplitted[j]);
         }
 
+        ZMQ.Context context = ZMQ.context(1);
+        ZMQ.Socket socket = context.socket(SocketType.DEALER);
+        
 
 
     }

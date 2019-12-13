@@ -23,7 +23,7 @@ public class MainProxy {
         items.register(clientWorker, ZMQ.Poller.POLLIN);
         items.register(storeWorker, ZMQ.Poller.POLLIN);
         boolean more = false;
-        byte[] message;
+        String message;
         while (!Thread.currentThread().isInterrupted()) {
             items.poll();
             if (items.pollin(0)) {
@@ -36,8 +36,8 @@ public class MainProxy {
                     System.out.println(id);
                     clientWorker.sendMore(id);
                     clientWorker.recvStr();
-                    message = clientWorker.recv(0);
-                    System.out.println(new String(message));
+                    message = clientWorker.recvStr(0);
+                    System.out.println(message);
 //                    clientWorker.send(id.getBytes(), ZMQ.SNDMORE);
 //                    clientWorker.send("kek".getBytes(), 0);
 //                    String[] lineSplitted = message.split(REQUEST_DELIMITER);
@@ -53,7 +53,7 @@ public class MainProxy {
             }
             if (items.pollin(1)) {
                 while (true) {
-                    message = storeWorker.recv();
+                    message = storeWorker.recvStr();
                     more = clientWorker.hasReceiveMore();
                     storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
                     if (!more) {
