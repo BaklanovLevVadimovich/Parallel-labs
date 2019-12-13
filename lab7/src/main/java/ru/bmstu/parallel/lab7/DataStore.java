@@ -2,6 +2,7 @@ package ru.bmstu.parallel.lab7;
 
 import org.zeromq.SocketType;
 import org.zeromq.ZMQ;
+import org.zeromq.ZMsg;
 
 import java.util.HashMap;
 
@@ -33,8 +34,9 @@ public class DataStore {
         long lastNotifyTime = System.currentTimeMillis();
         while (true) {
             System.out.println("NEW MESSAGE");
-            String message = socket.recvStr();
-            System.out.println("GOT MESSAGE: " + message);
+            ZMsg msg = ZMsg.recvMsg(socket);
+//            String message = socket.recvStr();
+            System.out.println("GOT MESSAGE: " + msg.toString());
 //            String[] messageParts = message.split(REQUEST_DELIMITER);
 //            int cellNum = Integer.parseInt(messageParts[1]);
 //            String clientId;
