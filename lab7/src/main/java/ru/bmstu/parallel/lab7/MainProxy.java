@@ -90,6 +90,8 @@ public class MainProxy {
                     msg.send(storeWorker, false);
                     storeMsg.add(new ZFrame(id));
                     storeMsg.add(new ZFrame("ping"));
+                    System.out.println(msg);
+                    System.out.println(storeMsg);
 //                    storeMsg.send(storeWorker);
 //                    storeWorker.sendMore(id);
 //                    storeWorker.sendMore("");
