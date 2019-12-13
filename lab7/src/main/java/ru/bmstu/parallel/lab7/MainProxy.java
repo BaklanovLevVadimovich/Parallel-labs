@@ -45,9 +45,9 @@ public class MainProxy {
                     System.out.println(msg.toString());
                     String kek, kek1, kek2;
 
-                    kek = msg.popString();
-                    kek1 = msg.popString();
-                    kek2 = msg.popString();
+//                    kek = msg.popString();
+//                    kek1 = msg.popString();
+//                    kek2 = msg.popString();
                     ZFrame frame1 = msg.getFirst();
                     ZFrame frame2 = new ZFrame("");
                     ZFrame frame3 = msg.getLast();
@@ -55,9 +55,9 @@ public class MainProxy {
 //                    System.out.println(msg.popString());
 //                    System.out.println(msg.getFirst().toString());
 //                    msg.send(clientWorker);
-                    System.out.println(kek);
-                    System.out.println(kek1);
-                    System.out.println(kek2);
+//                    System.out.println(kek);
+//                    System.out.println(kek1);
+//                    System.out.println(kek2);
                     ZMsg msg1 = new ZMsg();
                     msg1.add(frame1);
                     msg1.add(frame2);
