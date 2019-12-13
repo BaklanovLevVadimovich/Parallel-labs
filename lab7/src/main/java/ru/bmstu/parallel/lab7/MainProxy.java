@@ -73,6 +73,15 @@ public class MainProxy {
                 while (true) {
                     System.out.println("GETTING NEW STORE MESSAGE");
                     ZMsg msg = ZMsg.recvMsg(storeWorker);
+                    String var1, var2, var3, var4;
+                    var1 = msg.getFirst().strhex();
+                    var2 = msg.getFirst().toString();
+                    var3 = msg.getFirst().getData().toString();
+                    var4 = msg.getFirst().getString(ZMQ.CHARSET);
+                    System.out.println(var1);
+                    System.out.println(var2);
+                    System.out.println(var3);
+                    System.out.println(var4);
                     String id = msg.getFirst().getData().toString();
                     if (isNewStore(id)) {
                         DataStoreInfo info = new DataStoreInfo();
@@ -88,7 +97,7 @@ public class MainProxy {
 //                    storeWorker.send(id, 0);
                     ZMsg storeMsg = new ZMsg();
 //                    msg.send(storeWorker, false);
-                    msg.getFirst().reset(id);
+                    msg.getFirst().reset(var1);
                     ZFrame first = msg.getFirst();
                     ZFrame second = new ZFrame("ping");
                     storeMsg.add(new ZFrame(id));
