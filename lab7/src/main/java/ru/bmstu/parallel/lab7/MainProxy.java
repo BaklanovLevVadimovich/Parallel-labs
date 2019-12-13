@@ -12,7 +12,6 @@ public class MainProxy {
     private static final String STORE_RANGE_DELIMITER = "-";
     private static final String STORE_MESSAGE_DELIMITER = "|";
     private static List<String> clientIds = new ArrayList<>();
-    private static List<String> storeIds = new ArrayList<>();
     private static List<DataStoreInfo> storeInfos = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -129,6 +128,10 @@ public class MainProxy {
     private static String getDataStoreIdContainingCell(int cellNum) {
         for (int i = 0;  i < storeInfos.size(); i++) {
             DataStoreInfo currentInfo = storeInfos.get(i);
+            System.out.println("CELL NUM: " + String.valueOf(cellNum));
+            System.out.println("UPPER: " + String.valueOf(currentInfo.getEndRange()));
+            System.out.println("LOWER: " + String.valueOf(currentInfo.getBeginRange()));
+            System.out.println("ID: " + currentInfo.getId());
             if (cellNum >= currentInfo.getBeginRange() && cellNum <= currentInfo.getEndRange()) {
                 return currentInfo.getId();
             }
