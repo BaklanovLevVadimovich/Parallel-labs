@@ -122,5 +122,7 @@ public class MainProxy {
         }
     }
 
-    private static void getDataStoreIdCon
+    private static void getDataStoreIdContainingCell(int cellNum) {
+        for ()
+    }
 }
