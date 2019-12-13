@@ -28,7 +28,8 @@ public class DataStore {
         ZMQ.Socket socket = context.socket(SocketType.DEALER);
         socket.connect("tcp://localhost:5560");
         while (true) {
-            
+            String message = socket.recvStr();
+            System.out.println(message);
         }
 
 
