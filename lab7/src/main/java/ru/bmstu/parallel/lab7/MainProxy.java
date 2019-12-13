@@ -42,11 +42,11 @@ public class MainProxy {
 //                    String requestType = lineSplitted[0];
 //                    int cellNum = Integer.parseInt(lineSplitted[1]);
 //                    System.out.println("Type: " + requestType + " | num: " + cellNum);
-//                    more = clientWorker.hasReceiveMore();
-//                    storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
-//                    if (!more) {
-//                        break;
-//                    }
+                    more = clientWorker.hasReceiveMore();
+                    storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
+                    if (!more) {
+                        break;
+                    }
                 }
             }
             if (items.pollin(1)) {
