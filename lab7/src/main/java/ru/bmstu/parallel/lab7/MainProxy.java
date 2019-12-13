@@ -93,7 +93,8 @@ public class MainProxy {
                     System.out.println(msg);
                     System.out.println(storeMsg);
                     storeMsg = msg;
-                    storeMsg.send(storeWorker);
+//                    storeMsg.las
+//                    storeMsg.send(storeWorker);
 //                    storeWorker.sendMore(id);
 //                    storeWorker.sendMore("");
 //                    storeWorker.send("ping", 0);
