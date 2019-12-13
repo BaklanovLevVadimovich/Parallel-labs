@@ -10,7 +10,7 @@ public class MainProxy {
 
     private static final String REQUEST_DELIMITER = " ";
     private static final String STORE_RANGE_DELIMITER = "-";
-    private static final String STORE_MESSAGE_DELIMITER = "|";
+    private static final String STORE_MESSAGE_DELIMITER = "/";
     private static List<String> clientIds = new ArrayList<>();
     private static List<DataStoreInfo> storeInfos = new ArrayList<>();
 

@@ -28,7 +28,7 @@ public class DataStore {
         ZMQ.Socket socket = context.socket(SocketType.DEALER);
         socket.connect("tcp://localhost:5560");
         System.out.println("Socket connected");
-        socket.send("NOTIFY|" + range + "|");
+        socket.send("NOTIFY/" + range + "/");
         while (true) {
             String message = socket.recvStr();
             System.out.println(message);
