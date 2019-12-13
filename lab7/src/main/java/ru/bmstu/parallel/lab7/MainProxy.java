@@ -77,6 +77,7 @@ public class MainProxy {
                         String[] rangeParts = messageParts[1].split(STORE_RANGE_DELIMITER);
                         int rangeStart = Integer.parseInt(rangeParts[0]);
                         int rangeEnd = Integer.parseInt(rangeParts[1]);
+                        System.out.println("GOT RANGES: " + String.valueOf(rangeStart) + " " + String.valueOf(rangeEnd));
                         setNewDataStoreInfo(id, rangeStart, rangeEnd);
                     }
                     if (messageParts[0].equals("VALUE")) {
@@ -119,6 +120,7 @@ public class MainProxy {
         for (int i = 0; i < storeInfos.size(); i++) {
             DataStoreInfo currentInfo = storeInfos.get(i);
             if (currentInfo.getId().equals(id)) {
+                System.out.println("FOUND AND SET NEW RANGES");
                 currentInfo.setBeginRange(rangeStart);
                 currentInfo.setEndRange(rangeEnd);
             }
