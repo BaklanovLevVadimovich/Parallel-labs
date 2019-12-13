@@ -55,16 +55,14 @@ public class MainProxy {
                         if (message.contains("put")) {
                             String[] messageParts = message.split(REQUEST_DELIMITER);
                             int cellNum = Integer.parseInt(messageParts[1]);
-                            String newData = messageParts[2];
                             List<byte[]> storeIds = getAllDataStoreIdsContainingCell(cellNum);
-                            ZMsg storeMsg = new ZMsg();
-                            storeMsg.addFirst(new ZFrame(""));
-                            storeMsg.add(new ZFrame(message));
                             System.out.println("STORES NUM " + String.valueOf(storeIds.size()));
                             for (int i = 0; i < storeIds.size(); i++) {
                                 System.out.println(i);
                                 System.out.println(storeIds.get(i));
-                                storeMsg.getFirst().reset(storeIds.get(i));
+                                ZMsg storeMsg = new ZMsg();
+                                storeMsg.addFirst(new ZFrame(storeIds.get(i)));
+                                storeMsg.add(new ZFrame(message));
                                 storeMsg.send(storeWorker);
                             }
                             msg.getLast().reset("Updated");
