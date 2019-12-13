@@ -67,15 +67,15 @@ public class MainProxy {
                 while (true) {
                     System.out.println("GETTING NEW STORE MESSAGE");
                     ZMsg msg = ZMsg.recvMsg(storeWorker);
+                    System.out.println("GOT MES FROM STORE " + msg.toString());
                     byte[] id = msg.getFirst().getData();
                     if (isNewStore(id)) {
                         DataStoreInfo info = new DataStoreInfo();
                         info.setId(id);
                         storeInfos.add(info);
                     }
-                    message = msg.getLast().toString();
-                    System.out.println("id: " + id);
-                    System.out.println("GOT MES FROM STORE " + msg.toString());
+                    msg.pop();
+                    message = msg.getFirst().toString();
                     String[] messageParts = message.split(STORE_MESSAGE_DELIMITER);
                     if (messageParts[0].equals("NOTIFY")) {
                         String[] rangeParts = messageParts[1].split(STORE_RANGE_DELIMITER);
