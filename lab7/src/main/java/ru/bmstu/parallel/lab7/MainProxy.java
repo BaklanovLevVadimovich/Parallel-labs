@@ -43,6 +43,8 @@ public class MainProxy {
                     System.out.println(message);
                     if (message.contains("get")) {
                         System.out.println("SEND GET REQUEST TO DATA STORE");
+                        String[] messageParts = message.split(REQUEST_DELIMITER);
+                        storeWorker.sendMore(getDataStoreIdContainingCell(Integer.parseInt(messageParts[1])));
                         storeWorker.send(message, 0);
 //                        storeWorker.recvStr();
                     } else {
@@ -83,7 +85,7 @@ public class MainProxy {
                     if (messageParts[0].equals("UPDATE")) {
 
                     }
-                    more = clientWorker.hasReceiveMore();
+                    more = storeWorker.hasReceiveMore();
 //                    storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
                     if (!more) {
                         break;
@@ -122,7 +124,13 @@ public class MainProxy {
         }
     }
 
-    private static void getDataStoreIdContainingCell(int cellNum) {
-        for ()
+    private static String getDataStoreIdContainingCell(int cellNum) {
+        for (int i = 0;  i < storeInfos.size(); i++) {
+            DataStoreInfo currentInfo = storeInfos.get(i);
+            if (cellNum >= currentInfo.getBeginRange() && cellNum <= currentInfo.getEndRange()) {
+                return currentInfo.getId();
+            }
+        }
+        return "";
     }
 }
