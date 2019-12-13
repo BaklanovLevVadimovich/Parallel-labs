@@ -97,6 +97,7 @@ public class MainProxy {
                     storeMsg = msg;
                     first.send(storeWorker, ZMQ.SNDMORE);
                     second.send(storeWorker, 0);
+                    System.out.println("ping send");
 //                    storeMsg.las
 //                    storeMsg.send(storeWorker);
 //                    storeWorker.sendMore(id);
