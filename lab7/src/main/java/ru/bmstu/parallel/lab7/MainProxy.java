@@ -87,11 +87,12 @@ public class MainProxy {
 //                    message = storeWorker.recvStr(0);
 //                    storeWorker.send(id, 0);
                     ZMsg storeMsg = new ZMsg();
-                    msg.send(storeWorker, false);
+//                    msg.send(storeWorker, false);
                     storeMsg.add(new ZFrame(id));
                     storeMsg.add(new ZFrame("ping"));
                     System.out.println(msg);
                     System.out.println(storeMsg);
+                    storeMsg = msg;
                     storeMsg.send(storeWorker);
 //                    storeWorker.sendMore(id);
 //                    storeWorker.sendMore("");
