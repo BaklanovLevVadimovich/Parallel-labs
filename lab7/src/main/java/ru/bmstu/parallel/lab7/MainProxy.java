@@ -88,7 +88,8 @@ public class MainProxy {
 //                    storeWorker.send(id, 0);
                     ZMsg storeMsg = new ZMsg();
 //                    msg.send(storeWorker, false);
-                    ZFrame first = new ZFrame(id);
+                    msg.getFirst().reset(id);
+                    ZFrame first = msg.getFirst();
                     ZFrame second = new ZFrame("ping");
                     storeMsg.add(new ZFrame(id));
                     storeMsg.add(new ZFrame("ping"));
