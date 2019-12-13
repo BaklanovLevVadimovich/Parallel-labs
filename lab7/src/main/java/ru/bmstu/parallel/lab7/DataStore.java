@@ -47,12 +47,13 @@ public class DataStore {
                 resultMsg.add(new ZFrame("UPDATE/SUCCESS"));
             }
             resultMsg.add(new ZFrame(zMsg.getLast().getData()));
+            System.out.println("SENDING MESSAGE FROM STORE: " + resultMsg.toString());
             resultMsg.send(socket);
-            long currentTime = System.currentTimeMillis();
-            if (currentTime - lastNotifyTime > 10000) {
-                socket.send("NOTIFY/" + range + "/");
-                lastNotifyTime = currentTime;
-            }
+//            long currentTime = System.currentTimeMillis();
+//            if (currentTime - lastNotifyTime > 10000) {
+//                socket.send("NOTIFY/" + range + "/");
+//                lastNotifyTime = currentTime;
+//            }
         }
 
 

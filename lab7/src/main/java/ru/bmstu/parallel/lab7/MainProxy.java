@@ -65,7 +65,6 @@ public class MainProxy {
             }
             if (items.pollin(1)) {
                 while (true) {
-                    System.out.println("GETTING NEW STORE MESSAGE");
                     ZMsg msg = ZMsg.recvMsg(storeWorker);
                     System.out.println("GOT MES FROM STORE " + msg.toString());
                     byte[] id = msg.getFirst().getData();
