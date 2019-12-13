@@ -62,6 +62,8 @@ public class MainProxy {
                             storeMsg.add(new ZFrame(message));
                             System.out.println("STORES NUM " + String.valueOf(storeIds.size()));
                             for (int i = 0; i < storeIds.size(); i++) {
+                                System.out.println(i);
+                                System.out.println(storeIds.get(i));
                                 storeMsg.getFirst().reset(storeIds.get(i));
                                 storeMsg.send(storeWorker);
                             }
