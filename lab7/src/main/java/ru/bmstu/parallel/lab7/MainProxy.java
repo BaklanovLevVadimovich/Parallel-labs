@@ -20,10 +20,10 @@ public class MainProxy {
         ZMQ.Socket storeWorker = context.socket(SocketType.ROUTER);
         clientWorker.bind("tcp://*:5559");
         storeWorker.bind("tcp://*:5560");
-        System.out.println("Launched proxy");
         ZMQ.Poller items = context.poller(2);
         items.register(clientWorker, ZMQ.Poller.POLLIN);
         items.register(storeWorker, ZMQ.Poller.POLLIN);
+        System.out.println("Launched proxy");
         boolean more = false;
         String message;
         while (!Thread.currentThread().isInterrupted()) {
