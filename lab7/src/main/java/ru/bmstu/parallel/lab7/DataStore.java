@@ -53,8 +53,8 @@ public class DataStore {
                 }
             }
         });
-        notifyThread.run();
-        long lastNotifyTime = System.currentTimeMillis();
+//        notifyThread.run();
+        socket.send(NOTIFY_MESSAGE + RESPONSE_DELIMITER + range, 0);
         while (true) {
             ZMsg zMsg = ZMsg.recvMsg(socket);
             String message = zMsg.getFirst().toString();
@@ -73,11 +73,6 @@ public class DataStore {
             resultMsg.add(new ZFrame(zMsg.getLast().getData()));
             System.out.println("SENDING MESSAGE FROM STORE: " + resultMsg.toString());
             resultMsg.send(socket);
-//            long currentTime = System.currentTimeMillis();
-//            if (currentTime - lastNotifyTime > 10000) {
-//                socket.send("NOTIFY/" + range + "/");
-//                lastNotifyTime = currentTime;
-//            }
         }
 
 
