@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class DataStore {
 
-    private static HashMap<Integer, String> data;
+    private static HashMap<Integer, String> data = new HashMap<>();
     private static int rangeBegin;
     private static int rangeEnd;
     private static final String RANGE_DELIMITER = "-";
