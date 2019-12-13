@@ -17,7 +17,7 @@ public class Client {
             String line = in.nextLine();
             requester.send(line, 0);
             System.out.println("send line: " + line);
-            String reply = requester.recvStr(0);
+            String reply = requester.recvStr();
             System.out.println("Got reply: " + reply);
         }
     }

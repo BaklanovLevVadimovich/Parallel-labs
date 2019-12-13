@@ -37,7 +37,7 @@ public class MainProxy {
                     }
                     System.out.println(id);
                     clientWorker.recvStr();
-                    message = clientWorker.recvStr(0);
+                    message = clientWorker.recvStr();
                     System.out.println(message);
                     clientWorker.sendMore(id);
                     clientWorker.sendMore("");
