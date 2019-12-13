@@ -51,10 +51,14 @@ public class MainProxy {
 //                    System.out.println(msg.popString());
 //                    System.out.println(msg.getFirst().toString());
 //                    msg.send(clientWorker);
+                    System.out.println(kek);
+                    System.out.println(kek1);
+                    System.out.println(kek2);
                     ZMsg msg1 = new ZMsg();
                     msg1.add(new ZFrame(kek));
                     msg1.add(new ZFrame(kek1));
                     msg1.add(new ZFrame(kek2));
+                    System.out.println(msg1.toString());
                     msg1.send(clientWorker);
 //                    System.out.println(message);
 //                    clientWorker.sendMore("");
