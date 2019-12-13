@@ -1,7 +1,6 @@
 package ru.bmstu.parallel.lab7;
 
 import org.zeromq.SocketType;
-import org.zeromq.ZContext;
 import org.zeromq.ZMQ;
 
 import java.util.Scanner;
@@ -9,12 +8,14 @@ import java.util.Scanner;
 public class Client {
 
     public static void main(String[] args) {
-        ZContext context = new ZContext();
-        ZMQ.Socket requester = context.createSocket(SocketType.REQ);
+        ZMQ.Context context = ZMQ.context(1);
+        ZMQ.Socket requester = context.socket(SocketType.REQ);
         requester.connect("tcp://localhost:8081");
         Scanner in = new Scanner(System.in);
         System.out.println("Socket connected");
 
+        ZMQ.Poller items = context.poller(1);
+        items.register(requester, ZMQ.Poller.POLLIN);
         while (!Thread.currentThread().isInterrupted()) {
             String line = in.nextLine();
             requester.send(line, 0);
