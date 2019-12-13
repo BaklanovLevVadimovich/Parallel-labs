@@ -36,7 +36,7 @@ public class DataStore {
             System.out.println("NEW MESSAGE");
 //            ZMsg msg = ZMsg.recvMsg(socket);
             String message = socket.recvStr(0);
-            System.out.println("GOT MESSAGE: " + message.toString());
+            System.out.println("GOT MESSAGE: " + message);
 //            String[] messageParts = message.split(REQUEST_DELIMITER);
 //            int cellNum = Integer.parseInt(messageParts[1]);
 //            String clientId;
