@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0145c0e4-8f47-40f7-8c6e-ae546b316455" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab7/MainProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab7/MainProxy.java" afterDir="false" />
-    </list>
+    <list default="true" id="0145c0e4-8f47-40f7-8c6e-ae546b316455" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,13 +20,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5870" />
+          <entry key="java" value="5914" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5870" />
+          <entry key="JAVA" value="5914" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -57,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab7/DataStore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="41" column="66" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
+            <state relative-caret-position="184">
+              <caret line="42" column="65" selection-start-line="42" selection-start-column="65" selection-end-line="42" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab7/MainProxy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="98" column="46" selection-start-line="98" selection-start-column="46" selection-end-line="98" selection-end-column="46" />
+            <state relative-caret-position="434">
+              <caret line="99" column="49" selection-start-line="99" selection-start-column="49" selection-end-line="99" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,8 +114,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab7/DataStoreInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab7/Client.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab7/DataStore.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab7/MainProxy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab7/DataStore.java" />
       </list>
     </option>
   </component>
@@ -183,7 +181,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576266188227" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576266195439" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -256,16 +254,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576186867179</updated>
-      <workItem from="1576186874235" duration="32506000" />
+      <workItem from="1576186874235" duration="32818000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32506000" />
+    <option name="totallyTimeSpent" value="32818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -356,16 +353,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab7/DataStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="41" column="66" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab7/Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="434">
@@ -378,8 +365,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab7/MainProxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="98" column="46" selection-start-line="98" selection-start-column="46" selection-end-line="98" selection-end-column="46" />
+        <state relative-caret-position="434">
+          <caret line="99" column="49" selection-start-line="99" selection-start-column="49" selection-end-line="99" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bmstu/parallel/lab7/DataStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="42" column="65" selection-start-line="42" selection-start-column="65" selection-end-line="42" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
