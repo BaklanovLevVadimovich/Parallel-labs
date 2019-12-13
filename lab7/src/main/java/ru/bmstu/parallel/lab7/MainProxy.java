@@ -78,7 +78,7 @@ public class MainProxy {
                     message = storeWorker.recvStr(0);
 //                    storeWorker.send(id, 0);
                     storeWorker.sendMore(id);
-//                    storeWorker.sendMore("/n");
+                    storeWorker.sendMore("");
                     storeWorker.send("ping", 0);
                     System.out.println("GOT MES FROM STORE " + message);
                     String[] messageParts = message.split(STORE_MESSAGE_DELIMITER);
