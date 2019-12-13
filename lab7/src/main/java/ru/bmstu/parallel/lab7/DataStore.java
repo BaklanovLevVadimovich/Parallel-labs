@@ -35,30 +35,22 @@ public class DataStore {
         long lastNotifyTime = System.currentTimeMillis();
         while (true) {
             System.out.println("NEW MESSAGE");
-            ZFrame frame = ZFrame.recvFrame(socket);
-//            ZMsg msg = ZMsg.recvMsg(socket);
-//            String message = socket.recvStr();
-//            String message1 = socket.recvStr(0);
-//            String message2 = socket.recvStr(0);
-            System.out.println("GOT MESSAGE: " + frame.toString());
-//            System.out.println("GOT MESSAGE: " + message1);
-//            System.out.println("GOT MESSAGE: " + message2);
-//            String[] messageParts = message.split(REQUEST_DELIMITER);
-//            int cellNum = Integer.parseInt(messageParts[1]);
-//            String clientId;
-//            if (messageParts[0].equals("get")) {
-//                clientId = messageParts[2];
-//                socket.send("VALUE/" + data.get(cellNum) + "/" + clientId);
-//            } else {
-//                data.replace(cellNum, messageParts[2]);
-//                clientId = messageParts[3];
-//                socket.send("UPDATE/SUCCESS/" + clientId);
-//            }
-//            long currentTime = System.currentTimeMillis();
-//            if (currentTime - lastNotifyTime > 10000) {
-//                socket.send("NOTIFY/" + range + "/");
-//                lastNotifyTime = currentTime;
-//            }
+            ZMsg zMsg = ZMsg.recvMsg(socket);
+            String message = zMsg.getFirst().toString();
+            System.out.println("GOT MESSAGE: " + message);
+            String[] messageParts = message.split(REQUEST_DELIMITER);
+            int cellNum = Integer.parseInt(messageParts[1]);
+            if (messageParts[0].equals("get")) {
+                socket.send("VALUE/" + data.get(cellNum));
+            } else {
+                data.replace(cellNum, messageParts[2]);
+                socket.send("UPDATE/SUCCESS");
+            }
+            long currentTime = System.currentTimeMillis();
+            if (currentTime - lastNotifyTime > 10000) {
+                socket.send("NOTIFY/" + range + "/");
+                lastNotifyTime = currentTime;
+            }
         }
 
 

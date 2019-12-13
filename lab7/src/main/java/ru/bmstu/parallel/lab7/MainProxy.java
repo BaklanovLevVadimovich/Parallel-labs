@@ -51,13 +51,9 @@ public class MainProxy {
                         System.out.println("SEND GET REQUEST TO DATA STORE");
                         ZMsg storeMsg = new ZMsg();
                         storeMsg.add(new ZFrame(storeId));
-                        storeMsg.add(new ZFrame(message + " " + id));
+                        storeMsg.add(new ZFrame(message));
+                        storeMsg.add(new ZFrame(id));
                         storeMsg.send(storeWorker);
-//                        storeWorker.sendMore(storeId);
-//                        storeWorker.sendMore("");
-//                        System.out.println("SEND MORE PASSED");
-//                        storeWorker.send(message + " " + id, 0);
-                        System.out.println("LAST SEND PASSED");
                     } else {
 
                     }
