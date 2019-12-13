@@ -13,6 +13,7 @@ public class MainProxy {
     private static List<String> clientIds = new ArrayList<>();
     private static List<String> storeIds = new ArrayList<>();
     private static List<DataStoreInfo> storeInfos = new ArrayList<>();
+
     public static void main(String[] args) {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket clientWorker = context.socket(SocketType.ROUTER);
@@ -62,7 +63,8 @@ public class MainProxy {
                     storeWorker.recvStr();
                     message = clientWorker.recvStr(0);
                     System.out.println("GOT MES FROM STORE " + message);
-                    if (message.con)
+                    String[] messageParts = message.split(STORE_MESSAGE_DELIMITER);
+                    if (messageParts[0].equals("NOTICE")
 //                    more = clientWorker.hasReceiveMore();
 //                    storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
 //                    if (!more) {
