@@ -28,7 +28,7 @@ public class DataStore {
 
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket socket = context.socket(SocketType.DEALER);
-        socket.connect("tcp://localhost:5560");
+        socket.connect("tcp://localhost:8082");
         System.out.println("Socket connected");
         socket.send("NOTIFY/" + range + "/", 0);
         long lastNotifyTime = System.currentTimeMillis();

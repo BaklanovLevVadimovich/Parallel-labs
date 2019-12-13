@@ -18,8 +18,8 @@ public class MainProxy {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket clientWorker = context.socket(SocketType.ROUTER);
         ZMQ.Socket storeWorker = context.socket(SocketType.ROUTER);
-        clientWorker.bind("tcp://*:5559");
-        storeWorker.bind("tcp://*:5560");
+        clientWorker.bind("tcp://*:8081");
+        storeWorker.bind("tcp://*:8082");
         ZMQ.Poller items = context.poller(2);
         items.register(clientWorker, ZMQ.Poller.POLLIN);
         items.register(storeWorker, ZMQ.Poller.POLLIN);
