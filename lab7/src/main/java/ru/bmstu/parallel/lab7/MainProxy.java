@@ -42,6 +42,10 @@ public class MainProxy {
 //                    message = clientWorker.recvStr();
                     ZMsg msg = ZMsg.recvMsg(clientWorker);
                     msg.send(clientWorker);
+                    System.out.println(msg.toString());
+                    System.out.println(msg.popString());
+                    System.out.println(msg.popString());
+                    System.out.println(msg.getFirst().toString());
 //                    System.out.println(message);
 //                    clientWorker.sendMore("");
 //                    clientWorker.send("roflan", 0);
