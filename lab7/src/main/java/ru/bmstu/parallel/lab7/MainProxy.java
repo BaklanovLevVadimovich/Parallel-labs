@@ -76,11 +76,6 @@ public class MainProxy {
                     message = msg.getLast().toString();
                     System.out.println("id: " + id);
                     System.out.println("GOT MES FROM STORE " + message);
-                    ZMsg storeMsg = new ZMsg();
-                    storeMsg.add(new ZFrame(id));
-                    storeMsg.add("ping");
-                    System.out.println(storeMsg);
-                    storeMsg.send(storeWorker);
                     String[] messageParts = message.split(STORE_MESSAGE_DELIMITER);
                     if (messageParts[0].equals("NOTIFY")) {
                         String[] rangeParts = messageParts[1].split(STORE_RANGE_DELIMITER);
@@ -89,8 +84,10 @@ public class MainProxy {
                         setNewDataStoreInfo(id, rangeStart, rangeEnd);
                     }
                     if (messageParts[0].equals("VALUE")) {
-                        clientWorker.sendMore(messageParts[2]);
-                        clientWorker.send(messageParts[1], 0);
+                        ZMsg clientMsg = new ZMsg();
+                        clientMsg.add(new ZFrame(msg.getLast().getData());
+                        clientMsg.add(new ZFrame(messageParts[1]));
+                        clientMsg.send(clientWorker);
                     }
                     if (messageParts[0].equals("UPDATE")) {
 
