@@ -14,8 +14,6 @@ public class Client {
         Scanner in = new Scanner(System.in);
         System.out.println("Socket connected");
 
-        ZMQ.Poller items = context.poller(1);
-        items.register(requester, ZMQ.Poller.POLLIN);
         while (!Thread.currentThread().isInterrupted()) {
             String line = in.nextLine();
             requester.send(line, 0);
