@@ -36,10 +36,10 @@ public class MainProxy {
                         clientIds.add(id);
                     }
                     System.out.println(id);
-                    clientWorker.sendMore(id);
                     clientWorker.recvStr();
                     message = clientWorker.recvStr(0);
                     System.out.println(message);
+                    clientWorker.sendMore(id);
                     clientWorker.sendMore("");
                     clientWorker.send("roflan");
                     if (message.contains("get")) {
