@@ -73,9 +73,6 @@ public class MainProxy {
                     message = storeWorker.recvStr(0);
                     System.out.println("GOT MES FROM STORE " + message);
                     String[] messageParts = message.split(STORE_MESSAGE_DELIMITER);
-                    System.out.println("part0: " + messageParts[0]);
-                    System.out.println("part1: " + messageParts[1]);
-                    System.out.println("part@: " + messageParts[2]);
                     if (messageParts[0].equals("NOTIFY")) {
                         String[] rangeParts = messageParts[1].split(STORE_RANGE_DELIMITER);
                         int rangeStart = Integer.parseInt(rangeParts[0]);
