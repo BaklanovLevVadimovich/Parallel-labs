@@ -69,7 +69,7 @@ public class MainProxy {
                     System.out.println(id);
                     storeWorker.sendMore(id);
                     storeWorker.recvStr();
-                    message = clientWorker.recvStr(0);
+                    message = storeWorker.recvStr(0);
                     System.out.println("GOT MES FROM STORE " + message);
                     String[] messageParts = message.split(STORE_MESSAGE_DELIMITER);
                     if (messageParts[0].equals("NOTIFY")) {
