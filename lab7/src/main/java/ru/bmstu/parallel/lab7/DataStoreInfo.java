@@ -4,28 +4,28 @@ public class DataStoreInfo {
 
     private byte[] id;
 
-    private int beginRange;
+    private int rangeStart;
 
-    private int endRange;
+    private int rangeEnd;
 
-    public int getBeginRange() {
-        return beginRange;
+    public int getRangeStart() {
+        return rangeStart;
     }
 
-    public int getEndRange() {
-        return endRange;
+    public int getRangeEnd() {
+        return rangeEnd;
     }
 
     public byte[] getId() {
         return id;
     }
 
-    public void setBeginRange(int beginRange) {
-        this.beginRange = beginRange;
+    public void setRangeStart(int rangeStart) {
+        this.rangeStart = rangeStart;
     }
 
-    public void setEndRange(int endRange) {
-        this.endRange = endRange;
+    public void setRangeEnd(int rangeEnd) {
+        this.rangeEnd = rangeEnd;
     }
 
     public void setId(byte[] id) {

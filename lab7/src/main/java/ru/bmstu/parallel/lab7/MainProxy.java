@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-
 public class MainProxy {
 
     private static final String REQUEST_DELIMITER = " ";
@@ -35,7 +33,6 @@ public class MainProxy {
             items.poll();
             if (items.pollin(0)) {
                 while (true) {
-                    System.out.println("GETTING NEW MESSAGE");
                     ZMsg msg = ZMsg.recvMsg(clientWorker);
                     System.out.println(msg.toString());
                     byte[] id = msg.getFirst().getData();
@@ -43,8 +40,7 @@ public class MainProxy {
                         clientIds.add(id);
                     }
                     message = msg.getLast().toString();
-                    System.out.println("id: " + id);
-                    System.out.println("message: " + message);
+                    System.out.println("GOT MESSAGE FROM CLIENT: " + msg.toString());
                     if (message.contains("get")) {
                         String[] messageParts = message.split(REQUEST_DELIMITER);
                         byte[] storeId = getDataStoreIdContainingCell(Integer.parseInt(messageParts[1]));
@@ -52,8 +48,8 @@ public class MainProxy {
                         storeMsg.add(new ZFrame(storeId));
                         storeMsg.add(new ZFrame(message));
                         storeMsg.add(new ZFrame(id));
-                        storeMsg.send(storeWorker, false);
                         System.out.println("SEND GET REQUEST TO DATA STORE: " + storeMsg.toString());
+                        storeMsg.send(storeWorker);
                     } else {
 
                     }
@@ -126,8 +122,8 @@ public class MainProxy {
         for (int i = 0; i < storeInfos.size(); i++) {
             DataStoreInfo currentInfo = storeInfos.get(i);
             if (Arrays.equals(currentInfo.getId(), id)) {
-                currentInfo.setBeginRange(rangeStart);
-                currentInfo.setEndRange(rangeEnd);
+                currentInfo.setRangeStart(rangeStart);
+                currentInfo.setRangeEnd(rangeEnd);
             }
         }
     }
@@ -135,10 +131,14 @@ public class MainProxy {
     private static byte[] getDataStoreIdContainingCell(int cellNum) {
         for (int i = 0;  i < storeInfos.size(); i++) {
             DataStoreInfo currentInfo = storeInfos.get(i);
-            if (cellNum >= currentInfo.getBeginRange() && cellNum <= currentInfo.getEndRange()) {
+            if (cellNum >= currentInfo.getRangeStart() && cellNum <= currentInfo.getRangeEnd()) {
                 return currentInfo.getId();
             }
         }
         return new byte[0];
+    }
+
+    private static List<byte[]> getAllDataStoreIdsContainingCell(int cellNum) {
+        
     }
 }
