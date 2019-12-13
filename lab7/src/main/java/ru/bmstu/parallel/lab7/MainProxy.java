@@ -8,6 +8,8 @@ import org.zeromq.ZMsg;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 public class MainProxy {
 
     private static final String REQUEST_DELIMITER = " ";
@@ -76,8 +78,9 @@ public class MainProxy {
                     String var1, var2, var3, var4;
                     var1 = msg.getFirst().strhex();
                     var2 = msg.getFirst().toString();
+                    String var6= msg.getFirst().getString(UTF_8);
                     var3 = msg.getFirst().getData().toString();
-                    String var5 = msg.getFirst().getData();
+//                    String var5 = msg.getFirst().getData();
                     var4 = msg.getFirst().getString(ZMQ.CHARSET);
                     byte[] trueId = msg.getFirst().getData();
                     System.out.println(trueId);
@@ -96,8 +99,8 @@ public class MainProxy {
                     System.out.println(msg.getFirst().hasSameData(new ZFrame(var3.getBytes(ZMQ.CHARSET))));
                     System.out.println(msg.getFirst().hasSameData(new ZFrame(var4.getBytes())));
                     System.out.println(msg.getFirst().hasSameData(new ZFrame(var4.getBytes(ZMQ.CHARSET))));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var5.getBytes())));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var5.getBytes(ZMQ.CHARSET))));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var6.getBytes())));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var6.getBytes(UTF_8))));
                     System.out.println(msg.getFirst().hasSameData(new ZFrame(msg.getFirst().getData())));
                     String id = msg.getFirst().getData().toString();
                     if (isNewStore(id)) {
