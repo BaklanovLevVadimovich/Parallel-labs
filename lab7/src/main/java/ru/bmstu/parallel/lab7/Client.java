@@ -13,10 +13,20 @@ public class Client {
         requester.connect("tcp://localhost:8081");
         Scanner in = new Scanner(System.in);
         System.out.println("Socket connected");
+
+        ZMQ.Poller items = context.poller(1);
+        items.register(requester, ZMQ.Poller.POLLIN);
         while (!Thread.currentThread().isInterrupted()) {
             String line = in.nextLine();
             requester.send(line, 0);
             System.out.println("send line: " + line);
+            break;
+//            String reply = requester.recvStr(0);
+//            System.out.println("Got reply: " + reply);
+        }
+        items.poll();
+        if (items.pollin(0)) {
+
             String reply = requester.recvStr(0);
             System.out.println("Got reply: " + reply);
         }
