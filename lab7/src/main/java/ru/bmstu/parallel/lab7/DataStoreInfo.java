@@ -2,7 +2,7 @@ package ru.bmstu.parallel.lab7;
 
 public class DataStoreInfo {
 
-    private String id;
+    private byte[] id;
 
     private int beginRange;
 
@@ -16,7 +16,7 @@ public class DataStoreInfo {
         return endRange;
     }
 
-    public String getId() {
+    public byte[] getId() {
         return id;
     }
 
@@ -28,7 +28,7 @@ public class DataStoreInfo {
         this.endRange = endRange;
     }
 
-    public void setId(String id) {
+    public void setId(byte[] id) {
         this.id = id;
     }
 }

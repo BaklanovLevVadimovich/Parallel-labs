@@ -6,6 +6,7 @@ import org.zeromq.ZMQ;
 import org.zeromq.ZMsg;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -15,7 +16,7 @@ public class MainProxy {
     private static final String REQUEST_DELIMITER = " ";
     private static final String STORE_RANGE_DELIMITER = "-";
     private static final String STORE_MESSAGE_DELIMITER = "/";
-    private static List<String> clientIds = new ArrayList<>();
+    private static List<byte[]> clientIds = new ArrayList<>();
     private static List<DataStoreInfo> storeInfos = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -75,37 +76,7 @@ public class MainProxy {
                 while (true) {
                     System.out.println("GETTING NEW STORE MESSAGE");
                     ZMsg msg = ZMsg.recvMsg(storeWorker);
-                    String var1, var2, var3, var4;
-                    var1 = msg.getFirst().strhex();
-                    var2 = msg.getFirst().toString();
-                    String var6= msg.getFirst().getString(UTF_8);
-                    var3 = msg.getFirst().getData().toString();
-//                    String var5 = msg.getFirst().getData();
-                    var4 = msg.getFirst().getString(ZMQ.CHARSET);
-                    byte[] trueId = msg.getFirst().getData();
-                    System.out.println(trueId);
-                    System.out.println(trueId.toString());
-                    System.out.println(trueId.toString().getBytes());
-                    System.out.println(trueId.toString().getBytes(ZMQ.CHARSET));
-                    System.out.println(var1);
-                    System.out.println(var2);
-                    System.out.println(var3);
-                    System.out.println(var4);
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var1.getBytes())));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var1.getBytes(ZMQ.CHARSET))));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var2.getBytes())));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var2.getBytes(ZMQ.CHARSET))));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var3.getBytes())));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var3.getBytes(ZMQ.CHARSET))));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var4.getBytes())));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var4.getBytes(ZMQ.CHARSET))));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var6.getBytes())));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var6.getBytes(UTF_8))));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(trueId.toString())));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(trueId.toString().getBytes())));
-//                    System.out.println(msg.getFirst().hasSameData(new ZFrame(trueId.)));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(msg.getFirst().getData())));
-                    String id = msg.getFirst().getData().toString();
+                    byte[] id = msg.getFirst().getData();
                     if (isNewStore(id)) {
                         DataStoreInfo info = new DataStoreInfo();
                         info.setId(id);
@@ -161,41 +132,41 @@ public class MainProxy {
         }
     }
 
-    private static boolean isNewClient(String id) {
+    private static boolean isNewClient(byte[] id) {
         for (int i = 0; i < clientIds.size(); i++) {
-            if (clientIds.get(i).equals(id)) {
+            if (Arrays.equals(clientIds.get(i), id)) {
                 return false;
             }
         }
         return true;
     }
 
-    private static boolean isNewStore(String id) {
+    private static boolean isNewStore(byte[] id) {
         for (int i = 0; i < storeInfos.size(); i++) {
-            if (storeInfos.get(i).getId().equals(id)) {
+            if (Arrays.equals(storeInfos.get(i).getId(), id)) {
                 return false;
             }
         }
         return true;
     }
 
-    private static void setNewDataStoreInfo(String id, int rangeStart, int rangeEnd) {
+    private static void setNewDataStoreInfo(byte[] id, int rangeStart, int rangeEnd) {
         for (int i = 0; i < storeInfos.size(); i++) {
             DataStoreInfo currentInfo = storeInfos.get(i);
-            if (currentInfo.getId().equals(id)) {
+            if (Arrays.equals(currentInfo.getId(), id)) {
                 currentInfo.setBeginRange(rangeStart);
                 currentInfo.setEndRange(rangeEnd);
             }
         }
     }
 
-    private static String getDataStoreIdContainingCell(int cellNum) {
+    private static byte[] getDataStoreIdContainingCell(int cellNum) {
         for (int i = 0;  i < storeInfos.size(); i++) {
             DataStoreInfo currentInfo = storeInfos.get(i);
             if (cellNum >= currentInfo.getBeginRange() && cellNum <= currentInfo.getEndRange()) {
                 return currentInfo.getId();
             }
         }
-        return "";
+        return new byte[];
     }
 }
