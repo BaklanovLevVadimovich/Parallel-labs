@@ -16,7 +16,7 @@ public class MainProxy {
     private static List<DataStoreInfo> storeInfos = new ArrayList<>();
 
     public static void main(String[] args) {
-        ZContext context = ZMQ.context(1);
+        ZContext context = new ZMQ.context();
         ZMQ.Socket clientWorker = context.socket(SocketType.ROUTER);
         ZMQ.Socket storeWorker = context.socket(SocketType.ROUTER);
         clientWorker.bind("tcp://*:8081");
