@@ -88,6 +88,7 @@ public class MainProxy {
                         clientMsg.add(new ZFrame(msg.getLast().getData()));
                         clientMsg.add(new ZFrame(messageParts[1]));
                         clientMsg.send(clientWorker);
+                        System.out.println("Send res to client: " + clientMsg.toString());
                     }
                     if (messageParts[0].equals("UPDATE")) {
 

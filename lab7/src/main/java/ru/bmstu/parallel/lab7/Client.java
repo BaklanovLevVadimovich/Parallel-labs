@@ -24,7 +24,7 @@ public class Client {
             System.out.println("send line: " + line);
             ZMsg msg = ZMsg.recvMsg(requester);
 //            String reply = requester.recvStr(0);
-            System.out.println("Got reply: " + msg.popString());
+            System.out.println("Got reply: " + msg.toString());
         }
     }
 }
