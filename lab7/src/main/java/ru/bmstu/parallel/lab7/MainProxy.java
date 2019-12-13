@@ -36,11 +36,6 @@ public class MainProxy {
                         clientIds.add(id);
                     }
                     System.out.println("id:" + id);
-                    try {
-                        Thread.sleep(1000);
-                    } catch (Exception e) {
-                        
-                    }
                     clientWorker.sendMore(id);
                     clientWorker.recvStr();
                     message = clientWorker.recvStr();
