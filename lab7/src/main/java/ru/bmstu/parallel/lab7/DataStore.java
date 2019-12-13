@@ -1,6 +1,7 @@
 package ru.bmstu.parallel.lab7;
 
 import org.zeromq.SocketType;
+import org.zeromq.ZFrame;
 import org.zeromq.ZMQ;
 import org.zeromq.ZMsg;
 
@@ -34,12 +35,12 @@ public class DataStore {
         long lastNotifyTime = System.currentTimeMillis();
         while (true) {
             System.out.println("NEW MESSAGE");
+            ZFrame frame = ZFrame.recvFrame(socket);
 //            ZMsg msg = ZMsg.recvMsg(socket);
-            ZMsg msg = ZMsg.recvMsg(socket);
 //            String message = socket.recvStr();
 //            String message1 = socket.recvStr(0);
 //            String message2 = socket.recvStr(0);
-            System.out.println("GOT MESSAGE: " + msg.popString());
+            System.out.println("GOT MESSAGE: " + frame.toString());
 //            System.out.println("GOT MESSAGE: " + message1);
 //            System.out.println("GOT MESSAGE: " + message2);
 //            String[] messageParts = message.split(REQUEST_DELIMITER);
