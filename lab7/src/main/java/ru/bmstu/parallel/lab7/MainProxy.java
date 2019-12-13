@@ -101,6 +101,9 @@ public class MainProxy {
                     System.out.println(msg.getFirst().hasSameData(new ZFrame(var4.getBytes(ZMQ.CHARSET))));
                     System.out.println(msg.getFirst().hasSameData(new ZFrame(var6.getBytes())));
                     System.out.println(msg.getFirst().hasSameData(new ZFrame(var6.getBytes(UTF_8))));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(trueId.toString())));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(trueId.toString().getBytes())));
+//                    System.out.println(msg.getFirst().hasSameData(new ZFrame(trueId.)));
                     System.out.println(msg.getFirst().hasSameData(new ZFrame(msg.getFirst().getData())));
                     String id = msg.getFirst().getData().toString();
                     if (isNewStore(id)) {
