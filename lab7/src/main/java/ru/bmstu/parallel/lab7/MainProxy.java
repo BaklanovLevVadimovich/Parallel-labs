@@ -82,6 +82,10 @@ public class MainProxy {
                     System.out.println(var2);
                     System.out.println(var3);
                     System.out.println(var4);
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var1)));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var2)));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var3)));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var4)));
                     String id = msg.getFirst().getData().toString();
                     if (isNewStore(id)) {
                         DataStoreInfo info = new DataStoreInfo();
