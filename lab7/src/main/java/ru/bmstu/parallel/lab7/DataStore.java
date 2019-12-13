@@ -30,13 +30,13 @@ public class DataStore {
         ZMQ.Socket socket = context.socket(SocketType.DEALER);
         socket.connect("tcp://localhost:5560");
         System.out.println("Socket connected");
-        socket.send("NOTIFY/" + range + "/");
+        socket.send("NOTIFY/" + range + "/", 0);
         long lastNotifyTime = System.currentTimeMillis();
         while (true) {
             System.out.println("NEW MESSAGE");
-            ZMsg msg = ZMsg.recvMsg(socket);
-//            String message = socket.recvStr();
-            System.out.println("GOT MESSAGE: " + msg.toString());
+//            ZMsg msg = ZMsg.recvMsg(socket);
+            String message = socket.recvStr(0);
+            System.out.println("GOT MESSAGE: " + message.toString());
 //            String[] messageParts = message.split(REQUEST_DELIMITER);
 //            int cellNum = Integer.parseInt(messageParts[1]);
 //            String clientId;
