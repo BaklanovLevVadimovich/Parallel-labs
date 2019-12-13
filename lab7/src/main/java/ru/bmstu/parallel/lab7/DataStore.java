@@ -12,9 +12,17 @@ public class DataStore {
     private static HashMap<Integer, String> data = new HashMap<>();
     private static int rangeBegin;
     private static int rangeEnd;
+    private static final int THREADS_NUM = 1;
     private static final String RANGE_DELIMITER = "-";
     private static final String VALUES_DELIMITER = ",";
     private static final String REQUEST_DELIMITER = " ";
+    private static final String RESPONSE_DELIMITER = "/";
+    private static final String SOCKET_ADDRESS = "tcp://localhost:8082";
+    private static final String GET_COMMAND = "get";
+    private static final String NOTIFY_MESSAGE = "NOTIFY";
+    private static final String GET_MESSAGE = "VALUE";
+    private static final String PUT_MESSAGE = "UPDATE";
+    private static final String SUCCESS_MESSAGE = "SUCCESS";
 
     public static void main(String[] args) {
         String range = args[0];
@@ -27,24 +35,26 @@ public class DataStore {
             data.put(i, valuesSplitted[j]);
         }
 
-        ZMQ.Context context = ZMQ.context(1);
+        ZMQ.Context context = ZMQ.context(THREADS_NUM);
         ZMQ.Socket socket = context.socket(SocketType.DEALER);
-        socket.connect("tcp://localhost:8082");
+        socket.connect(SOCKET_ADDRESS);
         System.out.println("Socket connected");
-        socket.send("NOTIFY/" + range + "/", 0);
+        socket.send(NOTIFY_MESSAGE + RESPONSE_DELIMITER + range, 0);
         long lastNotifyTime = System.currentTimeMillis();
         while (true) {
             ZMsg zMsg = ZMsg.recvMsg(socket);
             String message = zMsg.getFirst().toString();
             System.out.println("GOT MESSAGE: " + message);
-            String[] messageParts = message.split(REQUEST_DELIMITER);
+            String[] messageParts = message.split(REQUEST_DELIMITER); //get x || put x data
+            String command = messageParts[0];
             int cellNum = Integer.parseInt(messageParts[1]);
             ZMsg resultMsg = new ZMsg();
-            if (messageParts[0].equals("get")) {
-                resultMsg.add(new ZFrame("VALUE/" + data.get(cellNum)));
+            if (command.equals(GET_COMMAND)) {
+                resultMsg.add(new ZFrame(GET_MESSAGE + RESPONSE_DELIMITER + data.get(cellNum)));
             } else {
-                data.replace(cellNum, messageParts[2]);
-                resultMsg.add(new ZFrame("UPDATE/SUCCESS"));
+                String newData = messageParts[2];
+                data.replace(cellNum, newData);
+                resultMsg.add(new ZFrame(PUT_MESSAGE + RESPONSE_DELIMITER + SUCCESS_MESSAGE));
             }
             resultMsg.add(new ZFrame(zMsg.getLast().getData()));
             System.out.println("SENDING MESSAGE FROM STORE: " + resultMsg.toString());
