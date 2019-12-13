@@ -44,9 +44,11 @@ public class MainProxy {
                         String[] messageParts = message.split(REQUEST_DELIMITER);
                         String storeId = getDataStoreIdContainingCell(Integer.parseInt(messageParts[1]));
                         System.out.println("SEND GET REQUEST TO DATA STORE " + storeId);
-                        storeWorker.send(message, 0);
-//                        storeWorker.send(storeId);
-//                        storeWorker.send(message + " " + id, 0);
+//                        storeWorker.send(message, 0);
+                        storeWorker.sendMore(storeId);
+                        System.out.println("SEND MORE PASSED");
+                        storeWorker.send(message + " " + id, 0);
+                        System.out.println("LAST SEND PASSED");
                     } else {
 
                     }
