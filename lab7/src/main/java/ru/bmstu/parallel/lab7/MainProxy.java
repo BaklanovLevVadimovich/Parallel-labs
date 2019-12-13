@@ -36,19 +36,20 @@ public class MainProxy {
                         clientIds.add(id);
                     }
                     System.out.println("id:" + id);
-                    clientWorker.sendMore(id);
+//                    clientWorker.sendMore(id);
                     clientWorker.recvStr();
                     message = clientWorker.recvStr();
                     System.out.println(message);
-                    clientWorker.sendMore("");
-                    clientWorker.send("roflan", 0);
-                    System.out.println("Sended roflan");
+//                    clientWorker.sendMore("");
+//                    clientWorker.send("roflan", 0);
+//                    System.out.println("Sended roflan");
                     if (message.contains("get")) {
                         String[] messageParts = message.split(REQUEST_DELIMITER);
                         String storeId = getDataStoreIdContainingCell(Integer.parseInt(messageParts[1]));
                         System.out.println("SEND GET REQUEST TO DATA STORE " + storeId);
 //                        storeWorker.send(message, 0);
                         storeWorker.sendMore(storeId);
+                        storeWorker.sendMore("");
                         System.out.println("SEND MORE PASSED");
                         storeWorker.send(message + " " + id, 0);
                         System.out.println("LAST SEND PASSED");
