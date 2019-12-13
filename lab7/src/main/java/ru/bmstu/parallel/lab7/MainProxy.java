@@ -104,7 +104,7 @@ public class MainProxy {
                     ZMsg storeMsg = new ZMsg();
 //                    msg.send(storeWorker, false);
                     msg.getFirst().reset(var4);
-                    ZFrame first = new ZFrame((trueId.toString().getBytes());
+                    ZFrame first = new ZFrame((trueId.toString().getBytes()));
                     ZFrame second = new ZFrame("ping");
                     storeMsg.add(new ZFrame(id));
                     storeMsg.add(new ZFrame("ping"));
