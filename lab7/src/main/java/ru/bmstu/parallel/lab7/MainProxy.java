@@ -48,12 +48,12 @@ public class MainProxy {
                     if (message.contains("get")) {
                         String[] messageParts = message.split(REQUEST_DELIMITER);
                         byte[] storeId = getDataStoreIdContainingCell(Integer.parseInt(messageParts[1]));
-                        System.out.println("SEND GET REQUEST TO DATA STORE");
                         ZMsg storeMsg = new ZMsg();
                         storeMsg.add(new ZFrame(storeId));
                         storeMsg.add(new ZFrame(message));
                         storeMsg.add(new ZFrame(id));
                         storeMsg.send(storeWorker);
+                        System.out.println("SEND GET REQUEST TO DATA STORE: " + storeMsg.toString());
                     } else {
 
                     }
@@ -75,7 +75,7 @@ public class MainProxy {
                     }
                     message = msg.getLast().toString();
                     System.out.println("id: " + id);
-                    System.out.println("GOT MES FROM STORE " + message);
+                    System.out.println("GOT MES FROM STORE " + msg.toString());
                     String[] messageParts = message.split(STORE_MESSAGE_DELIMITER);
                     if (messageParts[0].equals("NOTIFY")) {
                         String[] rangeParts = messageParts[1].split(STORE_RANGE_DELIMITER);
