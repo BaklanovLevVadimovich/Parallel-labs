@@ -3,6 +3,7 @@ package ru.bmstu.parallel.lab7;
 import org.zeromq.SocketType;
 import org.zeromq.ZFrame;
 import org.zeromq.ZMQ;
+import org.zeromq.ZMsg;
 
 import java.util.Scanner;
 
@@ -21,7 +22,7 @@ public class Client {
             frame.send(requester, 0);
 //            requester.send(line, 0);
             System.out.println("send line: " + line);
-            
+            ZMsg msg = 
             String reply = requester.recvStr(0);
             System.out.println("Got reply: " + reply);
         }
