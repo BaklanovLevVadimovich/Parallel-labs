@@ -34,7 +34,6 @@ public class DataStore {
         socket.send("NOTIFY/" + range + "/", 0);
         long lastNotifyTime = System.currentTimeMillis();
         while (true) {
-            System.out.println("NEW MESSAGE");
             ZMsg zMsg = ZMsg.recvMsg(socket);
             String message = zMsg.getFirst().toString();
             System.out.println("GOT MESSAGE: " + message);
@@ -48,6 +47,7 @@ public class DataStore {
                 resultMsg.add(new ZFrame("UPDATE/SUCCESS"));
             }
             resultMsg.add(new ZFrame(zMsg.getLast().getData()));
+            resultMsg.send(socket);
             long currentTime = System.currentTimeMillis();
             if (currentTime - lastNotifyTime > 10000) {
                 socket.send("NOTIFY/" + range + "/");
