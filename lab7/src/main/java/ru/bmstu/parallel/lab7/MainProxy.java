@@ -52,7 +52,7 @@ public class MainProxy {
                         storeMsg.add(new ZFrame(storeId));
                         storeMsg.add(new ZFrame(message));
                         storeMsg.add(new ZFrame(id));
-                        storeMsg.send(storeWorker);
+                        storeMsg.send(storeWorker, false);
                         System.out.println("SEND GET REQUEST TO DATA STORE: " + storeMsg.toString());
                     } else {
 
@@ -87,7 +87,7 @@ public class MainProxy {
                         ZMsg clientMsg = new ZMsg();
                         clientMsg.add(new ZFrame(msg.getLast().getData()));
                         clientMsg.add(new ZFrame(messageParts[1]));
-                        clientMsg.send(clientWorker);
+                        clientMsg.send(clientWorker, false);
                         System.out.println("Send res to client: " + clientMsg.toString());
                     }
                     if (messageParts[0].equals("UPDATE")) {
