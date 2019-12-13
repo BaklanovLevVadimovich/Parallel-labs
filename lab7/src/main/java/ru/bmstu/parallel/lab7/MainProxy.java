@@ -11,7 +11,7 @@ public class MainProxy {
     private static final String REQUEST_DELIMITER = " ";
     private static List<String> clientIds = new ArrayList<>();
     private static List<String> storeIds = new ArrayList<>();
-
+    private static List<DataStoreInfo> storeInfos = new ArrayList<>();
     public static void main(String[] args) {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket clientWorker = context.socket(SocketType.ROUTER);
