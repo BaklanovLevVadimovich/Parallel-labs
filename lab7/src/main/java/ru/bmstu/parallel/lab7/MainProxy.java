@@ -41,7 +41,7 @@ public class MainProxy {
                     if (message.contains("get")) {
                         System.out.println("SEND GET REQUEST TO DATA STORE");
                         storeWorker.send(message, 0);
-                        storeWorker.recvStr()
+//                        storeWorker.recvStr();
                     } else {
 
                     }
@@ -49,17 +49,16 @@ public class MainProxy {
             }
             if (items.pollin(1)) {
                 while (true) {
-                    message = storeWorker.recvStr();
                     System.out.println("GETTING NEW STORE MESSAGE");
-                    String id = clientWorker.recvStr();
+                    String id = storeWorker.recvStr();
                     if (isNewStore(id)) {
                         storeIds.add(id);
                     }
                     System.out.println(id);
-                    clientWorker.sendMore(id);
-                    clientWorker.recvStr();
+                    storeWorker.sendMore(id);
+                    storeWorker.recvStr();
                     message = clientWorker.recvStr(0);
-
+                    System.out.println("GOT MES FROM STORE " + message);
 //                    more = clientWorker.hasReceiveMore();
 //                    storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
 //                    if (!more) {
