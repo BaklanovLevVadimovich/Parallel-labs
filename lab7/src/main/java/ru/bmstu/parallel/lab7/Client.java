@@ -11,6 +11,7 @@ public class Client {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket requester = context.socket(SocketType.REQ);
         requester.connect("tcp://localhost:8081");
+        requester.setHWM(0);
         Scanner in = new Scanner(System.in);
         System.out.println("Socket connected");
 
