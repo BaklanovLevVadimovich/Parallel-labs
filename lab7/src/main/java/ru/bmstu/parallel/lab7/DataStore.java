@@ -26,6 +26,7 @@ public class DataStore {
 
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket socket = context.socket(SocketType.DEALER);
+        socket.connect("tcp://localhost:5560");
         
 
 
