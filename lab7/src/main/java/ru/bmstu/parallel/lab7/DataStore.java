@@ -12,6 +12,7 @@ public class DataStore {
     private static int rangeEnd;
     private static final String RANGE_DELIMITER = "-";
     private static final String VALUES_DELIMITER = ",";
+    private static final String REQUEST_DELIMITER = " ";
 
     public static void main(String[] args) {
         String range = args[0];
@@ -31,7 +32,14 @@ public class DataStore {
         socket.send("NOTIFY/" + range + "/");
         while (true) {
             String message = socket.recvStr();
-            System.out.println(message);
+            System.out.println("GOT MESSAGE: " + message);
+            String[] messageParts = message.split(REQUEST_DELIMITER);
+            int cellNum = Integer.parseInt(messageParts[1]);
+            if (messageParts[0].equals("get")) {
+                socket.send(data.get(cellNum));
+            } else {
+                data.replace(cellNum, messageParts[2]);
+            }
         }
 
 
