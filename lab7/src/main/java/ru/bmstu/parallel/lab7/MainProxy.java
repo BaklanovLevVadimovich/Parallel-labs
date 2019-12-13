@@ -87,10 +87,14 @@ public class MainProxy {
                     System.out.println(var2);
                     System.out.println(var3);
                     System.out.println(var4);
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var1)));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var2)));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var3)));
-                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var4)));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var1.getBytes())));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var1.getBytes(ZMQ.CHARSET))));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var2.getBytes())));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var2.getBytes(ZMQ.CHARSET))));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var3.getBytes())));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var3.getBytes(ZMQ.CHARSET))));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var4.getBytes())));
+                    System.out.println(msg.getFirst().hasSameData(new ZFrame(var4.getBytes(ZMQ.CHARSET))));
                     System.out.println(msg.getFirst().hasSameData(new ZFrame(msg.getFirst().getData())));
                     String id = msg.getFirst().getData().toString();
                     if (isNewStore(id)) {
