@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Client {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket requester = context.socket(SocketType.REQ);
         requester.connect("tcp://localhost:8081");
@@ -18,6 +18,7 @@ public class Client {
             String line = in.nextLine();
             requester.send(line, 0);
             System.out.println("send line: " + line);
+            Thread.sleep(1000);
             String reply = requester.recvStr(0);
             System.out.println("Got reply: " + reply);
         }
