@@ -167,6 +167,6 @@ public class MainProxy {
                 return currentInfo.getId();
             }
         }
-        return new byte[];
+        return new byte[0];
     }
 }
