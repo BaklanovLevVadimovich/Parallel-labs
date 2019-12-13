@@ -39,7 +39,7 @@ public class DataStore {
         ZMQ.Socket socket = context.socket(SocketType.DEALER);
         socket.connect(SOCKET_ADDRESS);
         System.out.println("Socket connected");
-        Thread 
+        Thread notifyThread = 
         socket.send(NOTIFY_MESSAGE + RESPONSE_DELIMITER + range, 0);
         long lastNotifyTime = System.currentTimeMillis();
         while (true) {
