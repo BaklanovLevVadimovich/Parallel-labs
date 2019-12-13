@@ -20,9 +20,6 @@ public class MainProxy {
         ZMQ.Socket storeWorker = context.socket(SocketType.ROUTER);
         clientWorker.bind("tcp://*:8081");
         storeWorker.bind("tcp://*:8082");
-//        clientWorker.close();
-//        storeWorker.close();
-//        context.term();
         ZMQ.Poller items = context.poller(2);
         items.register(clientWorker, ZMQ.Poller.POLLIN);
         items.register(storeWorker, ZMQ.Poller.POLLIN);
@@ -39,13 +36,13 @@ public class MainProxy {
                         clientIds.add(id);
                     }
                     System.out.println("id:" + id);
-//                    clientWorker.sendMore(id);
+                    clientWorker.sendMore(id);
                     clientWorker.recvStr();
                     message = clientWorker.recvStr();
                     System.out.println(message);
-//                    clientWorker.sendMore("");
-//                    clientWorker.send("roflan", 0);
-//                    System.out.println("Sended roflan");
+                    clientWorker.sendMore("");
+                    clientWorker.send("roflan", 2);
+                    System.out.println("Sended roflan");
                     if (message.contains("get")) {
                         String[] messageParts = message.split(REQUEST_DELIMITER);
                         String storeId = getDataStoreIdContainingCell(Integer.parseInt(messageParts[1]));
