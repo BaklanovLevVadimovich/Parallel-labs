@@ -15,7 +15,7 @@ public class Client {
         System.out.println("Socket connected");
         while (!Thread.currentThread().isInterrupted()) {
             String line = in.nextLine();
-            requester.send(line);
+            requester.send(line, 0);
             System.out.println("send line: " + line);
             String reply = requester.recvStr();
             System.out.println("Got reply: " + reply);

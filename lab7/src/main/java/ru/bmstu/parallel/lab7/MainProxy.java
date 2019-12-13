@@ -42,6 +42,7 @@ public class MainProxy {
                     System.out.println(message);
                     clientWorker.sendMore("");
                     clientWorker.send("roflan", 0);
+                    System.out.println("Sended roflan");
                     if (message.contains("get")) {
                         String[] messageParts = message.split(REQUEST_DELIMITER);
                         String storeId = getDataStoreIdContainingCell(Integer.parseInt(messageParts[1]));
