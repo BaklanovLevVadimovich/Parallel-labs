@@ -44,9 +44,8 @@ public class MainProxy {
                         String[] messageParts = message.split(REQUEST_DELIMITER);
                         String storeId = getDataStoreIdContainingCell(Integer.parseInt(messageParts[1]));
                         System.out.println("SEND GET REQUEST TO DATA STORE " + storeId);
-                        storeWorker.sendMore(storeId);
+//                        storeWorker.sendMore(storeId);
                         storeWorker.send(message, 0);
-//                        storeWorker.recvStr();
                     } else {
 
                     }
