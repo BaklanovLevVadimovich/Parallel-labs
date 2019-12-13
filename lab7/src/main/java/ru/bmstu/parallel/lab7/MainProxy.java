@@ -69,11 +69,11 @@ public class MainProxy {
                         storeInfos.add(info);
                     }
                     System.out.println("id: " + id);
-//                    storeWorker.sendMore(id);
 //                    String delim = storeWorker.recvStr();
 //                    System.out.println("delim:" + delim);
                     message = storeWorker.recvStr(0);
-                    storeWorker.send(id, 0);
+//                    storeWorker.send(id, 0);
+                    storeWorker.sendMore(id);
                     storeWorker.send("ping", 0);
                     System.out.println("GOT MES FROM STORE " + message);
                     String[] messageParts = message.split(STORE_MESSAGE_DELIMITER);
