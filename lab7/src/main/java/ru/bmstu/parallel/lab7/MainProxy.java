@@ -42,9 +42,10 @@ public class MainProxy {
                     message = clientWorker.recvStr(0);
                     System.out.println(message);
                     if (message.contains("get")) {
-                        System.out.println("SEND GET REQUEST TO DATA STORE");
                         String[] messageParts = message.split(REQUEST_DELIMITER);
-                        storeWorker.sendMore(getDataStoreIdContainingCell(Integer.parseInt(messageParts[1])));
+                        String storeId = getDataStoreIdContainingCell(Integer.parseInt(messageParts[1]));
+                        System.out.println("SEND GET REQUEST TO DATA STORE " + storeId);
+                        storeWorker.sendMore(storeId);
                         storeWorker.send(message, 0);
 //                        storeWorker.recvStr();
                     } else {
