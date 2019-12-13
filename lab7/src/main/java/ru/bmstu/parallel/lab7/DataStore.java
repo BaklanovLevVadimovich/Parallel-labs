@@ -32,6 +32,7 @@ public class DataStore {
         socket.send("NOTIFY/" + range + "/");
         long lastNotifyTime = System.currentTimeMillis();
         while (true) {
+            System.out.println("NEW MESSAGE");
             String message = socket.recvStr();
             System.out.println("GOT MESSAGE: " + message);
 //            String[] messageParts = message.split(REQUEST_DELIMITER);
