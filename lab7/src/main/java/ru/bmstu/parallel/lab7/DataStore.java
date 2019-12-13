@@ -53,7 +53,7 @@ public class DataStore {
                 }
             }
         });
-        notifyThread.run();
+        notifyThread.start();
         System.out.println("started cycle");
         socket.send(NOTIFY_MESSAGE + RESPONSE_DELIMITER + range, 0);
         while (true) {
