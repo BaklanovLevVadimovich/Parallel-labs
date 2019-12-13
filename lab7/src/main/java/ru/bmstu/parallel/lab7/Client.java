@@ -1,6 +1,7 @@
 package ru.bmstu.parallel.lab7;
 
 import org.zeromq.SocketType;
+import org.zeromq.ZFrame;
 import org.zeromq.ZMQ;
 
 import java.util.Scanner;
@@ -16,6 +17,7 @@ public class Client {
 
         while (!Thread.currentThread().isInterrupted()) {
             String line = in.nextLine();
+            ZFrame frame  = new ZFrame()
             requester.send(line, 0);
             System.out.println("send line: " + line);
             String reply = requester.recvStr(0);
