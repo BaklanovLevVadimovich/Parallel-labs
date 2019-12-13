@@ -40,6 +40,8 @@ public class MainProxy {
                     clientWorker.recvStr();
                     message = clientWorker.recvStr(0);
                     System.out.println(message);
+                    clientWorker.sendMore(id);
+                    clientWorker.send("roflan", 0);
                     if (message.contains("get")) {
                         String[] messageParts = message.split(REQUEST_DELIMITER);
                         String storeId = getDataStoreIdContainingCell(Integer.parseInt(messageParts[1]));
