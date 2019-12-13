@@ -78,6 +78,7 @@ public class MainProxy {
                     var2 = msg.getFirst().toString();
                     var3 = msg.getFirst().getData().toString();
                     var4 = msg.getFirst().getString(ZMQ.CHARSET);
+                    byte[] trueId = msg.getFirst().getData();
                     System.out.println(var1);
                     System.out.println(var2);
                     System.out.println(var3);
@@ -103,7 +104,7 @@ public class MainProxy {
                     ZMsg storeMsg = new ZMsg();
 //                    msg.send(storeWorker, false);
                     msg.getFirst().reset(var4);
-                    ZFrame first = msg.getFirst();
+                    ZFrame first = new ZFrame(trueId);
                     ZFrame second = new ZFrame("ping");
                     storeMsg.add(new ZFrame(id));
                     storeMsg.add(new ZFrame("ping"));
