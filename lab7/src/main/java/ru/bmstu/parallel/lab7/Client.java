@@ -24,11 +24,13 @@ public class Client {
 //            String reply = requester.recvStr(0);
 //            System.out.println("Got reply: " + reply);
         }
-        items.poll();
-        if (items.pollin(0)) {
+        while (true) {
+            items.poll();
+            if (items.pollin(0)) {
 
-            String reply = requester.recvStr(0);
-            System.out.println("Got reply: " + reply);
+                String reply = requester.recvStr(0);
+                System.out.println("Got reply: " + reply);
+            }
         }
     }
 }
