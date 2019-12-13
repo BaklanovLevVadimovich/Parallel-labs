@@ -62,7 +62,7 @@ public class MainProxy {
             if (items.pollin(1)) {
                 while (true) {
                     System.out.println("GETTING NEW STORE MESSAGE");
-                    String id = storeWorker.recvStr();
+                    String id = storeWorker.recvStr(0);
                     if (isNewStore(id)) {
                         DataStoreInfo info = new DataStoreInfo();
                         info.setId(id);
@@ -74,7 +74,7 @@ public class MainProxy {
                     message = storeWorker.recvStr(0);
 //                    storeWorker.send(id, 0);
                     storeWorker.sendMore(id);
-                    storeWorker.sendMore("/n");
+//                    storeWorker.sendMore("/n");
                     storeWorker.send("ping", 0);
                     System.out.println("GOT MES FROM STORE " + message);
                     String[] messageParts = message.split(STORE_MESSAGE_DELIMITER);
