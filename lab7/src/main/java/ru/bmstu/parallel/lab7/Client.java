@@ -15,7 +15,7 @@ public class Client {
         Scanner in = new Scanner(System.in);
         while (!Thread.currentThread().isInterrupted()) {
             String line = in.nextLine();
-            requester.send(line, 0);
+            requester.send(line);
             System.out.println("send line: " + line);
             String reply = requester.recvStr();
             System.out.println("Got reply: " + reply);
