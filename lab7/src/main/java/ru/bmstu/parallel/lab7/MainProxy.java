@@ -32,15 +32,16 @@ public class MainProxy {
             if (items.pollin(0)) {
                 while (true) {
                     System.out.println("GETTING NEW MESSAGE");
-                    String id = clientWorker.recvStr();
-                    if (isNewClient(id)) {
-                        clientIds.add(id);
-                    }
-                    System.out.println("id:" + id);
-//                    clientWorker.sendMore(id);
-                    clientWorker.recvStr();
-                    message = clientWorker.recvStr();
-                    ZMsg msg = 
+//                    String id = clientWorker.recvStr();
+//                    if (isNewClient(id)) {
+//                        clientIds.add(id);
+//                    }
+//                    System.out.println("id:" + id);
+////                    clientWorker.sendMore(id);
+//                    clientWorker.recvStr();
+//                    message = clientWorker.recvStr();
+                    ZMsg msg = ZMsg.recvMsg(clientWorker);
+                    
 //                    System.out.println(message);
 //                    clientWorker.sendMore("");
 //                    clientWorker.send("roflan", 0);
