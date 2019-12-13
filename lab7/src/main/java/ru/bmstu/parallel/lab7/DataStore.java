@@ -35,10 +35,11 @@ public class DataStore {
         while (true) {
             System.out.println("NEW MESSAGE");
 //            ZMsg msg = ZMsg.recvMsg(socket);
-            String message = socket.recvStr();
+            ZMsg msg = ZMsg.recvMsg(socket);
+//            String message = socket.recvStr();
 //            String message1 = socket.recvStr(0);
 //            String message2 = socket.recvStr(0);
-            System.out.println("GOT MESSAGE: " + message);
+            System.out.println("GOT MESSAGE: " + msg.popString());
 //            System.out.println("GOT MESSAGE: " + message1);
 //            System.out.println("GOT MESSAGE: " + message2);
 //            String[] messageParts = message.split(REQUEST_DELIMITER);
