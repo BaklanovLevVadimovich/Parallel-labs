@@ -95,8 +95,8 @@ public class MainProxy {
                     System.out.println(msg);
                     System.out.println(storeMsg);
                     storeMsg = msg;
-                    first.sendAndDestroy(storeWorker, ZMQ.SNDMORE);
-                    second.sendAndDestroy(storeWorker);
+                    first.send(storeWorker, ZMQ.SNDMORE);
+                    second.send(storeWorker, 0);
 //                    storeMsg.las
 //                    storeMsg.send(storeWorker);
 //                    storeWorker.sendMore(id);
