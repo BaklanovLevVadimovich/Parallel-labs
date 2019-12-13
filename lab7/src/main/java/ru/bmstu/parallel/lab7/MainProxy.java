@@ -34,7 +34,7 @@ public class MainProxy {
                         clientIds.add(id);
                     }
                     System.out.println(id);
-//                    clientWorker.sendMore(id);
+                    clientWorker.sendMore(id);
                     message = clientWorker.recv(0);
                     System.out.println(new String(message));
 //                    clientWorker.send(id.getBytes(), ZMQ.SNDMORE);
