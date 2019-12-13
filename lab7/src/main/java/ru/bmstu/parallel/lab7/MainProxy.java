@@ -9,6 +9,7 @@ import java.util.List;
 public class MainProxy {
 
     private static final String REQUEST_DELIMITER = " ";
+    private static final String STORE_MESSAGE_DELIMITER = "|";
     private static List<String> clientIds = new ArrayList<>();
     private static List<String> storeIds = new ArrayList<>();
     private static List<DataStoreInfo> storeInfos = new ArrayList<>();
@@ -52,13 +53,16 @@ public class MainProxy {
                     System.out.println("GETTING NEW STORE MESSAGE");
                     String id = storeWorker.recvStr();
                     if (isNewStore(id)) {
-                        storeIds.add(id);
+                        DataStoreInfo info = new DataStoreInfo();
+                        info.setId(id);
+                        storeInfos.add(info);
                     }
                     System.out.println(id);
                     storeWorker.sendMore(id);
                     storeWorker.recvStr();
                     message = clientWorker.recvStr(0);
                     System.out.println("GOT MES FROM STORE " + message);
+                    if (message.con)
 //                    more = clientWorker.hasReceiveMore();
 //                    storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
 //                    if (!more) {
@@ -80,8 +84,8 @@ public class MainProxy {
     }
 
     private static boolean isNewStore(String id) {
-        for (int i = 0; i < storeIds.size(); i++) {
-            if (storeIds.get(i).equals(id)) {
+        for (int i = 0; i < storeInfos.size(); i++) {
+            if (storeInfos.get(i).getId().equals(id)) {
                 return false;
             }
         }
