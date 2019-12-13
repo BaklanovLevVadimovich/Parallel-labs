@@ -17,8 +17,9 @@ public class Client {
 
         while (!Thread.currentThread().isInterrupted()) {
             String line = in.nextLine();
-            ZFrame frame  = new ZFrame()
-            requester.send(line, 0);
+            ZFrame frame  = new ZFrame(line);
+            frame.send(requester, 0);
+//            requester.send(line, 0);
             System.out.println("send line: " + line);
             String reply = requester.recvStr(0);
             System.out.println("Got reply: " + reply);
