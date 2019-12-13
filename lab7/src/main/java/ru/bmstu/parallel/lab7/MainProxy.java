@@ -21,6 +21,7 @@ public class MainProxy {
         System.out.println("Launched proxy");
         ZMQ.Poller items = context.poller(2);
         items.register(clientWorker, ZMQ.Poller.POLLIN);
+        items.register(storeWorker, ZMQ.Poller.POLLIN);
         boolean more = false;
         byte[] message;
         while (!Thread.currentThread().isInterrupted()) {
