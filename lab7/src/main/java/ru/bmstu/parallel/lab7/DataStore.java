@@ -34,22 +34,22 @@ public class DataStore {
         while (true) {
             String message = socket.recvStr();
             System.out.println("GOT MESSAGE: " + message);
-            String[] messageParts = message.split(REQUEST_DELIMITER);
-            int cellNum = Integer.parseInt(messageParts[1]);
-            String clientId;
-            if (messageParts[0].equals("get")) {
-                clientId = messageParts[2];
-                socket.send("VALUE/" + data.get(cellNum) + "/" + clientId);
-            } else {
-                data.replace(cellNum, messageParts[2]);
-                clientId = messageParts[3];
-                socket.send("UPDATE/SUCCESS/" + clientId);
-            }
-            long currentTime = System.currentTimeMillis();
-            if (currentTime - lastNotifyTime > 10000) {
-                socket.send("NOTIFY/" + range + "/");
-                lastNotifyTime = currentTime;
-            }
+//            String[] messageParts = message.split(REQUEST_DELIMITER);
+//            int cellNum = Integer.parseInt(messageParts[1]);
+//            String clientId;
+//            if (messageParts[0].equals("get")) {
+//                clientId = messageParts[2];
+//                socket.send("VALUE/" + data.get(cellNum) + "/" + clientId);
+//            } else {
+//                data.replace(cellNum, messageParts[2]);
+//                clientId = messageParts[3];
+//                socket.send("UPDATE/SUCCESS/" + clientId);
+//            }
+//            long currentTime = System.currentTimeMillis();
+//            if (currentTime - lastNotifyTime > 10000) {
+//                socket.send("NOTIFY/" + range + "/");
+//                lastNotifyTime = currentTime;
+//            }
         }
 
 
