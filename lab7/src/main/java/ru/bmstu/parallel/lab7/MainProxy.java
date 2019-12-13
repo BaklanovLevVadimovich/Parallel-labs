@@ -85,7 +85,7 @@ public class MainProxy {
                     }
                     if (messageParts[0].equals("VALUE")) {
                         ZMsg clientMsg = new ZMsg();
-                        clientMsg.add(new ZFrame(msg.getLast().getData());
+                        clientMsg.add(new ZFrame(msg.getLast().getData()));
                         clientMsg.add(new ZFrame(messageParts[1]));
                         clientMsg.send(clientWorker);
                     }
