@@ -51,7 +51,7 @@ public class MainProxy {
                         storeWorker.sendMore(storeId);
                         storeWorker.sendMore("");
                         System.out.println("SEND MORE PASSED");
-                        storeWorker.send(message + " " + id, 0);
+                        storeWorker.send(message + " " + id);
                         System.out.println("LAST SEND PASSED");
                     } else {
 
