@@ -35,7 +35,7 @@ public class DataStore {
         while (true) {
             System.out.println("NEW MESSAGE");
 //            ZMsg msg = ZMsg.recvMsg(socket);
-            String message = socket.recvStr(4);
+            String message = socket.recvStr();
 //            String message1 = socket.recvStr(0);
 //            String message2 = socket.recvStr(0);
             System.out.println("GOT MESSAGE: " + message);

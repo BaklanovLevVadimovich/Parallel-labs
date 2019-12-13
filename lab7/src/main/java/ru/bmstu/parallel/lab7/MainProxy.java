@@ -33,54 +33,35 @@ public class MainProxy {
             if (items.pollin(0)) {
                 while (true) {
                     System.out.println("GETTING NEW MESSAGE");
-//                    String id = clientWorker.recvStr();
-//                    if (isNewClient(id)) {
-//                        clientIds.add(id);
-//                    }
+
 //                    System.out.println("id:" + id);
 ////                    clientWorker.sendMore(id);
 //                    clientWorker.recvStr();
 //                    message = clientWorker.recvStr();
                     ZMsg msg = ZMsg.recvMsg(clientWorker);
                     System.out.println(msg.toString());
-                    String kek, kek1, kek2;
-
-//                    kek = msg.popString();
-//                    kek1 = msg.popString();
-//                    kek2 = msg.popString();
-                    ZFrame frame1 = msg.getFirst();
-                    ZFrame frame2 = new ZFrame("");
-                    ZFrame frame3 = msg.getLast();
-//                    System.out.println(msg.popString());
-//                    System.out.println(msg.popString());
-//                    System.out.println(msg.getFirst().toString());
-//                    msg.send(clientWorker);
-//                    System.out.println(kek);
-//                    System.out.println(kek1);
-//                    System.out.println(kek2);
-                    ZMsg msg1 = new ZMsg();
-                    msg1.add(frame1);
-                    msg1.add(frame2);
-                    msg1.add(frame3);
-                    System.out.println(msg1.toString());
-                    msg1.send(clientWorker);
-//                    System.out.println(message);
-//                    clientWorker.sendMore("");
-//                    clientWorker.send("roflan", 0);
-//                    System.out.println("Sended roflan");
-//                    if (message.contains("get")) {
-//                        String[] messageParts = message.split(REQUEST_DELIMITER);
-//                        String storeId = getDataStoreIdContainingCell(Integer.parseInt(messageParts[1]));
-//                        System.out.println("SEND GET REQUEST TO DATA STORE " + storeId);
-////                        storeWorker.send(message, 0);
+                    String id = msg.getFirst().toString();
+                    if (isNewClient(id)) {
+                        clientIds.add(id);
+                    }
+                    message = msg.getLast().toString();
+                    System.out.println("id: " + id);
+                    System.out.println("message: " + message);
+                    if (message.contains("get")) {
+                        String[] messageParts = message.split(REQUEST_DELIMITER);
+                        String storeId = getDataStoreIdContainingCell(Integer.parseInt(messageParts[1]));
+                        System.out.println("SEND GET REQUEST TO DATA STORE " + storeId);
+                        ZMsg storeMsg = new ZMsg();
+                        storeMsg.add(new ZFrame(storeId));
+                        storeMsg.add(new ZFrame(message + " " + id));
 //                        storeWorker.sendMore(storeId);
 //                        storeWorker.sendMore("");
 //                        System.out.println("SEND MORE PASSED");
 //                        storeWorker.send(message + " " + id, 0);
-//                        System.out.println("LAST SEND PASSED");
-//                    } else {
-//
-//                    }
+                        System.out.println("LAST SEND PASSED");
+                    } else {
+
+                    }
                     more = clientWorker.hasReceiveMore();
 //                    storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
                     if (!more) {
@@ -91,21 +72,27 @@ public class MainProxy {
             if (items.pollin(1)) {
                 while (true) {
                     System.out.println("GETTING NEW STORE MESSAGE");
-                    String id = storeWorker.recvStr(0);
+                    ZMsg msg = ZMsg.recvMsg(storeWorker);
+                    String id = msg.getFirst().toString();
                     if (isNewStore(id)) {
                         DataStoreInfo info = new DataStoreInfo();
                         info.setId(id);
                         storeInfos.add(info);
                     }
+                    message = msg.getLast().toString();
                     System.out.println("id: " + id);
+                    System.out.println("GOT MES FROM STORE " + message);
 //                    String delim = storeWorker.recvStr();
 //                    System.out.println("delim:" + delim);
-                    message = storeWorker.recvStr(0);
+//                    message = storeWorker.recvStr(0);
 //                    storeWorker.send(id, 0);
-                    storeWorker.sendMore(id);
-                    storeWorker.sendMore("");
-                    storeWorker.send("ping", 0);
-                    System.out.println("GOT MES FROM STORE " + message);
+                    ZMsg storeMsg = new ZMsg();
+                    storeMsg.add(new ZFrame(id));
+                    storeMsg.add(new ZFrame("ping"));
+                    storeMsg.send(storeWorker);
+//                    storeWorker.sendMore(id);
+//                    storeWorker.sendMore("");
+//                    storeWorker.send("ping", 0);
                     String[] messageParts = message.split(STORE_MESSAGE_DELIMITER);
                     if (messageParts[0].equals("NOTIFY")) {
                         String[] rangeParts = messageParts[1].split(STORE_RANGE_DELIMITER);
