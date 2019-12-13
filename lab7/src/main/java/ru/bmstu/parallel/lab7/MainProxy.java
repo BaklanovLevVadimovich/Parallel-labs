@@ -16,12 +16,12 @@ public class MainProxy {
     private static List<DataStoreInfo> storeInfos = new ArrayList<>();
 
     public static void main(String[] args) {
-        ZContext context = new ZContext();
-        ZMQ.Socket clientWorker = context.createSocket(SocketType.ROUTER);
-        ZMQ.Socket storeWorker = context.createSocket(SocketType.ROUTER);
+        ZContext context = new ZMQ.context();
+        ZMQ.Socket clientWorker = context.socket(SocketType.ROUTER);
+        ZMQ.Socket storeWorker = context.socket(SocketType.ROUTER);
         clientWorker.bind("tcp://*:8081");
         storeWorker.bind("tcp://*:8082");
-        ZMQ.Poller items = context.createPoller(2);
+        ZMQ.Poller items = context.poller(2);
         items.register(clientWorker, ZMQ.Poller.POLLIN);
         items.register(storeWorker, ZMQ.Poller.POLLIN);
         System.out.println("Launched proxy");
