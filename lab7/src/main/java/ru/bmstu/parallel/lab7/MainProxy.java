@@ -28,11 +28,11 @@ public class MainProxy {
             if (items.pollin(0)) {
                 while (true) {
                     System.out.println("GETTING NEW MESSAGE");
-                    String id = clientWorker.recvStr();
-                    if (isNewClient(id)) {
-                        clientIds.add(id);
-                    }
-                    System.out.println(id);
+//                    String id = clientWorker.recvStr();
+//                    if (isNewClient(id)) {
+//                        clientIds.add(id);
+//                    }
+//                    System.out.println(id);
 //                    clientWorker.sendMore(id);
                     message = clientWorker.recv(0);
                     System.out.println(new String(message));
