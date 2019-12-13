@@ -23,8 +23,8 @@ public class Client {
 //            requester.send(line, 0);
             System.out.println("send line: " + line);
             ZMsg msg = ZMsg.recvMsg(requester);
-            String reply = requester.recvStr(0);
-            System.out.println("Got reply: " + reply);
+//            String reply = requester.recvStr(0);
+            System.out.println("Got reply: " + msg.popString());
         }
     }
 }
