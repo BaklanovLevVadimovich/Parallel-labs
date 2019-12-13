@@ -88,11 +88,15 @@ public class MainProxy {
 //                    storeWorker.send(id, 0);
                     ZMsg storeMsg = new ZMsg();
 //                    msg.send(storeWorker, false);
-                    storeMsg.add(new ZFrame(id, ZMQ.SNDMORE));
+                    ZFrame first = new ZFrame(id);
+                    ZFrame second = new ZFrame("ping");
+                    storeMsg.add(new ZFrame(id));
                     storeMsg.add(new ZFrame("ping"));
                     System.out.println(msg);
                     System.out.println(storeMsg);
                     storeMsg = msg;
+                    first.sendAndDestroy(storeWorker, ZMQ.SNDMORE);
+                    first.sendAndDestroy(storeWorker);
 //                    storeMsg.las
 //                    storeMsg.send(storeWorker);
 //                    storeWorker.sendMore(id);
