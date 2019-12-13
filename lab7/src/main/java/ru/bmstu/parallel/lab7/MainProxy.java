@@ -41,7 +41,7 @@ public class MainProxy {
                     message = clientWorker.recvStr();
                     System.out.println(message);
                     clientWorker.sendMore("");
-                    clientWorker.send("roflan", 3);
+                    clientWorker.send("roflan", ZMQ.);
                     System.out.println("Sended roflan");
                     if (message.contains("get")) {
                         String[] messageParts = message.split(REQUEST_DELIMITER);
