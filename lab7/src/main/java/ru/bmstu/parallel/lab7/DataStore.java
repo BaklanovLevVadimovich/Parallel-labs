@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class DataStore {
 
     private static HashMap<Integer, String> data = new HashMap<>();
-    private static int rangeBegin;
+    private static int rangeStart;
     private static int rangeEnd;
     private static final int THREADS_NUM = 1;
     private static final int NO_FLAGS = 0;
@@ -30,10 +30,10 @@ public class DataStore {
         String range = args[0];
         String values = args[1];
         String[] rangeSplitted = range.split(RANGE_DELIMITER);
-        rangeBegin = Integer.parseInt(rangeSplitted[0]);
+        rangeStart = Integer.parseInt(rangeSplitted[0]);
         rangeEnd = Integer.parseInt(rangeSplitted[1]);
         String[] valuesSplitted = values.split(VALUES_DELIMITER);
-        for (int i = rangeBegin, j = 0; i <= rangeEnd; i++, j++) {
+        for (int i = rangeStart, j = 0; i <= rangeEnd; i++, j++) {
             data.put(i, valuesSplitted[j]);
         }
 

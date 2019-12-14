@@ -14,9 +14,12 @@ public class MainProxy {
 
     private static final int THREADS_NUM = 1;
     private static final int POLLER_SIZE = 2;
+    private static final int CLIENT_INDEX = 0;
+    private static final int STORE_INDEX = 1;
     private static final String REQUEST_DELIMITER = " ";
     private static final String STORE_RANGE_DELIMITER = "-";
     private static final String STORE_MESSAGE_DELIMITER = "/";
+    private static final String FRAME_DELIMITER = "";
     private static final String CLIENT_SOCKET_ADDRESS = "tcp://*:8081";
     private static final String STORE_SOCKET_ADDRESS = "tcp://*:8082";
     private static final String GET_COMMAND = "get";
@@ -26,7 +29,6 @@ public class MainProxy {
     private static final String NOTIFY_MESSAGE = "NOTIFY";
     private static final String GET_MESSAGE = "VALUE";
     private static final String PUT_MESSAGE = "UPDATE";
-    private static final String FRAME_DELIMITER = "";
     private static Random random;
     private static List<byte[]> clientIds = new ArrayList<>();
     private static List<DataStoreInfo> storeInfos = new ArrayList<>();
@@ -45,7 +47,7 @@ public class MainProxy {
         String message;
         while (!Thread.currentThread().isInterrupted()) {
             items.poll();
-            if (items.pollin(0)) {
+            if (items.pollin(CLIENT_INDEX)) {
                 while (true) {
                     ZMsg clientMessage = ZMsg.recvMsg(clientWorker);
                     System.out.println(clientMessage.toString());
@@ -88,7 +90,7 @@ public class MainProxy {
                     }
                 }
             }
-            if (items.pollin(1)) {
+            if (items.pollin(STORE_INDEX)) {
                 while (true) {
                     ZMsg storeMessage = ZMsg.recvMsg(storeWorker);
                     System.out.println("GOT MESSAGE FROM STORE " + storeMessage.toString());
@@ -122,7 +124,6 @@ public class MainProxy {
                     }
                 }
             }
-
         }
     }
 
