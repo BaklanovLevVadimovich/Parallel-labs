@@ -109,10 +109,10 @@ public class MainProxy {
                     if (responseKey.equals(GET_MESSAGE)) {
                         ZMsg clientMsg = new ZMsg();
                         clientMsg.add(new ZFrame(storeMessage.getLast().getData()));
-                        clientMsg.add(new ZFrame(""));
+                        clientMsg.add(new ZFrame(FRAME_DELIMITER));
                         clientMsg.add(new ZFrame(messageParts[1]));
-                        clientMsg.send(clientWorker, false);
                         System.out.println("Send res to client: " + clientMsg.toString());
+                        clientMsg.send(clientWorker);
                     }
                     more = storeWorker.hasReceiveMore();
                     if (!more) {
