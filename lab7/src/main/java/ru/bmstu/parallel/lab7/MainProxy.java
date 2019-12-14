@@ -20,6 +20,12 @@ public class MainProxy {
     private static final String STORE_SOCKET_ADDRESS = "tcp://*:8082";
     private static final String GET_COMMAND = "get";
     private static final String PUT_COMMAND = "put";
+    private static final String UPDATED_MESSAGE = "UPDATED";
+    private static final String UNKNOWN_COMMAND_MESSAGE = "Unknown command";
+    private static final String NOTIFY_MESSAGE = "NOTIFY";
+    private static final String GET_MESSAGE = "VALUE";
+    private static final String PUT_MESSAGE = "UPDATE";
+    private static final String FRAME_DELIMITER = "";
     private static List<byte[]> clientIds = new ArrayList<>();
     private static List<DataStoreInfo> storeInfos = new ArrayList<>();
 
@@ -67,10 +73,10 @@ public class MainProxy {
                                 storeMsg.add(new ZFrame(message));
                                 storeMsg.send(storeWorker);
                             }
-                            clientMessage.getLast().reset("Updated");
+                            clientMessage.getLast().reset(UPDATED_MESSAGE);
                             clientMessage.send(clientWorker);
                         } else {
-                            clientMessage.getLast().reset("Unknown command");
+                            clientMessage.getLast().reset(UNKNOWN_COMMAND_MESSAGE);
                             clientMessage.send(clientWorker);
                         }
                     }
@@ -82,36 +88,33 @@ public class MainProxy {
             }
             if (items.pollin(1)) {
                 while (true) {
-                    ZMsg msg = ZMsg.recvMsg(storeWorker);
-                    System.out.println("GOT MES FROM STORE " + msg.toString());
-                    byte[] id = msg.getFirst().getData();
-                    if (isNewStore(id)) {
+                    ZMsg storeMessage = ZMsg.recvMsg(storeWorker);
+                    System.out.println("GOT MESSAGE FROM STORE " + storeMessage.toString());
+                    byte[] storeId = storeMessage.getFirst().getData();
+                    if (isNewStore(storeId)) {
                         DataStoreInfo info = new DataStoreInfo();
-                        info.setId(id);
+                        info.setId(storeId);
                         storeInfos.add(info);
                     }
-                    msg.pop();
-                    message = msg.getFirst().toString();
+                    storeMessage.pop();
+                    message = storeMessage.getFirst().toString();
                     String[] messageParts = message.split(STORE_MESSAGE_DELIMITER);
-                    if (messageParts[0].equals("NOTIFY")) {
+                    String responseKey = messageParts[0];
+                    if (responseKey.equals(NOTIFY_MESSAGE)) {
                         String[] rangeParts = messageParts[1].split(STORE_RANGE_DELIMITER);
                         int rangeStart = Integer.parseInt(rangeParts[0]);
                         int rangeEnd = Integer.parseInt(rangeParts[1]);
-                        setNewDataStoreInfo(id, rangeStart, rangeEnd);
+                        setNewDataStoreInfo(storeId, rangeStart, rangeEnd);
                     }
-                    if (messageParts[0].equals("VALUE")) {
+                    if (responseKey.equals(GET_MESSAGE)) {
                         ZMsg clientMsg = new ZMsg();
-                        clientMsg.add(new ZFrame(msg.getLast().getData()));
+                        clientMsg.add(new ZFrame(storeMessage.getLast().getData()));
                         clientMsg.add(new ZFrame(""));
                         clientMsg.add(new ZFrame(messageParts[1]));
                         clientMsg.send(clientWorker, false);
                         System.out.println("Send res to client: " + clientMsg.toString());
                     }
-                    if (messageParts[0].equals("UPDATE")) {
-
-                    }
                     more = storeWorker.hasReceiveMore();
-//                    storeWorker.send(message, more ? ZMQ.SNDMORE : 0);
                     if (!more) {
                         break;
                     }
