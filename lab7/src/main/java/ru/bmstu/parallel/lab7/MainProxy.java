@@ -113,7 +113,7 @@ public class MainProxy {
                         clientMsg.add(new ZFrame(storeMessage.getLast().getData()));
                         clientMsg.add(new ZFrame(FRAME_DELIMITER));
                         clientMsg.add(new ZFrame(messageParts[1]));
-                        System.out.println("Send res to client: " + clientMsg.toString());
+                        System.out.println("Send result to client: " + clientMsg.toString());
                         clientMsg.send(clientWorker);
                     }
                     more = storeWorker.hasReceiveMore();
@@ -165,7 +165,7 @@ public class MainProxy {
                 pool.add(currentInfo.getId());
             }
         }
-        return pool.get()
+        return pool.get(random.nextInt(pool.size()));
     }
 
     private static List<byte[]> getAllDataStoreIdsContainingCell(int cellNum) {
