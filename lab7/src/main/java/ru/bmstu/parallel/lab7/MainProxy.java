@@ -57,7 +57,7 @@ public class MainProxy {
                     String command = messageParts[0];
                     int cellNum = Integer.parseInt(messageParts[1]);
                     if (command.equals(GET_COMMAND)) {
-                        byte[] storeId = getDataStoreIdContainingCell(cellNum);
+                        byte[] storeId = getRandomStoreIdContainingCell(cellNum);
                         ZMsg storeMsg = new ZMsg();
                         storeMsg.add(new ZFrame(storeId));
                         storeMsg.add(new ZFrame(message));
@@ -152,14 +152,14 @@ public class MainProxy {
         }
     }
 
-    private static byte[] getDataStoreIdContainingCell(int cellNum) {
+    private static byte[] getRandomStoreIdContainingCell(int cellNum) {
+        List<byte[]> pool = new ArrayList<>();
         for (int i = 0;  i < storeInfos.size(); i++) {
             DataStoreInfo currentInfo = storeInfos.get(i);
             if (cellNum >= currentInfo.getRangeStart() && cellNum <= currentInfo.getRangeEnd()) {
-                return currentInfo.getId();
+                pool.add(currentInfo.getId());
             }
         }
-        return new byte[0];
     }
 
     private static List<byte[]> getAllDataStoreIdsContainingCell(int cellNum) {
