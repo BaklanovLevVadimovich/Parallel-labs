@@ -165,6 +165,7 @@ public class MainProxy {
                 pool.add(currentInfo.getId());
             }
         }
+        return pool.get()
     }
 
     private static List<byte[]> getAllDataStoreIdsContainingCell(int cellNum) {
