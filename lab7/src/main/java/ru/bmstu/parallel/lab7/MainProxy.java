@@ -8,6 +8,7 @@ import org.zeromq.ZMsg;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class MainProxy {
 
@@ -26,6 +27,7 @@ public class MainProxy {
     private static final String GET_MESSAGE = "VALUE";
     private static final String PUT_MESSAGE = "UPDATE";
     private static final String FRAME_DELIMITER = "";
+    private static Random random;
     private static List<byte[]> clientIds = new ArrayList<>();
     private static List<DataStoreInfo> storeInfos = new ArrayList<>();
 
@@ -153,6 +155,9 @@ public class MainProxy {
     }
 
     private static byte[] getRandomStoreIdContainingCell(int cellNum) {
+        if (random == null) {
+            random = new Random(System.currentTimeMillis());
+        }
         List<byte[]> pool = new ArrayList<>();
         for (int i = 0;  i < storeInfos.size(); i++) {
             DataStoreInfo currentInfo = storeInfos.get(i);
