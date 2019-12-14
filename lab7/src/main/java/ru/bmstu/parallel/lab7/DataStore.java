@@ -13,7 +13,8 @@ public class DataStore {
     private static int rangeBegin;
     private static int rangeEnd;
     private static final int THREADS_NUM = 1;
-    private static final int NOTIFY_INTERVAL_MILLIS = 10000;
+    private static final int NO_FLAGS = 0;
+    private static final int NOTIFY_INTERVAL_MILLIS = 30000;
     private static final String RANGE_DELIMITER = "-";
     private static final String VALUES_DELIMITER = ",";
     private static final String REQUEST_DELIMITER = " ";
@@ -45,7 +46,7 @@ public class DataStore {
             public void run() {
                 while (true) {
                     try {
-                        socket.send(NOTIFY_MESSAGE + RESPONSE_DELIMITER + range, 0);
+                        socket.send(NOTIFY_MESSAGE + RESPONSE_DELIMITER + range, NO_FLAGS);
                         Thread.sleep(NOTIFY_INTERVAL_MILLIS);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -54,10 +55,7 @@ public class DataStore {
             }
         });
         notifyThread.start();
-        System.out.println("started cycle");
-        socket.send(NOTIFY_MESSAGE + RESPONSE_DELIMITER + range, 0);
         while (true) {
-            System.out.println("started cycle");
             ZMsg zMsg = ZMsg.recvMsg(socket);
             String message = zMsg.getFirst().toString();
             System.out.println("GOT MESSAGE: " + message);
